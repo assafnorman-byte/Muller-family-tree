@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Muller Family Archive — A Thousand Years to Prešov</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;600&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #f0e9da;
+  --bg-mid:     #e8dece;
+  --bg-dark:    #ddd0ba;
+  --card:       #faf6ee;
+  --card-hover: #f5eedf;
+  --ink:        #1e160a;
+  --ink-mid:    #3d2e1a;
+  --ink-light:  #7a6248;
+  --ink-faint:  #a8906e;
+  --gold:       #9a7c3f;
+  --gold-lt:    #c9a84c;
+  --gold-faint: #e8d9a8;
+  --amber:      #b5560c;
+  --green:      #2d6a4f;
+  --red:        #8b2c2c;
+  --night:      #241a0c;
+  --night-mid:  #342510;
+  --border:     #d4c09a;
+  --border-lt:  #e4d4b4;
+  --shadow:     rgba(30,22,10,.12);
+  --shadow-md:  rgba(30,22,10,.2);
+  --tag-v-bg:   #e4f0ea; --tag-v-cl: #2d6a4f; --tag-v-br: #b0d4be;
+  --tag-s-bg:   #fdeedd; --tag-s-cl: #b5560c; --tag-s-br: #f0c49a;
+  --tag-o-bg:   #ece9e3; --tag-o-cl: #6a5a46; --tag-o-br: #c8bead;
+  --tag-r-bg:   #f5ebe0; --tag-r-cl: #8b2c2c; --tag-r-br: #d4a090;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:'Crimson Pro',Georgia,serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+/* ── HEADER ── */
+.site-header{background:var(--night);padding:2.5rem 1.5rem 2rem;text-align:center;border-bottom:3px solid var(--gold);position:relative;overflow:hidden;}
+.site-header::before{content:'✡';position:absolute;font-size:18rem;opacity:.025;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--gold-lt);pointer-events:none;}
+.eyebrow{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.38em;color:var(--gold-lt);text-transform:uppercase;margin-bottom:.8rem;}
+.site-header h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.9rem,5vw,3.4rem);color:#f5eedf;line-height:1.15;letter-spacing:.03em;}
+.site-header h1 em{color:var(--gold-lt);font-style:italic;}
+.header-heb{font-family:'Frank Ruhl Libre',serif;font-size:1.25rem;color:#a89068;margin-top:.6rem;direction:rtl;font-weight:300;}
+.header-sub{font-size:.82rem;color:#9a8060;margin-top:.8rem;letter-spacing:.06em;}
+
+/* ── NAV ── */
+nav{background:var(--night-mid);border-bottom:2px solid var(--gold);display:flex;justify-content:center;flex-wrap:wrap;padding:0 .5rem;position:sticky;top:0;z-index:300;box-shadow:0 2px 12px var(--shadow-md);}
+nav button{background:none;border:none;color:#9a8060;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:.9rem .85rem;cursor:pointer;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;}
+nav button:hover{color:#f5eedf;}
+nav button.active{color:var(--gold-lt);border-bottom-color:var(--gold-lt);}
+
+/* ── MAIN ── */
+main{max-width:1080px;margin:0 auto;padding:2rem 1.2rem 5rem;}
+.view{display:none;animation:fadeIn .35s ease;}
+.view.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION TITLES ── */
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ink);margin-bottom:.2rem;}
+.sec-sub{font-size:.78rem;color:var(--ink-faint);letter-spacing:.1em;margin-bottom:2rem;}
+
+/* ── TAGS ── */
+.tag{display:inline-block;font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin:2px 2px 0 0;}
+.tag-v{background:var(--tag-v-bg);color:var(--tag-v-cl);border:1px solid var(--tag-v-br);}
+.tag-s{background:var(--tag-s-bg);color:var(--tag-s-cl);border:1px solid var(--tag-s-br);}
+.tag-o{background:var(--tag-o-bg);color:var(--tag-o-cl);border:1px solid var(--tag-o-br);}
+.tag-r{background:var(--tag-r-bg);color:var(--tag-r-cl);border:1px solid var(--tag-r-br);}
+.tag-p{background:rgba(154,124,63,.12);color:var(--gold);border:1px solid rgba(154,124,63,.3);}
+
+/* ── CARDS ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:1.4rem;transition:all .2s;box-shadow:0 1px 4px var(--shadow);}
+.card:hover{box-shadow:0 3px 14px var(--shadow-md);border-color:var(--gold);}
+
+/* ── SOURCE NOTE ── */
+.source-note{margin-top:.8rem;padding:.55rem .9rem;background:rgba(154,124,63,.07);border-left:2px solid var(--gold);font-size:.75rem;color:var(--ink-light);font-style:italic;border-radius:0 2px 2px 0;}
+
+/* ── MEMORY PLACEHOLDER ── */
+.memory-ph{margin-top:.9rem;padding:.65rem 1rem;background:rgba(154,124,63,.06);border:1px dashed rgba(154,124,63,.3);border-radius:2px;font-size:.75rem;color:var(--gold);font-style:italic;cursor:pointer;transition:all .2s;}
+.memory-ph:hover{background:rgba(154,124,63,.13);border-color:var(--gold);}
+
+/* ═══════════════════════════════════════════
+   CHRONICLE / TIMELINE
+═══════════════════════════════════════════ */
+.timeline{position:relative;padding-left:2.2rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold) 8%,var(--border) 85%,transparent);}
+.era-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:2.5rem 0 1rem -2.2rem;padding-left:2.8rem;position:relative;}
+.era-label::before{content:'';position:absolute;left:0;top:50%;width:2.2rem;height:1px;background:var(--gold);}
+.t-node{position:relative;margin-bottom:1rem;cursor:pointer;}
+.t-node::before{content:'';position:absolute;left:-2.6rem;top:1.1rem;width:9px;height:9px;border-radius:50%;background:var(--bg-mid);border:1.5px solid var(--gold);transition:all .2s;z-index:1;}
+.t-node.highlight::before{background:var(--gold-lt);width:12px;height:12px;left:-2.75rem;box-shadow:0 0 10px rgba(201,168,76,.4);}
+.t-node.tragedy::before{background:var(--red);border-color:#c04040;width:10px;height:10px;left:-2.65rem;}
+.t-node:hover::before,.t-node.open::before{background:var(--gold-lt);}
+.t-card{background:var(--card);border:1px solid var(--border-lt);border-radius:3px;padding:1rem 1.2rem;transition:all .2s;}
+.t-node.tragedy .t-card{border-color:rgba(139,44,44,.2);background:#fdf7f4;}
+.t-node:hover .t-card,.t-node.open .t-card{border-color:var(--gold);box-shadow:0 2px 10px var(--shadow);}
+.t-node.tragedy.open .t-card,.t-node.tragedy:hover .t-card{border-color:rgba(139,44,44,.45);background:#fdf0ec;}
+.t-year{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.2rem;}
+.t-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ink);line-height:1.3;}
+.t-heb{font-family:'Frank Ruhl Libre',serif;font-size:.85rem;color:var(--ink-faint);direction:rtl;margin-top:.1rem;}
+.t-loc{font-size:.73rem;color:var(--ink-light);margin-top:.3rem;font-style:italic;}
+.t-expand{display:none;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border-lt);font-size:.84rem;color:var(--ink-mid);line-height:1.8;}
+.t-node.open .t-expand{display:block;}
+.t-expand p{margin-bottom:.7rem;}
+.t-expand p:last-child{margin-bottom:0;}
+
+/* ═══════════════════════════════════════════
+   STORY PANELS
+═══════════════════════════════════════════ */
+.story-panel{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:1.8rem;margin-bottom:1.2rem;box-shadow:0 1px 5px var(--shadow);}
+.story-chapter{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem;}
+.story-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:var(--ink);margin-bottom:.9rem;line-height:1.3;}
+.story-body{font-size:.9rem;color:var(--ink-mid);line-height:1.85;}
+.story-body p{margin-bottom:.85rem;}
+.story-body p:last-child{margin-bottom:0;}
+.story-body em{color:var(--ink);font-style:normal;font-weight:600;}
+.tragedy-panel{background:#fdf4f0;border-color:rgba(139,44,44,.25);}
+.tragedy-panel .story-chapter{color:#a04040;}
+.tragedy-panel .story-title{color:var(--ink);}
+
+/* ═══════════════════════════════════════════
+   FAMILY TREE
+═══════════════════════════════════════════ */
+.tree-wrap{overflow-x:auto;padding-bottom:1rem;}
+.gen-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-faint);text-align:center;margin:1.8rem 0 .7rem;}
+.generation{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+.p-card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:.9rem 1rem;min-width:148px;max-width:185px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px var(--shadow);}
+.p-card:hover{border-color:var(--gold-lt);transform:translateY(-2px);box-shadow:0 4px 14px var(--shadow-md);}
+.p-card.focal{border-color:var(--gold);background:linear-gradient(160deg,rgba(201,168,76,.12),var(--card));box-shadow:0 0 20px rgba(154,124,63,.2);}
+.p-card.focal .p-name{color:var(--gold);font-size:1rem;}
+.p-card.deceased{background:#fdf5f2;border-color:rgba(139,44,44,.2);}
+.p-name{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--ink);line-height:1.3;}
+.p-heb{font-family:'Frank Ruhl Libre',serif;font-size:.72rem;color:var(--ink-faint);direction:rtl;margin-top:.2rem;}
+.p-dates{font-size:.64rem;color:var(--ink-light);margin-top:.3rem;font-style:italic;}
+.p-loc{font-size:.64rem;color:var(--ink-faint);margin-top:.2rem;}
+.conn-row{display:flex;justify-content:center;height:1.8rem;align-items:center;}
+.conn-v{width:1px;height:1.8rem;background:linear-gradient(to bottom,var(--gold),rgba(154,124,63,.2));margin:0 auto;}
+.couple-conn{display:flex;align-items:center;gap:.4rem;padding-top:1.8rem;}
+.ring{font-size:.75rem;color:var(--gold);opacity:.7;}
+.siblings-box{margin-top:2rem;padding:1.3rem;background:rgba(154,124,63,.06);border:1px solid var(--border);border-radius:3px;}
+.siblings-lbl{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.8rem;}
+.siblings-row{display:flex;flex-wrap:wrap;gap:.5rem;}
+.sib-chip{padding:.38rem .9rem;border:1px solid var(--border);background:var(--card);border-radius:2px;font-size:.78rem;color:var(--ink-mid);cursor:pointer;transition:all .2s;}
+.sib-chip:hover{border-color:var(--gold);color:var(--ink);}
+.sib-chip.focal-s{border-color:var(--gold);color:var(--gold);}
+.sib-chip small{display:block;font-size:.62rem;color:var(--ink-faint);margin-top:.1rem;direction:rtl;}
+
+/* ═══════════════════════════════════════════
+   PLACES
+═══════════════════════════════════════════ */
+.places-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem;}
+.place-card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:1.4rem;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px var(--shadow);}
+.place-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 14px var(--shadow-md);}
+.place-card.dark-card{background:var(--night-mid);border-color:rgba(139,44,44,.3);}
+.place-card.dark-card:hover{border-color:rgba(200,80,80,.5);}
+.place-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);font-weight:300;}
+.place-card.dark-card .place-name{color:#e0c8b8;}
+.place-alt{font-size:.7rem;color:var(--ink-faint);margin-top:.2rem;font-style:italic;}
+.place-card.dark-card .place-alt{color:#9a7858;}
+.place-period{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:.8rem 0 .4rem;}
+.place-card.dark-card .place-period{color:rgba(201,168,76,.7);}
+.place-desc{font-size:.83rem;color:var(--ink-mid);line-height:1.7;}
+.place-card.dark-card .place-desc{color:#b8a088;}
+.place-people{margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.35rem;}
+.p-chip{font-size:.68rem;padding:.22em .7em;background:rgba(154,124,63,.1);border:1px solid rgba(154,124,63,.25);border-radius:1px;color:var(--gold);}
+
+/* ═══════════════════════════════════════════
+   SURNAMES
+═══════════════════════════════════════════ */
+.surnames-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+.surname-card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:1.4rem;transition:all .2s;box-shadow:0 1px 4px var(--shadow);}
+.surname-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 14px var(--shadow-md);}
+.surname-main{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--ink);line-height:1;}
+.surname-heb{font-family:'Frank Ruhl Libre',serif;font-size:1rem;color:var(--ink-faint);direction:rtl;margin-top:.3rem;}
+.surname-role{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:.8rem 0 .4rem;}
+.surname-desc{font-size:.82rem;color:var(--ink-mid);line-height:1.7;}
+.surname-conn{margin-top:.8rem;font-size:.74rem;color:var(--ink-faint);font-style:italic;border-top:1px solid var(--border-lt);padding-top:.6rem;}
+
+/* ═══════════════════════════════════════════
+   ROBERT
+═══════════════════════════════════════════ */
+.robert-hero{background:linear-gradient(135deg,rgba(154,124,63,.1),rgba(139,44,44,.06),var(--card));border:1px solid var(--gold);border-radius:3px;padding:2.5rem;text-align:center;margin-bottom:2rem;position:relative;overflow:hidden;box-shadow:0 2px 12px var(--shadow);}
+.robert-hero::before{content:'✡';position:absolute;font-size:12rem;opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--gold);pointer-events:none;}
+.robert-hero .p-name{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1.2;}
+.robert-hero .p-heb{font-size:1.2rem;color:var(--ink-faint);margin-top:.5rem;}
+.robert-detail{margin-top:1rem;font-size:.86rem;color:var(--ink-mid);line-height:1.9;}
+.robert-detail strong{color:var(--ink);font-weight:600;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+.info-box{padding:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:3px;}
+.info-box-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
+.info-box p{font-size:.82rem;color:var(--ink-mid);line-height:1.8;}
+
+/* ═══════════════════════════════════════════
+   OPEN RESEARCH
+═══════════════════════════════════════════ */
+.gap-card{background:var(--card);border:1px solid var(--border-lt);border-radius:3px;padding:1rem 1.2rem;margin-bottom:.8rem;display:flex;gap:1rem;align-items:flex-start;box-shadow:0 1px 3px var(--shadow);}
+.gap-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--border);line-height:1;min-width:2rem;}
+.gap-text{font-size:.83rem;color:var(--ink-mid);line-height:1.7;}
+.gap-text strong{color:var(--ink);display:block;margin-bottom:.2rem;}
+.gap-resolved{background:#f4faf6;border-color:rgba(45,106,79,.2);}
+.gap-resolved .gap-num{color:rgba(45,106,79,.4);}
+.gap-resolved .gap-text{color:#4a8a6a;}
+.gap-resolved .gap-text strong{color:#2d6a4f;}
+
+/* ═══════════════════════════════════════════
+   FULL LINEAGE (new tab)
+═══════════════════════════════════════════ */
+.lineage-controls{display:flex;flex-wrap:wrap;gap:.5rem .8rem;margin-bottom:1.5rem;align-items:center;padding:.8rem 1rem;background:var(--bg-mid);border:1px solid var(--border);border-radius:3px;}
+.lineage-controls select,.lineage-controls input{font-family:'Crimson Pro',serif;font-size:.88rem;padding:.28rem .5rem;border:1px solid var(--border);background:var(--card);color:var(--ink);border-radius:2px;}
+.lc-label{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);}
+.lc-group{display:flex;align-items:center;gap:.3rem;}
+.lin-thread{max-width:660px;margin:0 auto;position:relative;}
+.lin-thread::before{content:'';position:absolute;left:26px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--gold-faint) 2%,var(--gold) 6%,var(--gold) 94%,var(--gold-faint) 98%,transparent);}
+.lin-chapter{position:relative;z-index:2;padding:.85rem 1rem .8rem 64px;background:var(--night-mid);border-top:2px solid var(--gold);border-bottom:1px solid rgba(60,40,10,.3);margin:0;}
+.lin-chapter::before{content:'';position:absolute;left:19px;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--night-mid);box-shadow:0 0 0 2px var(--gold);}
+.lin-ch-title{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-lt);}
+.lin-ch-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.84rem;color:#9a8060;margin-top:.1rem;}
+.lin-person{position:relative;z-index:2;padding:.75rem .9rem .8rem 64px;border-bottom:1px solid var(--border-lt);cursor:pointer;transition:background .15s;}
+.lin-person:hover{background:rgba(201,168,76,.06);}
+.lin-person.open{background:rgba(201,168,76,.09);}
+.lin-person::before{content:attr(data-gen);position:absolute;left:12px;top:.9rem;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.02em;font-weight:600;z-index:3;border:2px solid var(--gold);background:var(--card);box-shadow:0 1px 4px var(--shadow);color:var(--gold);}
+.lin-person[data-conf=verified]::before{background:#e8f4ee;border-color:var(--green);color:var(--green);}
+.lin-person[data-conf=single]::before{background:#fef0e3;border-color:var(--amber);color:var(--amber);}
+.lin-person[data-conf=oral]::before{background:var(--bg-mid);border-color:#bbb;color:#888;}
+.lin-person::after{content:'';position:absolute;left:40px;top:1.15rem;width:14px;height:1px;background:var(--gold);opacity:.4;}
+.lin-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.2;}
+.lin-heb{direction:rtl;font-family:'Frank Ruhl Libre',serif;font-size:.85rem;color:var(--ink-faint);margin-top:1px;display:block;}
+.lin-role{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px;}
+.lin-meta{display:flex;flex-wrap:wrap;gap:.2rem .8rem;margin-top:.3rem;font-size:.78rem;color:var(--ink-light);}
+.lm-lbl{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+.lin-details{max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .25s;opacity:0;}
+.lin-person.open .lin-details{max-height:500px;opacity:1;}
+.lin-details-inner{padding-top:.65rem;border-top:1px dashed var(--border);margin-top:.55rem;font-size:.84rem;color:var(--ink-mid);line-height:1.55;}
+.lin-gap{position:relative;z-index:2;padding:.42rem .9rem .42rem 64px;background:var(--bg-mid);border-bottom:1px solid var(--border-lt);display:flex;align-items:center;gap:.6rem;}
+.lin-gap::before{content:'↓';position:absolute;left:21px;font-size:.75rem;color:var(--gold);}
+.lin-gap-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;color:var(--ink-faint);}
+.lin-gap-yr{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.1em;color:var(--gold);margin-left:auto;white-space:nowrap;}
+.lin-legend{display:flex;gap:.9rem;margin-left:auto;flex-wrap:wrap;}
+.ll-item{display:flex;align-items:center;gap:.28rem;font-size:.74rem;color:var(--ink-light);}
+.ll-dot{width:8px;height:8px;border-radius:50%;}
+.ll-v{background:var(--green);}
+.ll-s{background:var(--amber);}
+.ll-o{background:#bbb;border:1px solid #999;}
+.lin-hidden{display:none!important;}
+
+/* ═══════════════════════════════════════════
+   CONTRIBUTE / FOOTER BANNER
+═══════════════════════════════════════════ */
+.contrib-banner{background:rgba(154,124,63,.07);border:1px dashed rgba(154,124,63,.3);border-radius:3px;padding:1.5rem;text-align:center;margin-top:3rem;}
+.contrib-banner h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);font-weight:300;margin-bottom:.5rem;}
+.contrib-banner p{font-size:.8rem;color:var(--ink-light);line-height:1.7;max-width:480px;margin:0 auto 1rem;}
+.btn{background:rgba(154,124,63,.12);border:1px solid rgba(154,124,63,.4);color:var(--gold);font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;padding:.65rem 1.8rem;cursor:pointer;transition:all .2s;border-radius:2px;}
+.btn:hover{background:rgba(154,124,63,.22);border-color:var(--gold);}
+
+/* ═══════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(30,22,10,.72);z-index:500;align-items:center;justify-content:center;padding:1.5rem;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--card);border:1px solid var(--gold);border-radius:4px;padding:2rem;max-width:540px;width:100%;max-height:84vh;overflow-y:auto;box-shadow:0 8px 40px var(--shadow-md);}
+.modal-close{float:right;background:none;border:none;color:var(--ink-faint);font-size:1.2rem;cursor:pointer;line-height:1;margin-left:1rem;}
+.modal-close:hover{color:var(--ink);}
+.modal h2{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;color:var(--ink);margin-bottom:.25rem;}
+.modal-heb{font-family:'Frank Ruhl Libre',serif;direction:rtl;color:var(--ink-faint);font-size:.88rem;margin-bottom:1rem;}
+.modal-body{font-size:.85rem;color:var(--ink-mid);line-height:1.8;}
+.modal-body p{margin-bottom:.8rem;}
+.modal-meta{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0;padding:1rem;background:var(--bg-mid);border:1px solid var(--border-lt);border-radius:2px;}
+.mm-item{font-size:.76rem;}
+.mm-label{color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;font-size:.6rem;display:block;margin-bottom:.2rem;font-family:'Cinzel',serif;}
+.mm-value{color:var(--ink);}
+textarea.mem-input{width:100%;background:var(--bg-mid);border:1px solid var(--border);color:var(--ink);font-family:'Crimson Pro',serif;font-size:.84rem;padding:.8rem;resize:vertical;min-height:100px;border-radius:2px;margin-top:.8rem;}
+textarea.mem-input::placeholder{color:var(--ink-faint);}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg-mid);}
+::-webkit-scrollbar-thumb{background:var(--border);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .site-header{padding:1.8rem 1rem 1.5rem;}
+  nav button{padding:.75rem .65rem;font-size:.55rem;}
+  main{padding:1.5rem .9rem 4rem;}
+  .two-col{grid-template-columns:1fr;}
+  .generation{flex-direction:column;align-items:center;}
+  .couple-conn{padding-top:0;}
+  .lin-thread::before{left:22px;}
+  .lin-person{padding-left:56px;}
+  .lin-person::before{left:8px;width:26px;height:26px;}
+  .lin-person::after{left:34px;}
+  .lin-chapter{padding-left:56px;}
+  .lin-chapter::before{left:15px;}
+  .lin-gap{padding-left:56px;}
+  .lin-gap::before{left:17px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="eyebrow">Living Family Archive · Based on "Oma's Story" and verified research</div>
+  <h1>The House of <em>Muller</em><br>A Thousand Years to Prešov</h1>
+  <div class="header-heb">בית מילר — מרשי ועד פרשוב</div>
+  <p class="header-sub">From Troyes, France · Through Kraków · Boskovice · Topolčany · Nowy Sącz · Prešov, Slovakia</p>
+</header>
+
+<nav id="mainnav">
+  <button class="active" onclick="showView('timeline',this)">Chronicle</button>
+  <button onclick="showView('shimon',this)">Shimon's Story</button>
+  <button onclick="showView('tree',this)">Family Tree</button>
+  <button onclick="showView('places',this)">Places</button>
+  <button onclick="showView('surnames',this)">Surnames</button>
+  <button onclick="showView('robert',this)">Robert</button>
+  <button onclick="showView('lineage',this)">Full Lineage</button>
+  <button onclick="showView('gaps',this)">Open Research</button>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+  CHRONICLE
+══════════════════════════════════════════ -->
+<div id="view-timeline" class="view active">
+  <p class="sec-title">The Chronicle</p>
+  <p class="sec-sub">Click any entry to expand · Sources: Oma's Story, verified genealogical records, Prešov Orthodox Cemetery</p>
+  <div class="timeline">
+
+    <div class="era-label">Medieval Period · ~1040–1400</div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">~1040 CE · Troyes, Champagne</div>
+        <div class="t-name">Rabbi Shlomo Yitzchaki — Rashi רש״י</div>
+        <div class="t-heb">רַשִׁ״י — רַבֵּנוּ שְׁלֹמֹה יִצְחָקִי</div>
+        <div class="t-loc">Troyes, France → Worms, Germany</div>
+        <div class="t-expand">
+          <p>The foremost commentator on Torah and Talmud, born ~1040 in Troyes, died 1105. His commentaries appear in all standard editions of both. He had no male heirs — the lineage passes through daughters into the Rhineland Tosafist tradition, eventually reaching the Spira/Shapira dynasty of Poland. The descent Rashi → Treves → Spira → Luria → Shapira → Kolin is documented in traditional rabbinic genealogical literature (yuchasin), though not confirmed by peer-reviewed academic sources. Present as oral tradition.</p>
+          <span class="tag tag-o">Oral Tradition</span>
+          <span class="tag tag-p">Chain Anchor</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">~1300s–1573 · Rhineland → Poland</div>
+        <div class="t-name">Treves · Spira · Luria — The Eastward Migration</div>
+        <div class="t-loc">Paris → Speyer → Lublin</div>
+        <div class="t-expand">
+          <p>Mattitjahu Treves, Chief Rabbi of Paris (~1300s), begets the Spira family — their name from Speyer (Latin: Spira). Rabbi Shlomo Spira (~1375–1452) receives a yeshiva permit in 1397. His daughter Miriam Spira marries Aaron I Luria of Heilbronn (~1413), merging the two great lineages. Their descendant Rabbi Solomon Luria (MaHaRaSHaL, 1510–1573) heads the Lublin Yeshiva — and the line moves further east into Kraków.</p>
+          <span class="tag tag-o">Oral Tradition</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-label">Early Modern · 1585–1724</div>
+
+    <div class="t-node highlight" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1585–1633 · Kraków</div>
+        <div class="t-name">Rabbi Nathan Neta Shapira — Megale Amukot</div>
+        <div class="t-heb">ר' נָתָן נְטַע שַׁפִּירָא — מְגַלֶּה עֲמוּקוֹת</div>
+        <div class="t-loc">Kraków, Poland — Chief Rabbi</div>
+        <div class="t-expand">
+          <p>One of the most celebrated kabbalists of the 17th century, author of the <em>Megale Amukot</em> ("Revealer of Depths"), and Chief Rabbi of Kraków. His Geni profile and Wikipedia entry confirm biographical details. The Bernfeld family — who enter this story through Robert's mother Tereza-Devora — carry lineage through the Shapira dynasty.</p>
+          <p>The connection between Shapira and Rabbi Samuel Kolin flows through Kolin's wife (identified in genealogical sources as "a daughter Spira"), not through his patrilineal descent. The name "Nathan Neta ha-Levi" echoed in the Kolin family may have caused genealogical conflation. Present as documented tradition, not established academic fact.</p>
+          <span class="tag tag-v">Geni · Wikipedia</span>
+          <span class="tag tag-o">Oral chain to Rashi</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-label">Boskovice — Kolin — Löw-Beer · 1724–1870</div>
+
+    <div class="t-node highlight" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">~1724–1806 · Boskovice, Moravia</div>
+        <div class="t-name">Rabbi Samuel ben Nathan Ha-Levi Kolin — Machatzit HaShekel</div>
+        <div class="t-heb">ר' שְׁמוּאֵל בֶּן נָתָן הַלֵּוִי קוֹלִין</div>
+        <div class="t-loc">Boskovice, Moravia — Head of Yeshiva ~60 years</div>
+        <div class="t-expand">
+          <p>Born ~1724 in Kolín, Bohemia; died 20 May 1806 in Boskovice. Presided over the Boskovice yeshiva for nearly 60 years — one of the longest tenures of any Moravian rabbinical figure. Authored the <em>Machatzit HaShekel</em>, a sub-commentary on the Shulchan Aruch that appears in all standard editions to this day.</p>
+          <p><strong>Key correction:</strong> The Kolin → Löw-Beer link is PATERNAL. Rabbi Samuel → his son Jehuda Löw (who married Buna Beer) → their son Salomon Löw-Beer. The surname fuses both parents' family identities after the 1788 Josefinian decree. Perl/Paulina was Salomon's wife, not the Kolin connection.</p>
+          <div class="source-note">Encyclopaedia Judaica · Wikipedia · Geni · Official Villa Löw-Beer website</div>
+          <span class="tag tag-v">Fully Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1776–1832 · Boskovice</div>
+        <div class="t-name">Salomon Löw-Beer — First of the Dynasty Name</div>
+        <div class="t-heb">שְׁלֹמֹה לֶב-בֵּיר</div>
+        <div class="t-loc">Boskovice ghetto → Mayor and Judge</div>
+        <div class="t-expand">
+          <p>Son of Jehuda Löw; first to carry the compound Löw-Beer surname. Served as judge and mayor of the Boskovice ghetto. His two sons launched two distinct dynasties: Moses (→ Svitávka textile empire, Villa Tugendhat) and Abraham (→ Slovakia — our branch). He married Paulina Perl (née Pavlina).</p>
+          <div class="source-note">Geni.com · Czech Wikipedia · Go To Brno · Villa Löw-Beer</div>
+          <span class="tag tag-v">Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1839–1930s · Svitávka → Brno</div>
+        <div class="t-name">Moses Löw-Beer — The Industrial Dynasty (parallel branch)</div>
+        <div class="t-heb">מֹשֶׁה לֶב-בֵּיר</div>
+        <div class="t-loc">Svitávka → Brno — Villa Tugendhat</div>
+        <div class="t-expand">
+          <p>Moses Löw-Beer (c. 1794–1851), Salomon's son, founded a wool-spinning factory in Svitávka around 1839–1843. His son Maximilian "Max" Löw-Beer (1829–1887) transformed it into Austria's most important producer of cheap textile goods. A second branch — Aron &amp; Jakob Löw-Beer — established a factory in Brněnec which in 1944 became <em>Schindler's factory</em>, saving nearly 1,200 Jews.</p>
+          <p>Alfred Löw-Beer (1872–1939) financed Villa Tugendhat — designed by Ludwig Mies van der Rohe in 1929–30 — as a wedding gift to his daughter Grete. It became a UNESCO World Heritage Site in 2001. This is the parallel line; our branch descends through Abraham, not Moses.</p>
+          <div class="source-note">Villa Tugendhat · Villa Löw-Beer · Encyclopaedia Judaica · Brno Trails</div>
+          <span class="tag tag-v">Verified</span>
+          <span class="tag tag-p">Parallel Branch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1820–1888 · Topolčany, Slovakia</div>
+        <div class="t-name">Nathan Nota Löw-Beer — The Slovak Generation</div>
+        <div class="t-heb">נָתָן נְטַע לֶב-בֵּיר</div>
+        <div class="t-loc">Topolčany, Slovakia (Nagytapolcsány)</div>
+        <div class="t-expand">
+          <p>Son of Abraham Löw-Beer (who relocated from Boskovice to the Nitra region of Slovakia). Nathan Nota was born and died in Topolčany. His brother Maximilian appears in the 1869 Jewish Hungarian Census as a wheat merchant, independently confirming the family's presence. Nathan Nota's daughter Tereza Dvora married Meir Herzfeld, beginning the Herzfeld branch that leads to Tereza-Devora Bernfeld — Robert's mother.</p>
+          <div class="source-note">Geni.com · 1869 Jewish Hungarian Census</div>
+          <span class="tag tag-v">Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-label">Topolčany · 1840–1940</div>
+
+    <div class="t-node highlight" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1840–1926 · Topolčany</div>
+        <div class="t-name">Moshe Bernfeld + Gittel Löw-Beer — The Topolčany Nexus</div>
+        <div class="t-heb">מֹשֶׁה בֶּרְנְפֶלְד + גִּיטֶל לֶב-בֵּיר</div>
+        <div class="t-loc">Topolčany — Deputy Chairman, Community Repräsentanz</div>
+        <div class="t-expand">
+          <p>Moshe (Mor) Bernfeld (1840–1926), born and died in Topolčany, married Gittel (Katalin) née Löw-Beer — directly connecting the Bernfeld family to the Löw-Beer dynasty. His brother Jónás Bernfeld was born in <em>Boskovice</em> in 1831, confirming that the Bernfeld family shared Moravian roots with the Löw-Beers. This is the confirmed linchpin of the two dynasties' union.</p>
+          <p>The Topolčany Yizkor Book names Moshe as deputy chairman of the pre-WWI Repräsentanz. The Bernfeld family built a Beth Medrash at the market square. Moshe and Gittel had at least 17 children. Among them: Max (Mordechai) Bernfeld, Gabbai of the Great Synagogue — whose daughter Tereza-Devora would marry Yaakov Dov Muller of Prešov.</p>
+          <div class="source-note">Geni.com · Topolčany Yizkor Book · MyHeritage (multiple trees)</div>
+          <span class="tag tag-v">Fully Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1884–1964 · Topolčany → Israel</div>
+        <div class="t-name">Max (Mordechai) Bernfeld + Erna Herzfeld</div>
+        <div class="t-heb">מָקְס מָרְדְּכַי בֶּרְנְפֶלְד + אֶרְנָה הֶרְצְפֶלְד</div>
+        <div class="t-loc">Topolčany → survived Holocaust → Haifa, Israel</div>
+        <div class="t-expand">
+          <p>Max (Mordechai) Bernfeld (1884–1964), son of Moshe + Gittel, served as Gabbai of the Great Synagogue of Topolčany. He married Erna Ester Herzfeld (born 20 July 1888 in Brezova; died 1 February 1966 in Haifa). Note: the Herzfeld family was from <em>Brezova</em>, not Topolčany — entirely absent from the Yizkor Book. Erna's parents were Meir Herzfeld (1847–1916) and Tereza Dvora née Löw-Beer (daughter of Nathan Nota).</p>
+          <p>Max and Erna survived the Holocaust and emigrated to Israel. Their brother Sámuel Yehuda Bernfeld (1876–c. 1944) was murdered at Auschwitz. Among their five children: <em>Tereza-Devora Bernfeld</em>, born 12 December 1909 — who would become Robert Muller's mother.</p>
+          <div class="source-note">Ancestry.com · Geni.com · Topolčany Yizkor Book</div>
+          <span class="tag tag-v">Marriage Verified</span>
+          <span class="tag tag-s">Tereza-Devora birth: MyHeritage only</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-label">The Muller Generations · Prešov · 1850–1931</div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">d. January 1918 · Prešov</div>
+        <div class="t-name">Moshe Aryeh Rozman — The Man Who Started It All</div>
+        <div class="t-heb">מֹשֶׁה אַרְיֵה רוֹזְמָן</div>
+        <div class="t-loc">Prešov — dry goods merchant</div>
+        <div class="t-expand">
+          <p>Son of Yaakov Dov HaLevi. Prešov Orthodox Cemetery epitaph independently confirms: "Mose Ariel ben Yakov Dov Halevi." He invited his nephew Shimon Muller from Nowy Sącz to come work in his dry goods store — and in doing so, transplanted the Muller family to Prešov permanently. His daughter Sara would become Shimon's wife. Robert Muller's Hebrew name <em>Moshe Aryeh</em> was chosen specifically to honor him, closing a generational circle.</p>
+          <div class="source-note">Prešov Orthodox Cemetery records (JewishGen) · Oma's Story</div>
+          <span class="tag tag-v">Cemetery Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">b. ~1852</div>
+        <div class="t-name">Ahron Muller — Teacher, Hildesheimer Seminary</div>
+        <div class="t-heb">אַהֲרֹן מִילֶר</div>
+        <div class="t-loc">Unknown birthplace · married Pesel Lieberman</div>
+        <div class="t-expand">
+          <p>A teacher trained at the Hildesheimer Rabbinical Seminary in Berlin — the flagship institution of Modern Orthodox Judaism, combining rigorous Torah scholarship with secular knowledge. He married <em>Pesel Lieberman</em> and raised their son Shimon in this tradition. His birthplace and parents are an open research gap; Hildesheimer Seminary records in Berlin are the recommended source.</p>
+          <div class="source-note">Source: "Oma's Story" — Ilona Muller's account</div>
+          <span class="tag tag-o">Oma's Story</span>
+          <span class="tag tag-s">Birthplace unknown</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">b. ~1874–1889 · Nowy Sącz → Prešov</div>
+        <div class="t-name">Shimon Muller — The Invitation</div>
+        <div class="t-heb">שִׁמְעוֹן מִילֶר</div>
+        <div class="t-loc">Nowy Sącz (Sanz), Galicia → Prešov, Slovakia</div>
+        <div class="t-expand">
+          <p>Born in Nowy Sącz — Sanz in Jewish tradition, home of the great Halberstam Hasidic dynasty. His uncle <em>Moshe Aryeh Rozman</em> invited him to Prešov to work in the dry goods store and learn the trade. While there, he fell in love with Sara, Moshe Aryeh's own daughter — his cousin. Sara broke an existing betrothal to marry him, causing family uproar. They settled in Prešov and had six children: <em>Ilona, Rosie, Yakov, Margit, Pirike,</em> and <em>Josi</em>.</p>
+          <span class="tag tag-v">Confirmed — Oma's Story</span>
+          <span class="tag tag-p">Central Figure</span>
+          <div class="memory-ph" onclick="event.stopPropagation();openMemory('shimon')">+ Add a family memory about Shimon</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">~1900s · Prešov</div>
+        <div class="t-name">The Liqueur Business — Schwartz &amp; Glassner</div>
+        <div class="t-heb">עֵסֶק הַלִּיקֶר — שְׁוַורְץ וְגְלַסְנֶר</div>
+        <div class="t-loc">Factory behind the family apartment, Prešov</div>
+        <div class="t-expand">
+          <p>After working for his father-in-law and co-owning a cheese factory with Grosswirt and Schnitzer, Shimon had the opportunity to acquire the fruit liqueur business <em>Schwartz &amp; Glassner</em>. Before committing, he consulted the Munkacser Rebbe, who advised him to buy. The business flourished — plum liqueurs and raspberry syrups stored in great multi-colored glass vats, shipped as far as Germany. The factory courtyard sat directly behind the family apartment.</p>
+          <span class="tag tag-v">Confirmed — Oma's Story</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">~1914–1918 · WWI</div>
+        <div class="t-name">Ilona at Fourteen — Running the Factory</div>
+        <div class="t-heb">אִילוֹנָה בַּת אַרְבַּע עֶשְׂרֵה</div>
+        <div class="t-loc">Requisitioned forest · Prešov factory</div>
+        <div class="t-expand">
+          <p>During World War I, the army requisitioned Shimon's forest for timber. Russian prisoners of war did the logging; Shimon had to be present to supervise. So he taught his <em>fourteen-year-old daughter Ilona</em> how to run the liqueur business entirely: balancing ledgers, managing workers, operating the bottling machinery. She did it. The daughter he trusted most with everything he had built.</p>
+          <span class="tag tag-v">Confirmed — Oma's Story</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node tragedy" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">~1920s</div>
+        <div class="t-name">Margit's Death — A Torah Written in Her Memory</div>
+        <div class="t-heb">מַרְגִּית — מַלְכָּה · תּוֹרָה לְזִכְרָהּ</div>
+        <div class="t-loc">Prešov</div>
+        <div class="t-expand">
+          <p>Margit (Malca), Shimon's daughter, died from internal injuries after jumping from the wrong train. In her memory, Shimon commissioned a <em>Sefer Torah</em> and donated it to the Prešov shul — grief expressed as an eternal gift to the community. The Prešov Orthodox Cemetery records confirm a "Panna Malke bas Simon" (buried September 1923), likely Margit.</p>
+          <div class="source-note">Oma's Story · Prešov Orthodox Cemetery records (indirect)</div>
+          <span class="tag tag-v">Confirmed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">~1910s–1920s</div>
+        <div class="t-name">Ten Days in Frankfurt — Yakov's Yeshiva</div>
+        <div class="t-heb">יַעֲקֹב בְּיְשִׁיבַת פְרַנְקְפוּרְט</div>
+        <div class="t-loc">Frankfurt, Germany</div>
+        <div class="t-expand">
+          <p>When it came time for his son Yakov to attend Yeshiva in Frankfurt, the institution was reluctant — hesitant to accept a boy from a strict local Yeshiva in Prešov. Shimon traveled there personally and advocated for <em>ten days</em> until they agreed to take Yakov on probation. The son who attended Frankfurt would later marry Tereza-Devora Bernfeld, uniting the Prešov Muller and Topolčany Bernfeld/Löw-Beer lines.</p>
+          <span class="tag tag-v">Confirmed — Oma's Story</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-node highlight" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1931 · Prešov</div>
+        <div class="t-name">Robert Moyshe Arie Muller — Born</div>
+        <div class="t-heb">מֹשֶׁה אַרְיֵה מִילֶר — רוּבִּי</div>
+        <div class="t-loc">Prešov, Czechoslovakia — Firstborn of Yakov + Tereza-Devora</div>
+        <div class="t-expand">
+          <p>Born 1931 in Prešov, firstborn of Yakov Muller and Tereza-Devora Bernfeld. Named Moyshe Arie — echoing <em>Moshe Aryeh Rozman</em>, the great-uncle who had first brought the Muller family to Prešov, closing the generational circle. His grandfather Shimon was alive, still taking grandchildren on Sunday excursions by truck or horse-and-wagon outside the city.</p>
+          <p>Through his father he inherits the Muller–Rozman–Prešov line. Through his mother he carries the Bernfeld–Löw-Beer–Kolin chain going back to Boskovice and Topolčany.</p>
+          <span class="tag tag-v">Confirmed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-label">The Shoah · 1939–1945</div>
+
+    <div class="t-node tragedy" onclick="toggleNode(this)">
+      <div class="t-card">
+        <div class="t-year">1944 · Budapest</div>
+        <div class="t-name">Shimon's Arrest — The Last Blessing</div>
+        <div class="t-heb">הַבְּרָכָה הָאַחֲרוֹנָה · בּוּדַפֶּשְׁט 1944</div>
+        <div class="t-loc">Munkacs → Miskolc → Budapest → Auschwitz</div>
+        <div class="t-expand">
+          <p>Shimon first sought refuge with his daughter Rosi in Munkacs — but he spoke no local language and was visibly foreign, too dangerous to stay. He was smuggled to Miskolc to live with Ilona. In 1944 the family attempted to flee to Budapest using forged Aryan papers. At the Budapest train station, Shimon was identified as Jewish, arrested, and imprisoned.</p>
+          <p>In the prison yard, his granddaughter <em>Gretl</em> — herself captured — spotted him during a registration lineup. She ran to him. He placed his hands on her head and gave her his blessing. A guard chased her away.</p>
+          <p>That was the last time the family saw him. He was deported to <em>Auschwitz</em> and murdered there.</p>
+          <span class="tag tag-r">Murdered in Auschwitz · 1944</span>
+          <span class="tag tag-v">Confirmed — Oma's Story</span>
+          <div class="memory-ph" onclick="event.stopPropagation();openMemory('shimon-shoah')">+ Add to this record</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="contrib-banner">
+    <h3>This archive is alive.</h3>
+    <p>If you are a family member — cousin, relative, descendant — and carry a story, photograph, document, or memory of anyone in this family, this is where it belongs. Ilona's account gave us the foundation. What do you carry?</p>
+    <button class="btn" onclick="openMemory('general')">Contribute a Memory or Story</button>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  SHIMON'S STORY
+══════════════════════════════════════════ -->
+<div id="view-shimon" class="view">
+  <p class="sec-title">Shimon Muller</p>
+  <p class="sec-sub">שִׁמְעוֹן מִילֶר · b. ~1874–1889, Nowy Sącz · d. 1944, Auschwitz · Based on "Oma's Story" — Ilona's account, transcribed by family</p>
+
+  <div class="story-panel">
+    <div class="story-chapter">Chapter I — Origins</div>
+    <div class="story-title">From Sanz to Prešov: The Invitation</div>
+    <div class="story-body">
+      <p>Shimon Muller was born in Nowy Sącz — known in Jewish tradition as <em>Sanz</em> — the Galician town home to the great Halberstam Hasidic dynasty. He was the son of <em>Ahron Muller</em>, a teacher trained at the Hildesheimer Rabbinical Seminary in Berlin, and <em>Pesel Lieberman</em>.</p>
+      <p>An invitation changed the course of his life. His uncle <em>Moshe Aryeh Rozman</em> called him to Prešov to work in his dry goods business — to learn the trade and earn a livelihood. Shimon came. He learned. And while working in his uncle's store, he met <em>Sara</em> — Moshe Aryeh's own daughter, his cousin.</p>
+      <p>Sara broke a long-standing betrothal to marry him. The family was in an uproar. But the marriage held. Shimon and Sara settled in Prešov and raised six children: <em>Ilona (Oma), Rosie (Raizel), Yakov, Margit (Malca), Pirike (Perel),</em> and <em>Josi</em>.</p>
+    </div>
+  </div>
+
+  <div class="story-panel">
+    <div class="story-chapter">Chapter II — The Businessman</div>
+    <div class="story-title">Cheese, Plum Liqueur, and the Munkacser Rebbe's Blessing</div>
+    <div class="story-body">
+      <p>After years working for his father-in-law, Shimon's first independent venture was a cheese factory, co-owned with partners <em>Grosswirt and Schnitzer</em>. Business was in his nature.</p>
+      <p>Then came the opportunity to acquire <em>Schwartz &amp; Glassner</em> — a fruit liqueur enterprise. Before committing, Shimon consulted the Munkacser Rebbe, one of the most revered Hasidic authorities of the era. The Rebbe advised him to buy. He did. The business flourished.</p>
+      <p>The factory produced <em>plum liqueurs and raspberry syrups</em>, stored in great multi-colored glass vats, and shipped as far as Germany. The factory courtyard was directly behind the family's spacious apartment — the smell of fruit always close.</p>
+    </div>
+  </div>
+
+  <div class="story-panel">
+    <div class="story-chapter">Chapter III — War</div>
+    <div class="story-title">A Fourteen-Year-Old Runs the Factory</div>
+    <div class="story-body">
+      <p>During World War I, the army requisitioned Shimon's forest for timber. Russian prisoners of war were sent to log it; Shimon had to travel there to supervise, away from Prešov for long stretches.</p>
+      <p>The factory could not stop. So Shimon taught his daughter <em>Ilona</em> — fourteen years old — how to run it entirely: balancing the ledgers, managing the workers, operating the bottling machinery, which was powerful and potentially dangerous. She did it. The daughter he trusted most with the work he had built.</p>
+      <p>Ilona's account of this, written decades later, carries no complaint — only the quiet pride of someone who was given something serious to do, and did it.</p>
+    </div>
+  </div>
+
+  <div class="story-panel">
+    <div class="story-chapter">Chapter IV — Grief and Faith</div>
+    <div class="story-title">Margit's Death · A Torah Scroll for the Shul</div>
+    <div class="story-body">
+      <p>Tragedy came through his daughter <em>Margit (Malca)</em>, who died from internal injuries after jumping from the wrong train. The loss cut deeply.</p>
+      <p>Shimon's response was neither silence nor collapse. He commissioned a <em>Sefer Torah</em> to be written and donated it to the Prešov shul in Margit's memory. A man expressing grief the only way that seemed adequate: by giving something eternal to the community she had been part of.</p>
+      <p>The Prešov Orthodox Cemetery records confirm a "Panna Malke bas Simon" buried in September 1923 — almost certainly Margit, providing independent corroboration of Ilona's account.</p>
+    </div>
+  </div>
+
+  <div class="story-panel">
+    <div class="story-chapter">Chapter V — Father and Grandfather</div>
+    <div class="story-title">Frankfurt, Second Marriage, and Sunday Excursions</div>
+    <div class="story-body">
+      <p>When it came time for his son <em>Yakov</em> to attend Yeshiva, the Frankfurt institution was hesitant — reluctant to take a boy from a strict local Yeshiva in Prešov. Shimon traveled to Frankfurt personally and advocated for <em>ten days</em> until they relented.</p>
+      <p>After Sara's death from an infected cut, Shimon remarried <em>Malvinka Fonfedder</em> — Sara's cousin, who had grown up attending the same school as Sara. A remarriage within the circle of memory.</p>
+      <p>Yakov would go on to marry <em>Tereza-Devora Bernfeld</em> of Topolčany, daughter of Max (Mordechai) Bernfeld and Erna Herzfeld — connecting the Muller family of Prešov to the Bernfeld–Löw-Beer dynasty of western Slovakia and ultimately to the Kolin–Boskovice rabbinical chain. Their son Robert was born in 1931.</p>
+      <p>As a grandfather, Shimon was devoted. He loved taking his grandchildren on Sunday excursions outside the city — by truck or horse and wagon. <em>Robert</em> was born while Shimon was very much the living center of the family.</p>
+    </div>
+  </div>
+
+  <div class="story-panel tragedy-panel">
+    <div class="story-chapter">Chapter VI — The Shoah</div>
+    <div class="story-title">Budapest, 1944 — The Last Blessing</div>
+    <div class="story-body">
+      <p>As German occupation advanced through Hungary in 1944, the family's options collapsed. Shimon first stayed with his daughter <em>Rosi in Munkacs</em> — but he spoke no local language and was too visibly a foreigner. He was smuggled to <em>Miskolc</em> to live with Ilona.</p>
+      <p>The family made a plan to flee to Budapest with forged <em>Aryan papers</em>. They boarded the train. They arrived at Budapest station. Shimon was identified as Jewish, arrested, and taken to prison.</p>
+      <p>His granddaughter <em>Gretl</em> — herself captured and held in the same prison — spotted him across the yard during a registration lineup. She ran to him. He placed his hands on her head. He gave her his blessing.</p>
+      <p>A guard chased her away.</p>
+      <p>That was the last time anyone in the family saw Shimon Muller. He was deported from Budapest to <em>Auschwitz</em>, where he was murdered by the Nazis in 1944.</p>
+    </div>
+  </div>
+
+  <div class="source-note" style="margin-top:1.5rem;">
+    <strong>Primary source:</strong> "Oma's Story" — the written account of Ilona Muller (Shimon's eldest daughter), transcribed and preserved by the family. Additional: Yad Vashem records; Hungarian Jewish deportation records 1944; Prešov Orthodox Cemetery (JewishGen), which independently confirms: Moshe Aryeh Rozman (d. Jan 1918), his wife Rivka (d. Mar 1922), and Sara daughter of Moshe Aryeh wife of Simon (d. Dec 1933).
+  </div>
+  <div class="memory-ph" style="margin-top:1rem;display:block;" onclick="openMemory('shimon')">+ Do you have additional memories or details about Shimon's life? Add them here.</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  FAMILY TREE
+══════════════════════════════════════════ -->
+<div id="view-tree" class="view">
+  <p class="sec-title">Family Tree</p>
+  <p class="sec-sub">Confirmed generations · Muller paternal line · Click any card for detail</p>
+  <div class="tree-wrap">
+
+    <div class="gen-label">Generation I — The Patriarch</div>
+    <div class="generation">
+      <div class="p-card" onclick="openPerson('ahron')">
+        <div class="p-name">Ahron Muller</div>
+        <div class="p-heb">אַהֲרֹן מִילֶר</div>
+        <div class="p-dates">b. ~1852 · Teacher</div>
+        <div class="p-loc">Hildesheimer Seminary, Berlin</div>
+      </div>
+      <div class="couple-conn"><span class="ring">⊗</span></div>
+      <div class="p-card" onclick="openPerson('pesel')">
+        <div class="p-name">Pesel Lieberman</div>
+        <div class="p-heb">פֶּסֶל לִיבֶּרְמַן</div>
+        <div class="p-dates">b. ~1855 est.</div>
+      </div>
+    </div>
+
+    <div class="conn-row"><div class="conn-v"></div></div>
+
+    <div class="gen-label">Generation II — Shimon, Sara &amp; the Rozman Connection</div>
+    <div class="generation">
+      <div class="p-card deceased" onclick="openPerson('shimon')">
+        <div class="p-name">Shimon Muller</div>
+        <div class="p-heb">שִׁמְעוֹן מִילֶר</div>
+        <div class="p-dates">b. ~1874–1889, Nowy Sącz</div>
+        <div class="p-loc">d. 1944, Auschwitz</div>
+      </div>
+      <div class="couple-conn"><span class="ring">⊗</span></div>
+      <div class="p-card deceased" onclick="openPerson('sara')">
+        <div class="p-name">Sara Rozman</div>
+        <div class="p-heb">שָׂרָה רוֹזְמָן</div>
+        <div class="p-dates">d. Dec 1933, Prešov</div>
+        <div class="p-loc">Daughter of Moshe Aryeh Rozman</div>
+      </div>
+    </div>
+
+    <div style="margin:.4rem 0;text-align:center;font-size:.68rem;color:var(--ink-faint);font-style:italic;">Sara = daughter of Shimon's uncle Moshe Aryeh Rozman · cousin marriage · <strong style="color:var(--green);">Confirmed by Prešov Orthodox Cemetery</strong></div>
+
+    <div class="siblings-box">
+      <div class="siblings-lbl">Shimon &amp; Sara's Six Children</div>
+      <div class="siblings-row">
+        <div class="sib-chip" onclick="openPerson('ilona')">Ilona (Oma)<small>אִילוֹנָה — author of Oma's Story</small></div>
+        <div class="sib-chip" onclick="openPerson('rosie')">Rosie (Raizel)<small>רַיְזֶל</small></div>
+        <div class="sib-chip focal-s" onclick="openPerson('yakov')">Yakov ★<small>יַעֲקֹב — father of Robert</small></div>
+        <div class="sib-chip" onclick="openPerson('margit')">Margit (Malca)<small>מַרְגִּית — נִפְטְרָה</small></div>
+        <div class="sib-chip" onclick="openPerson('pirike')">Pirike (Perel)<small>פֶּרֶל</small></div>
+        <div class="sib-chip" onclick="openPerson('josi')">Josi<small>יוֹסִי</small></div>
+      </div>
+    </div>
+
+    <div class="conn-row" style="margin-top:1rem;"><div class="conn-v"></div></div>
+
+    <div class="gen-label">Generation III — Yakov + Tereza-Devora · Two Dynasties United</div>
+    <div class="generation">
+      <div class="p-card" onclick="openPerson('yakov')">
+        <div class="p-name">Yakov Dov Muller</div>
+        <div class="p-heb">יַעֲקֹב דֹּב מִילֶר</div>
+        <div class="p-dates">b. ~1900–1910, Prešov</div>
+        <div class="p-loc">Frankfurt Yeshiva</div>
+      </div>
+      <div class="couple-conn"><span class="ring">⊗</span></div>
+      <div class="p-card" onclick="openPerson('teresa')">
+        <div class="p-name">Tereza-Devora Bernfeld</div>
+        <div class="p-heb">טֶרֶזָה דְּבוֹרָה בֶּרְנְפֶלְד</div>
+        <div class="p-dates">b. 12 Dec 1909, Topolčany · d. 1986</div>
+        <div class="p-loc">Carries Löw-Beer · Kolin lineage</div>
+      </div>
+    </div>
+
+    <div style="margin:.4rem 0;text-align:center;font-size:.68rem;color:var(--ink-faint);font-style:italic;">Tereza-Devora: daughter of Max Bernfeld + Erna Herzfeld · granddaughter of Moshe Bernfeld + Gittel Löw-Beer · <span style="color:var(--amber);">Marriage to Yakov: MyHeritage only</span></div>
+
+    <div class="conn-row"><div class="conn-v"></div></div>
+
+    <div class="gen-label">Generation IV — The Destination</div>
+    <div class="generation">
+      <div class="p-card focal" onclick="openPerson('robert')">
+        <div class="p-name">Robert Moyshe Arie Muller</div>
+        <div class="p-heb">מֹשֶׁה אַרְיֵה מִילֶר — רוּבִּי</div>
+        <div class="p-dates">b. 1931 · Prešov</div>
+        <div class="p-loc">Firstborn · Name honors Moshe Aryeh Rozman</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="source-note" style="margin-top:2rem;">
+    <strong>Name note:</strong> Robert's Hebrew name <em>Moyshe Arie</em> echoes <em>Moshe Aryeh Rozman</em> — the great-uncle who invited Shimon to Prešov, whose daughter Sara became Shimon's wife. The name closes the circle of three generations. The Löw-Beer–Kolin rabbinical chain (Rashi → Shapira → Kolin → Löw-Beer → Bernfeld) enters through Tereza-Devora Bernfeld, Robert's mother.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  PLACES
+══════════════════════════════════════════ -->
+<div id="view-places" class="view">
+  <p class="sec-title">The Places</p>
+  <p class="sec-sub">Every location in the family's story — from Troyes to Auschwitz</p>
+  <div class="places-grid">
+
+    <div class="place-card">
+      <div class="place-name">Troyes</div>
+      <div class="place-alt">Champagne, France · ~1040 CE</div>
+      <div class="place-period">Origin of the Chain</div>
+      <p class="place-desc">Birthplace of Rashi. The most distant documented anchor in the family's lineage. From here, through daughters and descendants, the rabbinic chain began its eastward migration toward the Rhineland, Poland, and Galicia.</p>
+      <div class="place-people"><span class="p-chip">Rashi (~1040–1105)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Kraków</div>
+      <div class="place-alt">Cracow, Poland · קְרָאקָא</div>
+      <div class="place-period">1585–1633 — Rabbinic Apex</div>
+      <p class="place-desc">Capital of Polish Jewish learning. Home of the Megale Amukot and the Chief Rabbinate. The Shapira lineage — which carries the Rashi connection — runs through this city toward the Bernfeld family and ultimately to Robert through his mother.</p>
+      <div class="place-people"><span class="p-chip">Rabbi Nathan Neta Shapira</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Boskovice</div>
+      <div class="place-alt">Boskowitz, Moravia · Czech Republic</div>
+      <div class="place-period">1724–1870 — Kolin Yeshiva · Löw-Beer origin</div>
+      <p class="place-desc">A Moravian ghetto town 35km north of Brno. Rabbi Samuel Kolin presided over its yeshiva for ~60 years. His son Jehuda Löw married Buna Beer here, creating the Löw-Beer compound surname. Their grandson Abraham then relocated to Slovakia — beginning the family's Slovak chapter. The Bernfeld family also originates from Boskovice (Jónás Bernfeld, b. 1831).</p>
+      <div class="place-people"><span class="p-chip">Rabbi Samuel Kolin</span><span class="p-chip">Salomon Löw-Beer</span><span class="p-chip">Jónás Bernfeld</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Topolčany</div>
+      <div class="place-alt">Nagytapolcsány (Hungarian) · Western Slovakia</div>
+      <div class="place-period">1820–1944 — Löw-Beer &amp; Bernfeld Community</div>
+      <p class="place-desc">A major Slovak Jewish community. Nathan Nota Löw-Beer was born and died here (1820–1888). The Bernfeld and Löw-Beer families were among its most prominent, with members serving as community leaders, Gabbai of the Great Synagogue, and council members. The Topolčany Yizkor Book records ~28 Bernfeld and ~13 Löw-Beer victims of the Holocaust. Tereza-Devora Bernfeld was born here in 1909.</p>
+      <div class="place-people"><span class="p-chip">Nathan Nota Löw-Beer</span><span class="p-chip">Moshe Bernfeld</span><span class="p-chip">Max Bernfeld</span><span class="p-chip">Tereza-Devora</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Berlin</div>
+      <div class="place-alt">Germany · ~1870s</div>
+      <div class="place-period">Hildesheimer Seminary</div>
+      <p class="place-desc">Rabbi Esriel Hildesheimer's Seminary, founded 1873, blended rigorous Orthodox Torah scholarship with secular academic standards. Ahron Muller studied here — placing the Muller family at the intellectual center of Modern Orthodox Jewry.</p>
+      <div class="place-people"><span class="p-chip">Ahron Muller (student)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Nowy Sącz</div>
+      <div class="place-alt">Sanz · נַיְסַנְץ · Austrian Galicia</div>
+      <div class="place-period">~1874–1889 — Shimon's Birthplace</div>
+      <p class="place-desc">Known in Jewish tradition as Sanz — home of the legendary Halberstam Hasidic dynasty. Shimon Muller was born here. Rich kehila records survive in the Kraków State Archive (JRI-Poland). He left for Prešov on his uncle's invitation and never returned.</p>
+      <div class="place-people"><span class="p-chip">Shimon Muller (born here)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Prešov</div>
+      <div class="place-alt">Eperjes (Hungarian) · פְּרֶשׁוֹב · Northeast Slovakia</div>
+      <div class="place-period">~1870s–1944 — The Family Home</div>
+      <p class="place-desc">A royal free town in Upper Hungary with an established Jewish community since the 18th century. Moshe Aryeh Rozman's dry goods store brought Shimon here. Three generations of Mullers lived here. The liqueur factory sat behind the family apartment. Robert was born here in 1931. The Orthodox cemetery provides the most critical independent verification of the family chain — confirming the Rozman–Muller marriage through three Hebrew epitaphs.</p>
+      <div class="place-people"><span class="p-chip">Moshe Aryeh Rozman</span><span class="p-chip">Shimon &amp; Sara</span><span class="p-chip">Yakov Muller</span><span class="p-chip">Robert (b. 1931)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Frankfurt</div>
+      <div class="place-alt">Germany</div>
+      <div class="place-period">~1910s–1920s — Yakov's Yeshiva</div>
+      <p class="place-desc">One of the great centers of German Orthodox Jewry. Shimon traveled here alone and spent ten days persuading a Frankfurt Yeshiva to accept Yakov on probation. His persistence prevailed. Yakov returned educated — and would later marry into the Bernfeld dynasty of Topolčany.</p>
+      <div class="place-people"><span class="p-chip">Shimon (advocate)</span><span class="p-chip">Yakov (student)</span></div>
+    </div>
+
+    <div class="place-card dark-card">
+      <div class="place-name">Auschwitz</div>
+      <div class="place-alt">Oświęcim, Poland · 1944</div>
+      <div class="place-period">Murder — 1944</div>
+      <p class="place-desc">Shimon was arrested at Budapest station, imprisoned, and deported here. He was murdered by the Nazis in 1944. His granddaughter Gretl saw him in the prison yard. He placed his hands on her head and blessed her. A guard chased her away. That was the last time anyone in the family saw him alive.</p>
+      <div class="place-people"><span class="p-chip">Shimon Muller · murdered 1944</span></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  SURNAMES
+══════════════════════════════════════════ -->
+<div id="view-surnames" class="view">
+  <p class="sec-title">The Family Names</p>
+  <p class="sec-sub">Each surname a world — a community, a history, a migration</p>
+  <div class="surnames-grid">
+
+    <div class="surname-card">
+      <div class="surname-main">Muller</div>
+      <div class="surname-heb">מִילֶר</div>
+      <div class="surname-role">Primary Line</div>
+      <p class="surname-desc">German occupational name meaning "miller," widely adopted by Ashkenazi Jews during the Habsburg surname decree (~1787–1804). Four confirmed generations in this archive: Ahron → Shimon → Yakov → Robert. The Hebrew spelling מִילֶר (Miller) is confirmed by the Prešov Orthodox Cemetery inscription "MILLER — Sure bas Mose Arie Halevi Zena Simon."</p>
+      <p class="surname-conn">Nowy Sącz → Prešov · 🟢 Verified through cemetery</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Löw-Beer</div>
+      <div class="surname-heb">לוֹאו-בֵּר</div>
+      <div class="surname-role">Boskovice Dynasty — via Bernfeld</div>
+      <p class="surname-desc">A compound surname fusing two family identities after the 1788 Josefinian decree: Löw (lion) from the Kolin/HaLevi rabbinical line, Beer (bear) from wife Buna's family. Four generations from Boskovice to Topolčany: Jehuda Löw → Salomon Löw-Beer → Abraham → Nathan Nota. The Svitávka branch built Villa Tugendhat (UNESCO). The Brněnec branch became Schindler's factory. Our branch → Topolčany → Bernfeld → Tereza-Devora → Robert.</p>
+      <p class="surname-conn">Boskovice → Topolčany → via Bernfeld · 🟢 Fully verified</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Rozman</div>
+      <div class="surname-heb">רוֹזְמָן</div>
+      <div class="surname-role">The Prešov Anchor</div>
+      <p class="surname-desc">Moshe Aryeh Rozman invited Shimon to Prešov — the act that transplanted the Muller family to Slovakia. His daughter Sara became Shimon's wife, making Rozman the maternal root of Yakov. Robert's Hebrew name Moyshe Arie directly echoes Moshe Aryeh Rozman. Cemetery records confirm: Moshe Aryeh Rozman (d. Jan 1918), his wife Rivka bas Josef (d. Mar 1922), and Sara daughter of Moshe Aryeh wife of Simon (d. Dec 1933).</p>
+      <p class="surname-conn">Prešov · 🟢 Verified — cemetery records</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Bernfeld</div>
+      <div class="surname-heb">בֶּרְנְפֶלְד</div>
+      <div class="surname-role">Topolčany — Löw-Beer connection</div>
+      <p class="surname-desc">Moravian/Galician family confirmed among the most prominent in Topolčany. Moshe (Mor) Bernfeld (1840–1926) married Gittel Löw-Beer, directly connecting the two dynasties. His brother Jónás was born in Boskovice — same Moravian origin. The Bernfeld family built a Beth Medrash in Topolčany. Tereza-Devora Bernfeld, Robert's mother, carries this entire chain into the final generation. ~28 Bernfeld family members were murdered in the Holocaust.</p>
+      <p class="surname-conn">Boskovice → Topolčany → Prešov · 🟢 Verified</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Kolin</div>
+      <div class="surname-heb">קוֹלִין</div>
+      <div class="surname-role">Boskovice Rabbinical Root</div>
+      <p class="surname-desc">The Kolin identity preceded Löw-Beer. Rabbi Samuel ben Nathan Ha-Levi Kolin (b. ~1724 Kolín, d. 1806 Boskovice) headed the Boskovice yeshiva for ~60 years and authored the Machatzit HaShekel. His son Jehuda Löw married Buna Beer, creating the Löw-Beer compound name. The "Stammbaum der Familien Kolin und Löw-Beer" documents a single patrilineal line, not two merging families.</p>
+      <p class="surname-conn">Kolín → Boskovice · 🟢 Encyclopaedia Judaica · Wikipedia</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Herzfeld</div>
+      <div class="surname-heb">הֶרְצְפֶלְד</div>
+      <div class="surname-role">Brezova — via Löw-Beer marriage</div>
+      <p class="surname-desc">Meir Herzfeld (1847–1916) married Tereza Dvora Löw-Beer (daughter of Nathan Nota). Their daughter Erna Ester Herzfeld (b. 1888 Brezova, d. 1966 Haifa) married Max Bernfeld of Topolčany. Note: the Herzfeld family was from Brezova — entirely absent from the Topolčany Yizkor Book. They connected to Topolčany through the Löw-Beer marriage network, not as residents.</p>
+      <p class="surname-conn">Brezova area · 🟢 Geni · Ancestry</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Lieberman</div>
+      <div class="surname-heb">לִיבֶּרְמַן</div>
+      <div class="surname-role">Generation I — Ahron's Wife · Rozman's Wife</div>
+      <p class="surname-desc">Pesel Lieberman married Ahron Muller and is Shimon's mother. Separately, Rivka (Lieberman?) Rozman married Moshe Aryeh Rozman — her cemetery epitaph reads "bas Josef," and a Josef Lieberman appears in the same Prešov cemetery (d. Nov 1916). The two Lieberman families may share a common origin in the Prešov region.</p>
+      <p class="surname-conn">Prešov region · 🟡 Partial verification</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Shapira</div>
+      <div class="surname-heb">שַׁפִּירָא</div>
+      <div class="surname-role">Rabbinic Ancestry — from Speyer</div>
+      <p class="surname-desc">From Speyer, Germany (Latin: Spira). One of the great Ashkenazi rabbinic dynasties. The Kraków branch produced the Megale Amukot. The connection to Rabbi Samuel Kolin appears to flow through Kolin's wife ("a daughter Spira" per Rootsweb genealogy), not through his patrilineal descent. The Rashi → Shapira → Kolin claim is traditional genealogical lore, not peer-reviewed academic fact.</p>
+      <p class="surname-conn">Via Kolin's wife · ⚪ Oral/Traditional</p>
+    </div>
+
+    <div class="surname-card" style="opacity:.85;border-style:dashed;">
+      <div class="surname-main">Fonfedder</div>
+      <div class="surname-heb">פוֹנְפֶּדֶר</div>
+      <div class="surname-role">Shimon's Second Wife</div>
+      <p class="surname-desc">Malvinka Fonfedder married Shimon after Sara's death. She had grown up attending the same school as Sara — Sara's cousin. A remarriage within the circle of family and memory.</p>
+      <p class="surname-conn">Confirmed — Oma's Story</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  ROBERT
+══════════════════════════════════════════ -->
+<div id="view-robert" class="view">
+  <p class="sec-title">The Destination</p>
+  <p class="sec-sub">A thousand years of migration, scholarship, and survival — arriving here</p>
+
+  <div class="robert-hero">
+    <div class="p-name">Robert Moyshe Arie Muller</div>
+    <div class="p-heb">מֹשֶׁה אַרְיֵה מִילֶר — רוּבִּי</div>
+    <div class="robert-detail">
+      <strong>Born:</strong> 1931 &nbsp;·&nbsp; <strong>Place:</strong> Prešov (Eperjes), Czechoslovakia<br>
+      <strong>Father:</strong> Yakov Dov Muller &nbsp;·&nbsp; <strong>Mother:</strong> Tereza-Devora Bernfeld<br>
+      <strong>Paternal grandfather:</strong> Shimon Muller · Prešov liqueur factory<br>
+      <strong>Maternal grandparents:</strong> Max (Mordechai) Bernfeld + Erna Herzfeld<br>
+      <strong>Wife:</strong> Ruth Singer (daughter of Friedrich/Fritz Singer + Sabina/Bini Singer)
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-box">
+      <div class="info-box-label">What he inherited</div>
+      <p>From his father's side: a Prešov family planted by an invitation — Moshe Aryeh Rozman calling his nephew from Sanz to work in a dry goods store. A grandfather who consulted the Munkacser Rebbe before buying a business, who commissioned a Torah scroll in grief, who traveled to Frankfurt to fight for ten days so his son could attend Yeshiva. The smell of plum liqueur and the memory of Sunday truck rides.</p>
+    </div>
+    <div class="info-box">
+      <div class="info-box-label">What he inherited</div>
+      <p>From his mother's side: the Bernfeld family of Topolčany — Gabbai, community leader, Repräsentanz deputy — connected through Gittel Löw-Beer to the great Boskovice industrial dynasty. Above them, Rabbi Samuel Kolin's 60-year yeshiva. Above him, the Shapira kabbalists of Kraków. And at the horizon of tradition: Rashi of Troyes.</p>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-bottom:1.2rem;">
+    <div class="info-box-label">His name</div>
+    <p style="font-size:.84rem;color:var(--ink-mid);line-height:1.8;">The Hebrew name <em>Moyshe Arie</em> was chosen to echo <em>Moshe Aryeh Rozman</em> — Shimon's uncle, the man who invited the Muller family to Prešov in the first place. Without that invitation, there would be no Muller family in Prešov; no liqueur factory; no Sunday excursions; no Robert. Through the name, the debt is remembered. The city that became their home, the factory that became their livelihood, the community that shaped them — all of it began with Moshe Aryeh's invitation. The child born at the end of that long chain carried that beginning in his name.</p>
+  </div>
+
+  <div class="info-box" style="margin-bottom:2rem;">
+    <div class="info-box-label">The Two Lines That Meet in Robert</div>
+    <p style="font-size:.83rem;color:var(--ink-mid);line-height:1.85;">
+      <strong>Paternal:</strong> Robert → Yakov → Shimon (Nowy Sącz) → Ahron (Hildesheimer Seminary) → [unknown]<br>
+      <strong>Maternal:</strong> Robert → Tereza-Devora → Max Bernfeld → Moshe Bernfeld + <strong>Gittel Löw-Beer</strong> → Nathan Nota Löw-Beer → Abraham Löw-Beer → <strong>Salomon Löw-Beer</strong> → Jehuda Löw → <strong>Rabbi Samuel Kolin</strong> → [Shapira/Kolin chain] → <strong>Nathan Neta Shapira</strong> → [Luria/Spira] → <strong>Rashi</strong>
+    </p>
+  </div>
+
+  <div style="padding:1.2rem;background:rgba(154,124,63,.07);border:1px solid rgba(154,124,63,.25);border-radius:3px;margin-bottom:1.5rem;">
+    <div class="info-box-label">Memories of Robert — Add Yours</div>
+    <p style="font-size:.82rem;color:var(--ink-light);line-height:1.7;margin-bottom:1rem;">This section is for family members who knew Robert personally. His character, his home, his voice, his habits, his stories. He grew up in a world shaped by Shimon and Sara, by the factory and the shul, by Prešov's Jewish community. Write what you remember.</p>
+    <div class="memory-ph" style="display:block;" onclick="openMemory('robert-personal')">+ Add your memory of Robert / Robi</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  FULL LINEAGE
+══════════════════════════════════════════ -->
+<div id="view-lineage" class="view">
+  <p class="sec-title">The Full Lineage</p>
+  <p class="sec-sub">From Rashi (~1040 CE) to Robert (b. 1931) · ~900 years · Tap any person to expand</p>
+
+  <div class="lineage-controls">
+    <div class="lc-group">
+      <span class="lc-label">Chapter</span>
+      <select id="lfilterChap">
+        <option value="all">All</option>
+        <option value="ancient">I · Ancient</option>
+        <option value="rashi">II · Rashi</option>
+        <option value="polish">III · Polish</option>
+        <option value="boskovice">IV · Boskovice</option>
+        <option value="topolcany">V · Topolčany</option>
+        <option value="presov">VI · Prešov</option>
+        <option value="destination">VII · Destination</option>
+      </select>
+    </div>
+    <div class="lc-group">
+      <span class="lc-label">Conf.</span>
+      <select id="lfilterConf">
+        <option value="all">All</option>
+        <option value="verified">🟢 Verified</option>
+        <option value="single">🟡 Single-source</option>
+        <option value="oral">⚪ Oral</option>
+      </select>
+    </div>
+    <div class="lc-group">
+      <input id="lsearch" type="text" placeholder="Search…" style="width:140px;">
+    </div>
+    <div class="lin-legend">
+      <div class="ll-item"><div class="ll-dot ll-v"></div>Verified</div>
+      <div class="ll-item"><div class="ll-dot ll-s"></div>Single-source</div>
+      <div class="ll-item"><div class="ll-dot ll-o"></div>Oral</div>
+    </div>
+  </div>
+
+  <div class="lin-thread" id="linThread">
+
+    <div class="lin-chapter" data-chapter="ancient"><div class="lin-ch-title">I · Ancient &amp; Davidic Chain</div><div class="lin-ch-desc">Oral tradition · Mishnaic literature · ~110 BCE – 400 CE</div></div>
+    <div class="lin-person" data-chapter="ancient" data-conf="oral" data-gen="1" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Hillel the Great</div><span class="lin-heb">הִלֵּל הַזָּקֵן</span><span class="lin-role">Nasi · Davidic Prince · Mishnaic Sage</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Dates</span> ~110 BCE–10 CE</div><div><span class="lm-lbl">Place</span> Jerusalem/Babylon</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Davidic descent; president of the Sanhedrin; founder of the Hillelite dynasty. Chain traced in Mishnaic and rabbinic yuchasin through ~33 intermediate generations westward from Israel through Italy toward France. <span class="tag tag-o">Oral</span></div></div>
+    </div>
+    <div class="lin-gap" data-chapter="ancient"><span class="lin-gap-text">~33 intermediate generations · Davidic line moves westward through Italy</span><span class="lin-gap-yr">10 CE – 1040 CE</span></div>
+
+    <div class="lin-chapter" data-chapter="rashi"><div class="lin-ch-title">II · Rashi &amp; the French-Rhineland Chain</div><div class="lin-ch-desc">Rabbinic literature · Treves · Spira · 1040–1573</div></div>
+    <div class="lin-person" data-chapter="rashi" data-conf="oral" data-gen="R" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Rashi — Rabbi Shlomo Yitzchaki</div><span class="lin-heb">רַשִׁ״י — ר׳ שְׁלֹמֹה יִצְחָקִי</span><span class="lin-role">Foremost Torah &amp; Talmud Commentator</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 1040, Troyes</div><div><span class="lm-lbl">Died</span> 1105</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Greatest medieval commentator on Torah and Talmud. No male heirs — chain through daughters into Rhineland Tosafist tradition. Rashi → Shapira → Kolin descent is oral tradition, not confirmed by peer-reviewed sources. <span class="tag tag-o">Oral Tradition</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="rashi" data-conf="oral" data-gen="R+1" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Miriam bat Rashi</div><span class="lin-heb">מִרְיָם בַּת רַשִׁ״י</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1070</div><div><span class="lm-lbl">Place</span> Troyes/Rhineland</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Daughter of Rashi. Chain continues through Rhineland Tosafist generations into the Treves family. <span class="tag tag-o">Oral</span></div></div>
+    </div>
+    <div class="lin-gap" data-chapter="rashi"><span class="lin-gap-text">Rhineland Tosafist generations · Treves family · ~1100–1300</span></div>
+    <div class="lin-person" data-chapter="rashi" data-conf="oral" data-gen="R+3" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Mattitjahu Treves</div><span class="lin-heb">מַתִּתְיָהוּ טְרֶבֶס</span><span class="lin-role">Chief Rabbi of Paris</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1300s</div><div><span class="lm-lbl">Place</span> Paris, France</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Transitional figure Treves → Spira lineage. <span class="tag tag-o">Oral</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="rashi" data-conf="oral" data-gen="R+5" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Rabbi Shlomo (Salman) Spira</div><span class="lin-heb">ר׳ שְׁלֹמֹה שְׁפִּירָא</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1375</div><div><span class="lm-lbl">Died</span> ~1452</div><div><span class="lm-lbl">Place</span> Speyer/Landau</div></div>
+      <div class="lin-details"><div class="lin-details-inner">"Solomon the Jewish teacher from Speyer" — received yeshiva permit 1397. Spira surname from Latin name of Speyer. <span class="tag tag-o">Oral</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="rashi" data-conf="oral" data-gen="R+6" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Miriam Spira</div><span class="lin-heb">מִרְיָם שְׁפִּירָא</span><span class="lin-role">Spira–Luria Convergence</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1403</div><div><span class="lm-lbl">Spouse</span> Aaron I Luria (b. 1413, Heilbronn)</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Marriage to Aaron Luria merges the Spira and Luria lineages. Line moves east into Poland. <span class="tag tag-o">Oral</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="rashi" data-conf="oral" data-gen="R+8" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Rabbi Solomon Luria — MaHaRaSHaL</div><span class="lin-heb">ר׳ שְׁלֹמֹה לוּרְיָא — מַהַרְשַׁ״ל</span><span class="lin-role">Head of Lublin Yeshiva</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 1510</div><div><span class="lm-lbl">Died</span> 1573</div><div><span class="lm-lbl">Place</span> Lublin, Poland</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Full Spira/Luria convergence expressed. Descendants carry chain into the Polish Golden Age. <span class="tag tag-o">Oral</span></div></div>
+    </div>
+
+    <div class="lin-chapter" data-chapter="polish"><div class="lin-ch-title">III · The Polish Golden Age</div><div class="lin-ch-desc">Nathan Neta Shapira · Kraków · Geni confirmed · ~1585–1720</div></div>
+    <div class="lin-person" data-chapter="polish" data-conf="verified" data-gen="S" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Rabbi Nathan Neta Shapira — Megale Amukot</div><span class="lin-heb">ר׳ נָתָן נְטַע שַׁפִּירָא</span><span class="lin-role">Chief Rabbi of Kraków · Kabbalist</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1585</div><div><span class="lm-lbl">Died</span> 1633</div><div><span class="lm-lbl">Place</span> Kraków, Poland</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Chief Rabbi of Kraków; author of Megale Amukot. Connection to Kolin line flows through Kolin's wife ("a daughter Spira"), not through patrilineal descent. "Nathan Neta" name echoes in Kolin family. <span class="tag tag-v">Geni · Wikipedia</span> <span class="tag tag-o">Oral chain to Rashi</span></div></div>
+    </div>
+    <div class="lin-gap" data-chapter="polish"><span class="lin-gap-text">3–4 intermediate Shapira/Kolin generations · Kraków → Moravia</span><span class="lin-gap-yr">1633–1724</span></div>
+
+    <div class="lin-chapter" data-chapter="boskovice"><div class="lin-ch-title">IV · Boskovice — Kolin — Löw-Beer</div><div class="lin-ch-desc">Encyclopaedia Judaica · Wikipedia · Geni · Villa Tugendhat · Fully verified</div></div>
+    <div class="lin-person" data-chapter="boskovice" data-conf="verified" data-gen="K" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Rabbi Samuel ben Nathan Ha-Levi Kolin</div><span class="lin-heb">ר׳ שְׁמוּאֵל בֶּן נָתָן הַלֵּוִי קוֹלִין</span><span class="lin-role">Machatzit HaShekel · Head of Boskovice Yeshiva ~60 years</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1724, Kolín</div><div><span class="lm-lbl">Died</span> 20 May 1806, Boskovice</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Presided over Boskovice yeshiva ~60 years; authored Machatzit HaShekel. Kolin→Löw-Beer is PATERNAL: Samuel → Jehuda Löw (married Buna Beer) → Salomon Löw-Beer. Perl/Paulina was Salomon's wife, not the Kolin connection. <span class="tag tag-v">Encyclopaedia Judaica · Wikipedia · Geni</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="boskovice" data-conf="verified" data-gen="K+1" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Jehuda (Löb/Löw) Ha-Levi Kolin</div><span class="lin-heb">יְהוּדָה לֵב הַלֵּוִי</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1751</div><div><span class="lm-lbl">Died</span> ~1800</div><div><span class="lm-lbl">Spouse</span> Buna née Beer/Bierisch</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Son of Rabbi Samuel Kolin. After 1788 Josefinian decree, son's surname fused as Löw-Beer: Löw from Kolin rabbinical name + Beer from wife Buna's family. <span class="tag tag-v">Geni</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="boskovice" data-conf="verified" data-gen="K+2" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Salomon Löw-Beer</div><span class="lin-heb">שְׁלֹמֹה לֶב-בֵּיר</span><span class="lin-role">First to carry the Löw-Beer surname · Mayor of Boskovice ghetto</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 1776, Boskovice</div><div><span class="lm-lbl">Died</span> 1832</div><div><span class="lm-lbl">Spouse</span> Paulina (Perl/Pavlina)</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Two sons: Moses (→ Svitávka textile dynasty → Villa Tugendhat, UNESCO) and Abraham (→ Slovakia, our branch). <span class="tag tag-v">Geni · Czech Wikipedia</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="boskovice" data-conf="verified" data-gen="K+3" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Abraham Löw-Beer</div><span class="lin-role">Our branch · Relocated to Slovakia</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1789, Boskovice</div><div><span class="lm-lbl">Died</span> ~1870</div><div><span class="lm-lbl">Place</span> Boskovice → Nitra region, Slovakia</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Son of Salomon; relocated to Nitra/Slovakia region. Geni profile lists death in "Nitriansky kraj, Slovakia." <span class="tag tag-v">Geni</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="boskovice" data-conf="verified" data-gen="K+4" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Nathan Nota Löw-Beer</div><span class="lin-heb">נָתָן נְטַע לֶב-בֵּיר</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 1820, Topolčany</div><div><span class="lm-lbl">Died</span> 1888</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Son of Abraham; born and died Topolčany. Brother Maximilian in 1869 Jewish Hungarian Census as wheat merchant. Children include Tereza Dvora (→ Herzfeld) and Salamon Sigmund (1846–1932). <span class="tag tag-v">Geni · 1869 Census</span></div></div>
+    </div>
+
+    <div class="lin-chapter" data-chapter="topolcany"><div class="lin-ch-title">V · The Topolčany Bridge — Bernfeld · Herzfeld · Löw-Beer</div><div class="lin-ch-desc">Topolčany Yizkor Book · Geni · Ancestry · ~1840–1940</div></div>
+    <div class="lin-person" data-chapter="topolcany" data-conf="verified" data-gen="K+5" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Tereza Dvora Löw-Beer</div><span class="lin-heb">טֶרֶזָה דְּבוֹרָה לֶב-בֵּיר</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1845</div><div><span class="lm-lbl">Spouse</span> Meir Herzfeld (1847–1916)</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Daughter of Nathan Nota Löw-Beer; married Meir Herzfeld of Brezova. <span class="tag tag-v">Geni · Ancestry</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="topolcany" data-conf="verified" data-gen="B" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Moshe (Mor) Bernfeld</div><span class="lin-heb">מֹשֶׁה מוֹר בֶּרְנְפֶלְד</span><span class="lin-role">Deputy Chairman · Community Repräsentanz</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 1840, Topolčany</div><div><span class="lm-lbl">Died</span> 1926</div><div><span class="lm-lbl">Spouse</span> Gittel Löw-Beer</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Leading community figure. Brother Jónás born in Boskovice 1831 — same Moravian origin as Löw-Beers. Wife Gittel from Topolčany Löw-Beer branch. <span class="tag tag-v">Geni · Yizkor Book</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="topolcany" data-conf="verified" data-gen="H+1" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Erna Ester Herzfeld</div><span class="lin-heb">אֶרְנָה אֶסְתֵּר הֶרְצְפֶלְד</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 20 Jul 1888, Brezova</div><div><span class="lm-lbl">Died</span> 1 Feb 1966, Haifa</div><div><span class="lm-lbl">Spouse</span> Max Bernfeld</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Daughter of Meir Herzfeld + Tereza Dvora Löw-Beer. Survived Holocaust; emigrated to Israel. Birthplace Brezova (not Topolčany). <span class="tag tag-v">Ancestry · Geni</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="topolcany" data-conf="verified" data-gen="B+2" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Max (Mordechai) Bernfeld</div><span class="lin-heb">מָקְס מָרְדְּכַי בֶּרְנְפֶלְד</span><span class="lin-role">Gabbai · Great Synagogue · Survived Holocaust</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 1884, Topolčany</div><div><span class="lm-lbl">Died</span> 1964</div><div><span class="lm-lbl">Spouse</span> Erna Herzfeld</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Son of Moshe + Gittel; Gabbai of Great Synagogue; council member. Survived; emigrated to Israel. Brother Sámuel Yehuda (1876–c. 1944) murdered at Auschwitz. Five children. <span class="tag tag-v">Geni · Yizkor Book</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="topolcany" data-conf="single" data-gen="T" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Tereza-Devora Bernfeld</div><span class="lin-heb">טֶרֶזָה דְּבוֹרָה בֶּרְנְפֶלְד</span><span class="lin-role">The Bridge — Topolčany to Prešov</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 12 Dec 1909, Topolčany</div><div><span class="lm-lbl">Died</span> 1986</div><div><span class="lm-lbl">Spouse</span> Yaakov Dov Muller</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Daughter of Max + Erna. Marriage to Yaakov Dov Muller bridges Topolčany and Prešov families. Birth date 12 Dec 1909 unverified outside MyHeritage. This is the weakest documented link. Slovak State Archive Prešov (FamilySearch microfilm 1793549) recommended. <span class="tag tag-s">MyHeritage only</span></div></div>
+    </div>
+
+    <div class="lin-chapter" data-chapter="presov"><div class="lin-ch-title">VI · Prešov — The Muller Side</div><div class="lin-ch-desc">Prešov Orthodox Cemetery · Oma's Story · Geni</div></div>
+    <div class="lin-person" data-chapter="presov" data-conf="oral" data-gen="M1" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Ahron (Adolf) Muller</div><span class="lin-heb">אַהֲרֹן מִילֶר</span><span class="lin-role">Teacher · Hildesheimer Rabbinical Seminary, Berlin</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1852</div><div><span class="lm-lbl">Spouse</span> Pesel Lieberman</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Teacher; trained at Hildesheimer Seminary, Berlin. Birthplace and parents unknown — open research gap. <span class="tag tag-o">Oma's Story</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="presov" data-conf="verified" data-gen="M3" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Moshe Aryeh Rozman</div><span class="lin-heb">מֹשֶׁה אַרְיֵה רוֹזְמָן</span><span class="lin-role">Dry goods merchant · Invited Shimon to Prešov</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Died</span> Jan 1918 (5 Shevat 5678)</div><div><span class="lm-lbl">Spouse</span> Rivka (Lieberman?) Rozman</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Cemetery: "Mose Ariel ben Yakov Dov Halevi." He invited Shimon to Prešov; his daughter Sara became Shimon's wife. Robert Muller named Moshe Aryeh in his honor. <span class="tag tag-v">Prešov Orthodox Cemetery</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="presov" data-conf="verified" data-gen="M6" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Sara (Sure) Rozman</div><span class="lin-heb">שָׂרָה רוֹזְמָן</span><span class="lin-role">Decisive physical verification of Rozman–Muller marriage</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Died</span> Dec 1933 (9 Tevet 5694)</div><div><span class="lm-lbl">Spouse</span> Shimon Simon Muller</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Cemetery: "Sure bas Mose Arie Halevi Zena Simon" — Sara daughter of Moshe Aryeh HaLevi, wife of Simon. This single inscription confirms both her parentage and her marriage. <span class="tag tag-v">Prešov Orthodox Cemetery</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="presov" data-conf="verified" data-gen="M5" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Shimon Simon Muller</div><span class="lin-heb">שִׁמְעוֹן מִילֶר</span><span class="lin-role">Liqueur factory · Murdered Auschwitz 1944</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1874–1889, Nowy Sącz</div><div><span class="lm-lbl">Died</span> 1944, Auschwitz</div><div><span class="lm-lbl">Spouse</span> Sara (Sure) Rozman</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Son of Ahron + Pesel; invited to Prešov by Moshe Aryeh Rozman; ran Schwartz &amp; Glassner liqueur factory; murdered at Auschwitz 1944. <span class="tag tag-v">Cemetery (indirect) · Oma's Story</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="presov" data-conf="single" data-gen="M7" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Yaakov Dov Muller</div><span class="lin-heb">יַעֲקֹב דֹּב מִילֶר</span><span class="lin-role">Frankfurt Yeshiva · Bridge to Topolčany</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1900–1910, Prešov</div><div><span class="lm-lbl">Spouse</span> Tereza-Devora Bernfeld</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Son of Shimon + Sara; attended Frankfurt Yeshiva (Shimon advocated 10 days). Named Yaakov Dov after Sara's grandfather Yaakov Dov HaLevi Rozman — Ashkenazi memorial naming. Marriage to Tereza-Devora unites Prešov and Topolčany families. <span class="tag tag-s">MyHeritage · Oma's Story</span></div></div>
+    </div>
+
+    <div class="lin-chapter" data-chapter="destination"><div class="lin-ch-title">VII · The Destination</div><div class="lin-ch-desc">Robert Moishe Arie Muller · Prešov → Israel · b. 1931</div></div>
+    <div class="lin-person" data-chapter="destination" data-conf="single" data-gen="R" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Robert Moishe Arie Muller — "Rubi"</div><span class="lin-heb">רוּבִּי — מֹשֶׁה אַרְיֵה מִילֶר</span><span class="lin-role">Firstborn · Name honors great-grandfather Moshe Aryeh Rozman</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> 1931, Prešov</div><div><span class="lm-lbl">Spouse</span> Ruth Singer</div><div><span class="lm-lbl">Place</span> Prešov → Israel</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Firstborn of Yaakov Dov + Tereza-Devora. Hebrew name Moshe Aryeh echoes great-grandfather Moshe Aryeh Rozman — the man who first invited the Muller family to Prešov, closing a generational circle. Married Ruth Singer (daughter of Friedrich/Fritz + Sabina/Bini Singer). <span class="tag tag-s">MyHeritage · Oma's Story</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="destination" data-conf="single" data-gen="R+2" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Shlomit Muller</div><span class="lin-heb">שְׁלוֹמִית מִילֶר</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Place</span> Israel</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Daughter of Robert + Ruth. <span class="tag tag-s">Family</span></div></div>
+    </div>
+    <div class="lin-person" data-chapter="destination" data-conf="single" data-gen="R+3" onclick="this.classList.toggle('open')">
+      <div class="lin-name">Assaf</div><span class="lin-heb">אַסַף</span><span class="lin-role">Archive author · ~1000 years after Rashi</span>
+      <div class="lin-meta"><div><span class="lm-lbl">Born</span> ~1980s, Israel</div></div>
+      <div class="lin-details"><div class="lin-details-inner">Son of Shlomit. Author of this archive. The chain from Rashi (~1040 CE) spans nearly one thousand years across France, Germany, Poland, Moravia, Slovakia, and Israel. <span class="tag tag-s">Family</span></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  OPEN RESEARCH
+══════════════════════════════════════════ -->
+<div id="view-gaps" class="view">
+  <p class="sec-title">Open Research</p>
+  <p class="sec-sub">Resolved questions · Known gaps · Archives to search</p>
+
+  <div style="margin-bottom:1.5rem;padding:.8rem 1.2rem;background:#f0faf4;border:1px solid rgba(45,106,79,.2);border-radius:3px;font-size:.82rem;color:#3d7a5a;line-height:1.85;">
+    <strong style="color:#2d6a4f;display:block;margin-bottom:.3rem;">Resolved by "Oma's Story" + external verification:</strong>
+    Ahron's occupation (teacher, Hildesheimer Seminary); wife Pesel Lieberman; Shimon's wife Sara Rozman; reason for Prešov move (Moshe Aryeh Rozman's invitation); all six children named; cheese factory before liqueur; Schwartz &amp; Glassner; Munkacser Rebbe consultation; WWI logging; Ilona running factory at 14; Margit's death and Torah scroll; Malvinka Fonfedder second marriage; Frankfurt Yeshiva advocacy; Shimon's arrest and murder 1944. Prešov Orthodox Cemetery independently confirms Moshe Aryeh Rozman, Rivka his wife, and Sara Rozman wife of Simon.
+  </div>
+
+  <div class="gap-card gap-resolved">
+    <div class="gap-num">✓</div>
+    <div class="gap-text"><strong>Kolin → Löw-Beer connection — resolved + corrected</strong>Confirmed as PATERNAL through Jehuda Löw, not through wife Perl. Rabbi Samuel Kolin → Jehuda Löw (married Buna Beer) → Salomon Löw-Beer. Source: Encyclopaedia Judaica, Wikipedia, Geni, Villa Löw-Beer.</div>
+  </div>
+  <div class="gap-card gap-resolved">
+    <div class="gap-num">✓</div>
+    <div class="gap-text"><strong>Rozman–Muller marriage — confirmed by cemetery</strong>Prešov Orthodox Cemetery: "Sure bas Mose Arie Halevi Zena Simon" (d. Dec 1933) independently confirms Sara Rozman's parentage and marriage to Simon Muller.</div>
+  </div>
+  <div class="gap-card gap-resolved">
+    <div class="gap-num">✓</div>
+    <div class="gap-text"><strong>Löw-Beer → Bernfeld connection — confirmed</strong>Moshe Bernfeld (1840–1926) married Gittel (Katalin) née Löw-Beer in Topolčany. Both families originate from Boskovice. Confirmed: Geni, Yizkor Book, MyHeritage (multiple trees).</div>
+  </div>
+  <div class="gap-card gap-resolved">
+    <div class="gap-num">✓</div>
+    <div class="gap-text"><strong>Herzfeld birthplace — corrected</strong>Erna Herzfeld was born in Brezova, not Topolčany. The Herzfeld family is absent from the Yizkor Book. They connected to Topolčany through the Löw-Beer marriage, not as residents.</div>
+  </div>
+
+  <div style="margin:1.5rem 0 .8rem;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);">Open Gaps</div>
+
+  <div class="gap-card">
+    <div class="gap-num">01</div>
+    <div class="gap-text"><strong>Ahron Muller — birthplace and parents</strong>Born ~1852, origin unknown. Recommended: Hildesheimer Seminary student records (Berlin); JRI-Poland; Hungarian Jewish records.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-num">02</div>
+    <div class="gap-text"><strong>Shimon Muller — exact birth year</strong>Nowy Sącz metrical books are at the Kraków State Archive and partly on JRI-Poland. Search: Muller births, Nowy Sącz, 1870–1895.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-num">03</div>
+    <div class="gap-text"><strong>Tereza-Devora Bernfeld — birth and marriage record</strong>Birth date 12 Dec 1909 unverified outside MyHeritage. Slovak State Archive Prešov (FamilySearch microfilm 1793549); FamilySearch Slovak Jewish records. This is the weakest link in the chain.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-num">04</div>
+    <div class="gap-text"><strong>Yaakov Dov Muller — birth record</strong>Born ~1900–1910, Prešov. Same archive: Prešov Jewish vital records (FamilySearch microfilm 1793548). No direct record found.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-num">05</div>
+    <div class="gap-text"><strong>Bernfeld → Shapira — generational chain</strong>The Bernfeld family's specific connection to the Shapira/Kolin chain spans ~1633–1850. Gesher Galicia, Geni.com Shapira trees, published seforim yuchasin.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-num">06</div>
+    <div class="gap-text"><strong>Ruth Singer — parents and family</strong>Friedrich (Fritz) Singer + Sabina (Bini) Singer. Prešov vital records and USHMM Prešov database (source ID 30011).</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-num">07</div>
+    <div class="gap-text"><strong>Rashi → Shapira → Kolin — academic verification</strong>~15 generations, ~1040–1585. Currently oral/traditional. Sefer Yuchasin, Margaliot's Gedolei Yisrael, published Spira genealogies. The connection may flow through Kolin's wife rather than his patriline.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-num">08</div>
+    <div class="gap-text"><strong>Robert Muller — postwar life, emigration to Israel</strong>Born 1931, Prešov. His life after 1931 is undocumented here. Family testimony; Israeli records.</div>
+  </div>
+
+  <div class="source-note" style="margin-top:2rem;">
+    <strong>Key archives:</strong> JRI-Poland · Gesher Galicia · Hungarian National Archive (MNL OL Budapest) · Slovak State Archive Prešov (Štátny archív v Prešove) · Slovak State Archive Nitra · Yad Vashem Central Database · FamilySearch Slovak collections (microfilms 1793548–49, 1793514) · Geni.com Shapira lineage trees · Czech National Archive Brno (MZA) · USHMM Prešov Holocaust victims (Source ID 30011) · Hildesheimer Seminary records, Berlin · 1942 Súpis Židov (Census of Jews), Slovak National Archive
+  </div>
+</div>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal(null,true)">✕</button>
+    <h2 id="modalTitle">—</h2>
+    <div id="modalHeb" class="modal-heb"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ── VIEW SWITCHING ── */
+function showView(id,btn){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ── TIMELINE NODES ── */
+function toggleNode(el){el.classList.toggle('open');}
+
+/* ── LINEAGE FILTERS ── */
+(function(){
+  const fc=document.getElementById('lfilterChap');
+  const ff=document.getElementById('lfilterConf');
+  const fs=document.getElementById('lsearch');
+  if(!fc)return;
+  function applyLin(){
+    const ch=fc.value,cf=ff.value,q=fs.value.trim().toLowerCase();
+    document.querySelectorAll('#linThread .lin-person, #linThread .lin-gap').forEach(el=>{
+      const ec=el.dataset.chapter||'';
+      const ef=el.dataset.conf||'';
+      const ok=(ch==='all'||ec===ch)&&(cf==='all'||ef===cf)&&(q===''||el.textContent.toLowerCase().includes(q));
+      el.classList.toggle('lin-hidden',!ok);
+    });
+    document.querySelectorAll('#linThread .lin-chapter').forEach(ch=>{
+      const key=ch.dataset.chapter;
+      const any=!!document.querySelector(`#linThread .lin-person[data-chapter="${key}"]:not(.lin-hidden)`);
+      ch.classList.toggle('lin-hidden',!any);
+    });
+  }
+  fc.addEventListener('change',applyLin);
+  ff.addEventListener('change',applyLin);
+  fs.addEventListener('input',applyLin);
+})();
+
+/* ── PERSON DATA ── */
+const personData={
+  ahron:{title:'Ahron Muller',heb:'אַהֲרֹן מִילֶר',body:'<div class="modal-meta"><div class="mm-item"><span class="mm-label">Born</span><span class="mm-value">~1852</span></div><div class="mm-item"><span class="mm-label">Occupation</span><span class="mm-value">Teacher</span></div><div class="mm-item"><span class="mm-label">Education</span><span class="mm-value">Hildesheimer Seminary, Berlin</span></div><div class="mm-item"><span class="mm-label">Wife</span><span class="mm-value">Pesel Lieberman</span></div></div><p>Trained at Hildesheimer\'s Berlin Seminary — the intellectual center of Modern Orthodoxy combining rigorous Torah with secular scholarship. His son Shimon inherited his seriousness of purpose. Birthplace and parents are an open research gap.</p><p><em>Source: Oma\'s Story</em></p>'},
+  pesel:{title:'Pesel Lieberman',heb:'פֶּסֶל לִיבֶּרְמַן',body:'<div class="modal-meta"><div class="mm-item"><span class="mm-label">Husband</span><span class="mm-value">Ahron Muller</span></div><div class="mm-item"><span class="mm-label">Son</span><span class="mm-value">Shimon Muller</span></div></div><p>Mother of Shimon. Her parents and family origins are an open research question. The Lieberman surname also appears in Prešov (Rivka Lieberman married Moshe Aryeh Rozman) — possible shared family origin.</p>'},
+  shimon:{title:'Shimon Muller',heb:'שִׁמְעוֹן מִילֶר',body:'<div class="modal-meta"><div class="mm-item"><span class="mm-label">Born</span><span class="mm-value">~1874–1889, Nowy Sącz</span></div><div class="mm-item"><span class="mm-label">Died</span><span class="mm-value">1944, Auschwitz</span></div><div class="mm-item"><span class="mm-label">First Wife</span><span class="mm-value">Sara Rozman</span></div><div class="mm-item"><span class="mm-label">Second Wife</span><span class="mm-value">Malvinka Fonfedder</span></div><div class="mm-item"><span class="mm-label">Children</span><span class="mm-value">Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div><div class="mm-item"><span class="mm-label">Business</span><span class="mm-value">Schwartz &amp; Glassner liqueur</span></div></div><p>See Shimon\'s Story for his full documented life — from Nowy Sącz to Prešov, the liqueur factory, WWI, the Munkacser Rebbe, his six children, and his murder at Auschwitz 1944. His last act before deportation: blessing his granddaughter Gretl in the prison yard.</p>'},
+  sara:{title:'Sara Rozman',heb:'שָׂרָה רוֹזְמָן',body:'<div class="modal-meta"><div class="mm-item"><span class="mm-label">Father</span><span class="mm-value">Moshe Aryeh Rozman</span></div><div class="mm-item"><span class="mm-label">Died</span><span class="mm-value">December 1933, Prešov</span></div><div class="mm-item"><span class="mm-label">Husband</span><span class="mm-value">Shimon Muller</span></div><div class="mm-item"><span class="mm-label">Children</span><span class="mm-value">6: Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div></div><p>Sara broke a prior betrothal to marry Shimon, causing family upheaval. She and Shimon built their life in Prešov together. She died from an infected cut before the war. Shimon later married her cousin Malvinka Fonfedder.</p><p><strong>Cemetery confirmation:</strong> Prešov Orthodox Cemetery: "Sure bas Mose Arie Halevi Zena Simon" (d. 9 Tevet 5694 = December 1933) — the single most important physical verification in the entire genealogical chain.</p>'},
+  ilona:{title:'Ilona (Oma) Muller',heb:'אִילוֹנָה — Oma',body:'<p>Eldest daughter of Shimon and Sara. Author of "Oma\'s Story" — the primary source for this entire archive. At age 14, during WWI, she ran the liqueur factory alone while Shimon supervised logging in the requisitioned forest. Her written account is the foundation of the family\'s documented history. She sheltered her father in Miskolc during the war — and was among the last to see him before his arrest.</p>'},
+  rosie:{title:'Rosie (Raizel) Muller',heb:'רַיְזֶל',body:'<p>Second child of Shimon and Sara. Shimon first sought refuge with Rosie in Munkacs during the war but was too visibly foreign to remain safely. Further details to be documented from family records.</p>'},
+  yakov:{title:'Yakov Dov Muller',heb:'יַעֲקֹב דֹּב מִילֶר',body:'<div class="modal-meta"><div class="mm-item"><span class="mm-label">Born</span><span class="mm-value">~1900–1910, Prešov</span></div><div class="mm-item"><span class="mm-label">Father</span><span class="mm-value">Shimon Muller</span></div><div class="mm-item"><span class="mm-label">Yeshiva</span><span class="mm-value">Frankfurt (Shimon advocated 10 days)</span></div><div class="mm-item"><span class="mm-label">Wife</span><span class="mm-value">Tereza-Devora Bernfeld</span></div></div><p>Son of Shimon and Sara. Shimon traveled to Frankfurt and spent ten days persuading a Yeshiva to accept him. Yakov married Tereza-Devora Bernfeld of Topolčany — uniting the Prešov Muller line with the Topolčany Bernfeld/Löw-Beer dynasty. Their firstborn Robert arrived in 1931. Named Yaakov Dov in memory of Sara\'s grandfather Yaakov Dov HaLevi Rozman.</p>'},
+  margit:{title:'Margit (Malca) Muller',heb:'מַרְגִּית — מַלְכָּה',body:'<p>Daughter of Shimon and Sara. Died from internal injuries after jumping from the wrong train. In her memory, Shimon commissioned a Sefer Torah and donated it to the Prešov shul. The Prešov Orthodox Cemetery records confirm "Panna Malke bas Simon" buried September 1923 — almost certainly Margit.</p>'},
+  pirike:{title:'Pirike (Perel) Muller',heb:'פֶּרֶל',body:'<p>Daughter of Shimon and Sara. Further details to be documented and added to the archive.</p>'},
+  josi:{title:'Josi Muller',heb:'יוֹסִי',body:'<p>Son of Shimon and Sara. Further details to be researched and added.</p>'},
+  teresa:{title:'Tereza-Devora Bernfeld',heb:'טֶרֶזָה דְּבוֹרָה בֶּרְנְפֶלְד',body:'<div class="modal-meta"><div class="mm-item"><span class="mm-label">Born</span><span class="mm-value">12 Dec 1909, Topolčany</span></div><div class="mm-item"><span class="mm-label">Died</span><span class="mm-value">1986</span></div><div class="mm-item"><span class="mm-label">Father</span><span class="mm-value">Max (Mordechai) Bernfeld</span></div><div class="mm-item"><span class="mm-label">Mother</span><span class="mm-value">Erna Ester Herzfeld</span></div><div class="mm-item"><span class="mm-label">Husband</span><span class="mm-value">Yakov Dov Muller</span></div><div class="mm-item"><span class="mm-label">Son</span><span class="mm-value">Robert (b. 1931)</span></div></div><p>Robert\'s mother. Daughter of Max Bernfeld (Gabbai of the Great Synagogue of Topolčany) and Erna Herzfeld (granddaughter of Nathan Nota Löw-Beer). She carries the entire Bernfeld–Löw-Beer–Kolin chain into the final generation. Her birth date of 12 December 1909 has not been independently verified outside the MyHeritage tree — this is the weakest link in the documented chain.</p>'},
+  robert:{title:'Robert Moyshe Arie Muller',heb:'מֹשֶׁה אַרְיֵה מִילֶר — רוּבִּי',body:'<div class="modal-meta"><div class="mm-item"><span class="mm-label">Born</span><span class="mm-value">1931, Prešov</span></div><div class="mm-item"><span class="mm-label">Father</span><span class="mm-value">Yakov Dov Muller</span></div><div class="mm-item"><span class="mm-label">Mother</span><span class="mm-value">Tereza-Devora Bernfeld</span></div><div class="mm-item"><span class="mm-label">Wife</span><span class="mm-value">Ruth Singer</span></div></div><p>The destination of this archive. His Hebrew name Moyshe Arie echoes Moshe Aryeh Rozman — the man who invited Shimon to Prešov, closing the generational circle. Firstborn of Yakov and Tereza-Devora. Through his father he carries the Muller–Rozman–Prešov line; through his mother the Bernfeld–Löw-Beer–Kolin chain going back to Boskovice and the yuchasin toward Rashi.</p>'}
+};
+
+/* ── MEMORY DATA ── */
+const memData={
+  shimon:{title:"Add to Shimon's Story",heb:'שִׁמְעוֹן מִילֶר',body:'<p>Shimon\'s story is documented through Ilona\'s account. Do you have additional details, photographs, or memories to add?</p>'},
+  'shimon-shoah':{title:"Shimon's Final Days",heb:'בּוּדַפֶּשְׁט, 1944',body:'<p>Do you have information about Shimon\'s arrest, imprisonment, or any records from Yad Vashem or Hungarian deportation lists?</p>'},
+  'robert-personal':{title:'Memories of Robert',heb:'זִכְרוֹנוֹת — רוּבִּי',body:'<p>Personal memories of Robert Moyshe Arie Muller — his character, voice, home, stories. Write what you remember.</p>'},
+  general:{title:'Contribute to the Archive',heb:'הוֹסֵף לָאַרְכִיּוֹן',body:'<p>If you are a family member with a story, photograph, document, or memory — this is where it belongs.</p>'}
+};
+
+function openPerson(key){
+  const d=personData[key];if(!d)return;
+  document.getElementById('modalTitle').textContent=d.title;
+  document.getElementById('modalHeb').textContent=d.heb||'';
+  document.getElementById('modalBody').innerHTML=d.body+'<div class="memory-ph" style="margin-top:1rem;display:block;" onclick="event.stopPropagation()">+ Add a memory or story about this person</div>';
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function openMemory(key){
+  const d=memData[key];if(!d)return;
+  document.getElementById('modalTitle').textContent=d.title;
+  document.getElementById('modalHeb').textContent=d.heb||'';
+  document.getElementById('modalBody').innerHTML=d.body+'<textarea class="mem-input" placeholder="Write your memory, story, or contribution here…"></textarea><br><button class="btn" style="margin-top:.8rem;" onclick="submitMemory()">Submit to Archive</button>';
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal(e,force){
+  if(force||e.target===document.getElementById('modalOverlay'))
+    document.getElementById('modalOverlay').classList.remove('open');
+}
+function submitMemory(){
+  const ta=document.querySelector('.mem-input');
+  if(ta&&ta.value.trim())
+    document.getElementById('modalBody').innerHTML='<p style="color:var(--green);font-size:.92rem;text-align:center;padding:1.2rem 0;">✓ Thank you. Your memory has been received.<br><span style="font-size:.78rem;color:var(--ink-faint);">The archive keeper will review and include it.</span></p>';
+}
+</script>
+</body>
+</html>
