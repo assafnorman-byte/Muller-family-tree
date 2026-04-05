@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The House of Muller — A Thousand Years to Robert</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1209;
+  --parchment: #f2e8d5;
+  --sepia-light: #e8d9bc;
+  --sepia-mid: #c4a882;
+  --sepia-dark: #8b6f47;
+  --red-wax: #8b2c2c;
+  --gold: #c9a84c;
+  --gold-light: #e8d08a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* FIX #1: body color was var(--ink) = dark on dark = invisible text */
+body {
+  background: var(--ink);
+  color: var(--sepia-light);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.map-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse at 30% 40%, rgba(139,111,71,.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 60%, rgba(74,85,104,.12) 0%, transparent 50%),
+              #1a1209;
+}
+.map-lines {
+  position: fixed; inset: 0; z-index: 0; opacity: .055;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,168,76,.6) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201,168,76,.6) 40px);
+}
+#app { position: relative; z-index: 1; min-height: 100vh; }
+
+/* ── HEADER ── */
+header {
+  padding: 3rem 2rem 2rem; text-align: center;
+  border-bottom: 1px solid rgba(201,168,76,.25);
+  background: linear-gradient(to bottom, rgba(26,18,9,.97), rgba(26,18,9,.85));
+}
+.archive-label {
+  font-size: .68rem; letter-spacing: .35em; text-transform: uppercase;
+  color: var(--gold); opacity: .8; margin-bottom: 1rem;
+}
+header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 300;
+  color: var(--parchment); line-height: 1.15;
+}
+header h1 em { font-style: italic; color: var(--gold-light); }
+.hebrew-title {
+  font-family: 'Frank Ruhl Libre', serif; font-size: 1.4rem;
+  color: var(--sepia-mid); margin-top: .6rem; direction: rtl; font-weight: 300;
+}
+.subtitle {
+  font-size: .82rem; color: var(--sepia-mid); margin-top: 1.2rem;
+  font-weight: 300; letter-spacing: .04em; line-height: 1.7;
+}
+.subtitle strong { color: var(--parchment); font-weight: 400; }
+
+/* ── NAV ── */
+nav {
+  display: flex; justify-content: center; padding: 0 1rem;
+  background: rgba(26,18,9,.92); border-bottom: 1px solid rgba(201,168,76,.2);
+  flex-wrap: wrap; position: sticky; top: 0; z-index: 50;
+}
+nav button {
+  background: none; border: none; color: var(--sepia-mid);
+  font-family: 'DM Sans', sans-serif; font-size: .75rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 1rem 1.1rem; cursor: pointer; transition: all .2s;
+  border-bottom: 2px solid transparent;
+}
+nav button:hover { color: var(--parchment); }
+nav button.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+/* ── MAIN ── */
+main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+.view { display: none; }
+.view.active { display: block; animation: fadeIn .35s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.section-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.9rem;
+  font-weight: 300; color: var(--parchment); margin-bottom: .3rem;
+}
+.section-sub {
+  font-size: .8rem; color: var(--sepia-mid); letter-spacing: .04em;
+  margin-bottom: 2rem; line-height: 1.75;
+}
+
+/* ── ROBERT TAB ── */
+.robert-crown {
+  text-align: center; padding: 3rem 2rem 2.5rem;
+  background: linear-gradient(160deg, rgba(201,168,76,.1), rgba(139,44,44,.06), rgba(242,232,213,.04));
+  border: 1px solid rgba(201,168,76,.3); border-radius: 2px;
+  margin-bottom: 2rem; position: relative; overflow: hidden;
+}
+.robert-crown::before {
+  content: '✡'; position: absolute; font-size: 14rem; opacity: .025;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  color: var(--gold); pointer-events: none;
+}
+.robert-crown .label {
+  font-size: .62rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem; display: block;
+}
+.robert-crown .r-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300;
+  color: var(--gold-light); line-height: 1.2;
+}
+.robert-crown .r-heb {
+  font-family: 'Frank Ruhl Libre', serif; font-size: 1.3rem;
+  color: var(--sepia-mid); direction: rtl; margin-top: .5rem;
+}
+.robert-crown .r-meta {
+  margin-top: 1.4rem; font-size: .85rem; color: var(--sepia-light); line-height: 2;
+}
+.robert-crown .r-meta strong { color: var(--parchment); font-weight: 500; }
+
+/* Lineage thread */
+.lineage-thread { display: flex; flex-direction: column; margin: 1.5rem 0; }
+.lineage-step {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: .75rem 0 .75rem 1.3rem;
+  border-left: 1px solid rgba(201,168,76,.25);
+  margin-left: 1rem; position: relative;
+}
+.lineage-step::before {
+  content: ''; position: absolute; left: -5px; top: 1.3rem;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--sepia-dark); border: 1px solid rgba(201,168,76,.5);
+}
+.lineage-step.hero::before {
+  background: var(--gold); width: 13px; height: 13px; left: -7px;
+  box-shadow: 0 0 14px rgba(201,168,76,.4);
+}
+.ls-year {
+  font-family: 'Cormorant Garamond', serif; font-size: .75rem;
+  color: var(--gold); min-width: 85px; flex-shrink: 0; padding-top: .15rem;
+}
+.ls-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+  color: var(--parchment); line-height: 1.3;
+}
+.ls-sub { font-size: .72rem; color: var(--sepia-mid); margin-top: .15rem; }
+.ls-tag {
+  font-size: .58rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: .15em .55em; border-radius: 1px; margin-top: .35rem; display: inline-block;
+}
+.tag-oral { background: rgba(100,80,20,.3); color: #d4c070; border: 1px solid rgba(180,150,40,.3); }
+.tag-verified { background: rgba(40,80,40,.3); color: #80c080; border: 1px solid rgba(60,100,60,.4); }
+
+/* Robert chain cards */
+.robert-chain {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem; margin-bottom: 1.5rem;
+}
+.chain-card {
+  padding: 1.2rem; background: rgba(242,232,213,.06);
+  border: 1px solid rgba(201,168,76,.14); border-radius: 2px;
+}
+.chain-card .cc-label {
+  font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .5rem; display: block;
+}
+.chain-card .cc-content { font-size: .82rem; color: var(--sepia-light); line-height: 1.75; }
+.chain-card .cc-content strong { color: var(--parchment); font-weight: 500; }
+
+.robi-memories {
+  margin-top: 2rem; padding: 1.6rem;
+  background: rgba(201,168,76,.05); border: 1px solid rgba(201,168,76,.2); border-radius: 2px;
+}
+.robi-memories h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+  font-weight: 300; color: var(--parchment); margin-bottom: .5rem;
+}
+.robi-memories p { font-size: .82rem; color: var(--sepia-mid); line-height: 1.75; margin-bottom: 1rem; }
+
+/* ── STORY TAB ── */
+.chapter-nav {
+  display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem;
+  padding: 1rem; background: rgba(242,232,213,.04);
+  border: 1px solid rgba(201,168,76,.12); border-radius: 2px;
+}
+.chapter-nav-label {
+  font-size: .6rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--sepia-dark); width: 100%; margin-bottom: .3rem;
+}
+.ch-pill {
+  background: none; border: 1px solid rgba(201,168,76,.2); color: var(--sepia-mid);
+  font-family: 'DM Sans', sans-serif; font-size: .72rem; letter-spacing: .06em;
+  padding: .35rem .9rem; cursor: pointer; border-radius: 1px;
+  transition: all .2s; white-space: nowrap;
+}
+.ch-pill:hover { border-color: rgba(201,168,76,.5); color: var(--parchment); }
+.ch-pill.active { background: rgba(201,168,76,.15); border-color: var(--gold); color: var(--gold-light); }
+
+.story-panel {
+  background: linear-gradient(160deg, rgba(242,232,213,.07), rgba(242,232,213,.03));
+  border: 1px solid rgba(201,168,76,.2); border-radius: 2px;
+  padding: 1.8rem; margin-bottom: 1.2rem; scroll-margin-top: 80px;
+}
+.tragedy-panel {
+  background: linear-gradient(160deg, rgba(139,44,44,.1), rgba(80,20,20,.05));
+  border-color: rgba(139,44,44,.3);
+}
+.oral-panel {
+  background: linear-gradient(160deg, rgba(100,80,20,.08), rgba(242,232,213,.03));
+  border-color: rgba(180,150,40,.2);
+}
+.story-chapter {
+  font-size: .62rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .6rem;
+}
+.tragedy-panel .story-chapter { color: #c08080; }
+.oral-panel .story-chapter { color: #c4a840; }
+.story-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+  font-weight: 300; color: var(--parchment); margin-bottom: .9rem; line-height: 1.3;
+}
+.tragedy-panel .story-title { color: #d4b4b4; }
+.story-body { font-size: .85rem; color: var(--sepia-light); line-height: 1.85; }
+.story-body p { margin-bottom: .85rem; }
+.story-body p:last-child { margin-bottom: 0; }
+.story-body em { color: var(--parchment); font-style: normal; }
+.oral-flag {
+  display: inline-block; font-size: .65rem; background: rgba(100,80,20,.25);
+  color: #c4a840; border: 1px solid rgba(180,150,40,.3);
+  padding: .1em .5em; border-radius: 1px; margin-left: .4rem; vertical-align: middle;
+}
+.chapter-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .8rem; margin-top: 1.2rem; padding-top: 1rem;
+  border-top: 1px solid rgba(201,168,76,.12);
+}
+.source-note { font-size: .75rem; color: var(--sepia-mid); font-style: italic; }
+.source-note strong { color: var(--sepia-light); font-style: normal; }
+.memory-placeholder {
+  display: inline-block; font-size: .72rem; letter-spacing: .08em;
+  padding: .35rem .9rem; background: rgba(201,168,76,.06);
+  border: 1px dashed rgba(201,168,76,.25); border-radius: 1px;
+  color: rgba(201,168,76,.7); cursor: pointer; transition: all .2s;
+}
+.memory-placeholder:hover {
+  background: rgba(201,168,76,.12); color: var(--gold);
+  border-color: rgba(201,168,76,.5);
+}
+
+/* ── FAMILY TREE ── */
+.tree-container { overflow-x: auto; padding-bottom: 1rem; }
+.gen-label {
+  font-size: .62rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--sepia-dark); text-align: center; margin: 1.8rem 0 .6rem;
+}
+.generation {
+  display: flex; gap: .8rem; justify-content: center;
+  flex-wrap: wrap; align-items: flex-start;
+}
+.person-card {
+  background: linear-gradient(160deg, rgba(242,232,213,.1), rgba(242,232,213,.05));
+  border: 1px solid rgba(201,168,76,.2); border-radius: 2px;
+  padding: .9rem 1rem; min-width: 150px; max-width: 200px;
+  text-align: center; cursor: pointer; transition: all .25s;
+}
+.person-card:hover { border-color: rgba(201,168,76,.5); transform: translateY(-2px); }
+.person-card.focal {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, rgba(201,168,76,.18), rgba(201,168,76,.08));
+  box-shadow: 0 0 24px rgba(201,168,76,.2);
+}
+.person-card.focal .p-name { color: var(--gold-light); font-size: 1.05rem; }
+.person-card.deceased { border-color: rgba(139,44,44,.3); }
+.person-card.deceased .p-name { color: #d4b8b8; }
+.p-name {
+  font-family: 'Cormorant Garamond', serif; font-size: .9rem;
+  color: var(--parchment); line-height: 1.3; font-weight: 400;
+}
+.p-name-heb {
+  font-family: 'Frank Ruhl Libre', serif; font-size: .75rem;
+  color: var(--sepia-mid); direction: rtl; margin-top: .2rem;
+}
+.p-dates { font-size: .65rem; color: var(--sepia-dark); margin-top: .3rem; font-style: italic; }
+.p-location { font-size: .65rem; color: var(--sepia-mid); margin-top: .2rem; }
+.connector-row { display: flex; justify-content: center; height: 1.8rem; align-items: center; }
+.connector-v {
+  width: 1px; height: 1.8rem;
+  background: linear-gradient(to bottom, rgba(201,168,76,.4), rgba(201,168,76,.15));
+  margin: 0 auto;
+}
+
+/* FIX #2: couple-connector was pushing down due to padding-top:1.8rem misaligning */
+.couple-connector {
+  display: flex; align-items: center; gap: .4rem;
+  padding: 0 .5rem; align-self: center;
+}
+.marriage-ring { font-size: .8rem; color: var(--gold); opacity: .8; }
+
+.siblings-section {
+  margin-top: 1.5rem; padding: 1.4rem;
+  background: rgba(242,232,213,.04); border: 1px solid rgba(201,168,76,.12); border-radius: 2px;
+}
+.siblings-label {
+  font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--sepia-dark); margin-bottom: .8rem;
+}
+.siblings-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.sibling-chip {
+  padding: .4rem .9rem; border: 1px solid rgba(201,168,76,.18);
+  background: rgba(242,232,213,.05); border-radius: 2px;
+  font-size: .78rem; color: var(--sepia-light); cursor: pointer; transition: all .2s;
+}
+.sibling-chip:hover { border-color: rgba(201,168,76,.4); color: var(--parchment); }
+.sibling-chip.focal-sibling { border-color: rgba(201,168,76,.4); color: var(--gold-light); }
+/* FIX #3: sibling chip small direction:rtl was misaligning chip layout */
+.sibling-chip small { display: block; font-size: .62rem; color: var(--sepia-dark); margin-top: .1rem; }
+
+/* ── PLACES & SURNAMES ── */
+.places-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1rem;
+}
+.surnames-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem;
+}
+.place-card, .surname-card {
+  background: linear-gradient(135deg, rgba(242,232,213,.08), rgba(242,232,213,.04));
+  border: 1px solid rgba(201,168,76,.15); border-radius: 2px; padding: 1.4rem;
+  transition: all .25s;
+}
+.place-card:hover, .surname-card:hover {
+  border-color: rgba(201,168,76,.4); transform: translateY(-2px);
+}
+.place-name, .surname-main {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+  color: var(--parchment); font-weight: 300;
+}
+.surname-main { font-size: 2rem; line-height: 1; }
+.place-alt-names { font-size: .7rem; color: var(--sepia-mid); margin-top: .2rem; font-style: italic; }
+.place-period, .surname-role {
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin: .8rem 0 .4rem;
+}
+.place-desc, .surname-desc { font-size: .82rem; color: var(--sepia-light); line-height: 1.7; }
+.place-people { margin-top: .9rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+.person-chip {
+  font-size: .68rem; padding: .25em .7em;
+  background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
+  border-radius: 1px; color: var(--gold-light);
+}
+.surname-heb {
+  font-family: 'Frank Ruhl Libre', serif; font-size: 1rem;
+  color: var(--sepia-mid); direction: rtl; margin-top: .3rem;
+}
+.surname-connection {
+  margin-top: .8rem; font-size: .75rem; color: var(--sepia-mid); font-style: italic;
+  border-top: 1px solid rgba(201,168,76,.12); padding-top: .6rem;
+}
+
+/* ── CONTRIBUTE / GAPS ── */
+.contribute-banner {
+  background: rgba(201,168,76,.06); border: 1px dashed rgba(201,168,76,.25);
+  border-radius: 2px; padding: 1.5rem; text-align: center; margin-top: 3rem;
+}
+.contribute-banner h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+  color: var(--parchment); font-weight: 300; margin-bottom: .5rem;
+}
+.contribute-banner p {
+  font-size: .8rem; color: var(--sepia-mid); line-height: 1.7;
+  max-width: 480px; margin: 0 auto 1rem;
+}
+.btn-contribute {
+  background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.4);
+  color: var(--gold-light); font-family: 'DM Sans', sans-serif; font-size: .75rem;
+  letter-spacing: .15em; text-transform: uppercase; padding: .7rem 1.8rem;
+  cursor: pointer; transition: all .2s; border-radius: 1px;
+}
+.btn-contribute:hover { background: rgba(201,168,76,.25); border-color: var(--gold); }
+
+.gap-card {
+  background: rgba(80,80,80,.08); border: 1px dashed rgba(150,150,150,.2);
+  border-radius: 2px; padding: 1rem 1.2rem; margin-bottom: .8rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.gap-number {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+  color: rgba(150,150,150,.3); line-height: 1; min-width: 2rem; flex-shrink: 0;
+}
+.gap-text { font-size: .82rem; color: var(--sepia-mid); line-height: 1.7; }
+.gap-text strong { color: var(--parchment); display: block; margin-bottom: .2rem; }
+.gap-resolved { background: rgba(60,100,60,.06); border-color: rgba(60,100,60,.2); }
+.gap-resolved .gap-number { color: rgba(90,160,90,.4); }
+.gap-resolved .gap-text { color: #90a890; }
+.gap-resolved .gap-text strong { color: #90c890; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(26,18,9,.88); z-index: 200;
+  align-items: center; justify-content: center; padding: 2rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: linear-gradient(160deg, #211a0e, #1a1209);
+  border: 1px solid rgba(201,168,76,.3); border-radius: 2px;
+  padding: 2rem; max-width: 560px; width: 100%; max-height: 85vh; overflow-y: auto;
+}
+.modal-close {
+  float: right; background: none; border: none; color: var(--sepia-mid);
+  font-size: 1.4rem; cursor: pointer; line-height: 1; margin-left: 1rem;
+  padding: 0;
+}
+.modal-close:hover { color: var(--parchment); }
+.modal h2 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+  font-weight: 300; color: var(--parchment); margin-bottom: .3rem;
+}
+.modal-heb {
+  font-family: 'Frank Ruhl Libre', serif; direction: rtl;
+  color: var(--sepia-mid); font-size: .9rem; margin-bottom: 1rem;
+}
+.modal-body { font-size: .85rem; color: var(--sepia-light); line-height: 1.8; }
+.modal-body p { margin-bottom: .8rem; }
+.modal-meta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: .6rem;
+  margin: 1rem 0; padding: 1rem;
+  background: rgba(242,232,213,.04); border: 1px solid rgba(201,168,76,.12);
+}
+.meta-item { font-size: .75rem; }
+.meta-label {
+  color: var(--sepia-dark); text-transform: uppercase;
+  letter-spacing: .1em; font-size: .6rem; display: block; margin-bottom: .2rem;
+}
+.meta-value { color: var(--parchment); }
+textarea.memory-input {
+  width: 100%; background: rgba(242,232,213,.05);
+  border: 1px solid rgba(201,168,76,.2); color: var(--parchment);
+  font-family: 'DM Sans', sans-serif; font-size: .82rem; padding: .8rem;
+  resize: vertical; min-height: 100px; border-radius: 1px; margin-top: .8rem;
+  outline: none;
+}
+textarea.memory-input:focus { border-color: rgba(201,168,76,.5); }
+textarea.memory-input::placeholder { color: var(--sepia-dark); }
+input.memory-field {
+  width: 100%; background: rgba(242,232,213,.05);
+  border: 1px solid rgba(201,168,76,.2); color: var(--parchment);
+  font-family: 'DM Sans', sans-serif; font-size: .82rem; padding: .65rem .8rem;
+  border-radius: 1px; margin-top: .6rem; outline: none;
+}
+input.memory-field::placeholder { color: var(--sepia-dark); }
+input.memory-field:focus { border-color: rgba(201,168,76,.5); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: .6rem; }
+.submit-status {
+  padding: .8rem 1rem; border-radius: 1px; font-size: .82rem;
+  margin-top: .8rem; text-align: center;
+}
+.submit-status.sending { background: rgba(201,168,76,.08); color: var(--sepia-mid); border: 1px solid rgba(201,168,76,.2); }
+.submit-status.success { background: rgba(60,100,60,.1); color: #90c890; border: 1px solid rgba(60,100,60,.3); }
+.submit-status.error { background: rgba(139,44,44,.1); color: #e09090; border: 1px solid rgba(139,44,44,.3); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: rgba(26,18,9,.5); }
+::-webkit-scrollbar-thumb { background: var(--sepia-dark); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  header { padding: 2rem 1rem 1.5rem; }
+  nav button { padding: .75rem .7rem; font-size: .65rem; letter-spacing: .06em; }
+  main { padding: 1.5rem 1rem 3rem; }
+  .generation { flex-direction: column; align-items: center; }
+  .couple-connector { justify-content: center; padding: .3rem 0; }
+  .robert-chain { grid-template-columns: 1fr; }
+  .chapter-nav { gap: .35rem; }
+  .field-row { grid-template-columns: 1fr; }
+  .modal { padding: 1.4rem; }
+}
+</style>
+</head>
+<body>
+<div class="map-bg"></div>
+<div class="map-lines"></div>
+<div id="app">
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="archive-label">Living Family Archive</div>
+  <h1>The House of <em>Muller</em><br>A Thousand Years to <em>Robert</em></h1>
+  <div class="hebrew-title">בית מִילֶר — מרשי ועד רובי</div>
+  <p class="subtitle">
+    From Troyes, France · Through Kraków · Nowy Sącz · Prešov, Slovakia · To Israel<br>
+    <strong>Based on <em>Oma's Story</em> by Denise Karasik</strong> — and ongoing family research
+  </p>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <button class="active" onclick="showView('robert', this)">Robert</button>
+  <button onclick="showView('story', this)">The Story</button>
+  <button onclick="showView('tree', this)">Family Tree</button>
+  <button onclick="showView('places', this)">Places</button>
+  <button onclick="showView('surnames', this)">Surnames</button>
+  <button onclick="showView('gaps', this)">Open Research</button>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════
+     TAB 1 — ROBERT
+══════════════════════════════════════ -->
+<div id="view-robert" class="view active">
+
+  <div class="robert-crown">
+    <span class="label">The Destination — At the End of a Thousand-Year Chain</span>
+    <div class="r-name">Robert Moyshe Arie Muller</div>
+    <div class="r-heb">משה אריה מִילֶר — רובי</div>
+    <div class="r-meta">
+      <strong>Born:</strong> 1931 &nbsp;·&nbsp; <strong>Place:</strong> Prešov (Eperjes), Slovakia<br>
+      <strong>Father:</strong> Yakov Muller &nbsp;·&nbsp; <strong>Mother:</strong> Teresa Bernfeld<br>
+      <strong>Grandfather:</strong> Shimon Muller — the liqueur factory, the man who came from Sanz
+    </div>
+  </div>
+
+  <p class="section-title" style="margin-bottom:.4rem;">The chain that reaches him</p>
+  <p class="section-sub" style="margin-bottom:1.2rem;">From Troyes to Prešov — a condensed lineage · See <em>The Story</em> tab for the full narrative</p>
+
+  <div class="lineage-thread">
+    <div class="lineage-step">
+      <div class="ls-year">~1040</div>
+      <div>
+        <div class="ls-name">Rashi — Rabbi Shlomo Yitzchaki</div>
+        <div class="ls-sub">Troyes, France → Worms, Germany · Foremost Torah commentator</div>
+        <span class="ls-tag tag-oral">Oral tradition · academically contested</span>
+      </div>
+    </div>
+    <div class="lineage-step">
+      <div class="ls-year">1585–1633</div>
+      <div>
+        <div class="ls-name">Rabbi Natan Neta Shapira — Megale Amukot</div>
+        <div class="ls-sub">Chief Rabbi of Kraków · kabbalistic master · Rashi descent documented</div>
+        <span class="ls-tag tag-verified">Documented</span>
+      </div>
+    </div>
+    <div class="lineage-step">
+      <div class="ls-year">~1720–1806</div>
+      <div>
+        <div class="ls-name">Rabbi Samuel Ha-Levi Kolin</div>
+        <div class="ls-sub">Boskovice, Moravia · Author of Machatzit HaShekel · Shapira connection via wife's line</div>
+        <span class="ls-tag tag-verified">Verified — Encyclopaedia Judaica</span>
+      </div>
+    </div>
+    <div class="lineage-step">
+      <div class="ls-year">1776–1832</div>
+      <div>
+        <div class="ls-name">Salomon Löw-Beer</div>
+        <div class="ls-sub">Boskovice · Dynasty patriarch · son of Jehuda Löw (Rabbi Kolin's son)</div>
+        <span class="ls-tag tag-verified">Verified — Czech Wikipedia, Geni</span>
+      </div>
+    </div>
+    <div class="lineage-step">
+      <div class="ls-year">1820–1888</div>
+      <div>
+        <div class="ls-name">Nathan Nota Löw-Beer</div>
+        <div class="ls-sub">Topolčany, Slovakia · grandson of Salomon</div>
+        <span class="ls-tag tag-verified">Verified — Topolčany Yizkor Book</span>
+      </div>
+    </div>
+    <div class="lineage-step">
+      <div class="ls-year">1840–1926</div>
+      <div>
+        <div class="ls-name">Moshe (Mor) Bernfeld + Gittel née Löw-Beer</div>
+        <div class="ls-sub">Topolčany · community leader · Bernfeld–Löw-Beer marriage</div>
+        <span class="ls-tag tag-verified">Verified — Yizkor Book, Geni</span>
+      </div>
+    </div>
+    <div class="lineage-step">
+      <div class="ls-year">1884–1964</div>
+      <div>
+        <div class="ls-name">Max (Mordechai) Bernfeld + Erna Ester Herzfeld</div>
+        <div class="ls-sub">Topolčany · Erna from Brezova · 5 children · survived, emigrated to Israel</div>
+        <span class="ls-tag tag-verified">Verified — Ancestry, Geni, Haifa death record</span>
+      </div>
+    </div>
+    <div class="lineage-step">
+      <div class="ls-year">b. 1909</div>
+      <div>
+        <div class="ls-name">Tereza-Devora Bernfeld → marries Yakov Muller</div>
+        <div class="ls-sub">Robert's mother · bridges Topolčany and Prešov families</div>
+        <span class="ls-tag tag-oral">Single source — MyHeritage</span>
+      </div>
+    </div>
+    <div class="lineage-step hero">
+      <div class="ls-year">1931</div>
+      <div>
+        <div class="ls-name" style="color:var(--gold-light);font-size:1.1rem;">Robert Moyshe Arie Muller — Robi ✦</div>
+        <div class="ls-sub">Born Prešov · firstborn of Yakov &amp; Teresa · named for Moshe Aryeh Rosman, closing the circle</div>
+        <span class="ls-tag tag-verified">Confirmed</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="robert-chain" style="margin-top:2rem;">
+    <div class="chain-card">
+      <span class="cc-label">What he inherited — Paternal</span>
+      <div class="cc-content">A grandfather, <strong>Shimon</strong>, who came to Prešov on an uncle's invitation, fell in love with his cousin, built a liqueur empire, consulted the Munkacser Rebbe before buying it, sent a daughter to run the factory at fourteen during WWI, and gave a Torah scroll to the shul in grief for a daughter lost. A man who carried everything with seriousness and faith.</div>
+    </div>
+    <div class="chain-card">
+      <span class="cc-label">What he inherited — Maternal</span>
+      <div class="cc-content">Through his mother <strong>Teresa Bernfeld</strong>: a documented rabbinic chain from the Megale Amukot through the Löw-Beer dynasty of Boskovice — the same family whose descendants built Villa Tugendhat in Brno, today a UNESCO World Heritage Site. The chain reaches toward Rashi, though that final link rests on family tradition.</div>
+    </div>
+    <div class="chain-card">
+      <span class="cc-label">His name</span>
+      <div class="cc-content"><strong>Moyshe Arie</strong> — the Hebrew name echoes <strong>Moshe Aryeh Rosman</strong>, Shimon's uncle, the man whose invitation to Prešov started everything. The city, the factory, the community, the family — all of it began with one invitation. Robert's name carries that memory forward.</div>
+    </div>
+    <div class="chain-card">
+      <span class="cc-label">His world as a child</span>
+      <div class="cc-content">Shimon was alive and present when Robert was born in 1931 — a grandfather who took grandchildren on Sunday excursions by truck or horse and wagon outside Prešov. The smell of plum liqueur and raspberry syrup from the factory courtyard behind the apartment. A spacious home in a city where the Mullers were known.</div>
+    </div>
+  </div>
+
+  <div class="robi-memories">
+    <h3>What do you remember about Robi?</h3>
+    <p>This archive is built on Denise Karasik's <em>Oma's Story</em> — her grandmother Ilona's account. But Robert belongs to all of you. His voice, his habits, his character, his home, the things he said and didn't say — no document holds those. If you knew him, write it here.</p>
+    <div class="memory-placeholder" onclick="openMemory('robert-personal')">+ Add your memory of Robi</div>
+  </div>
+
+  <div class="contribute-banner">
+    <h3>This archive is alive.</h3>
+    <p>If you carry a story, photograph, or memory of anyone in this family — from Shimon's factory to Robi's childhood — this is where it belongs.</p>
+    <button class="btn-contribute" onclick="openMemory('general')">Contribute to the Archive</button>
+  </div>
+
+</div><!-- /view-robert -->
+
+<!-- ══════════════════════════════════════
+     TAB 2 — THE STORY
+══════════════════════════════════════ -->
+<div id="view-story" class="view">
+  <p class="section-title">The Story</p>
+  <p class="section-sub">
+    A linear narrative — from the ancient chain to Prešov and Robert.<br>
+    Based on <strong><em>Oma's Story</em> by Denise Karasik</strong> and independent genealogical research.
+  </p>
+
+  <div class="chapter-nav">
+    <div class="chapter-nav-label">Jump to chapter</div>
+    <button class="ch-pill active" onclick="scrollToChapter('ch-rashi', this)">I · The Ancient Chain</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-ahron', this)">II · Ahron &amp; Pesel</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-invitation', this)">III · The Invitation</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-business', this)">IV · The Business</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-war', this)">V · War</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-grief', this)">VI · Grief &amp; Faith</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-family', this)">VII · Father &amp; Grandfather</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-shoah', this)">VIII · The Shoah</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-robert', this)">IX · Robert</button>
+  </div>
+
+  <!-- Chapter I -->
+  <div id="ch-rashi" class="story-panel oral-panel">
+    <div class="story-chapter">Chapter I — The Ancient Chain</div>
+    <div class="story-title">From Troyes to Kraków: The Rabbinic Lineage <span class="oral-flag">Oral tradition</span></div>
+    <div class="story-body">
+      <p>The chain this family claims begins in <em>Troyes, Champagne</em>, around 1040 CE — with Rabbi Shlomo Yitzchaki, known as Rashi. The foremost commentator on Torah and Talmud, whose words still sit on every page of standard editions. His lineage passed through daughters and descendants eastward across the Rhineland, into Poland, and into the Shapira dynasty.</p>
+      <p>By 1585, that chain reaches <em>Rabbi Natan Neta Shapira</em> in Kraków — the Megale Amukot, one of the greatest kabbalistic works of the 17th century. His descent from Rashi is documented. From the Shapira line, through subsequent generations, the rabbinic heritage enters the <em>Bernfeld family</em> — and through Teresa Bernfeld, Robert's mother, it reaches Prešov and Robert himself.</p>
+      <p><strong>Note on sourcing:</strong> The direct patrilineal link between Rabbi Samuel Kolin and the Shapira/Spira family is not confirmed by academic sources. The connection more likely runs through Samuel's wife's line. The Rashi → Shapira chain itself is well-established; the link to the Kolin family carries the nature of oral genealogical tradition. This archive presents it as such.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Sources:</strong> Encyclopaedia Judaica (Shapira entry); Geni.com lineage trees; research notes (Denise Karasik)</div>
+      <div class="memory-placeholder" onclick="openMemory('chain')">+ Add family knowledge</div>
+    </div>
+  </div>
+
+  <!-- Chapter II -->
+  <div id="ch-ahron" class="story-panel">
+    <div class="story-chapter">Chapter II — The Patriarch</div>
+    <div class="story-title">Ahron Muller &amp; Pesel Lieberman — Teachers from Sanz</div>
+    <div class="story-body">
+      <p><em>Ahron Muller</em>, born around 1852, was a teacher — not a rabbi, but a man shaped by the serious intellectual life of Modern Orthodox Judaism. He studied at Rabbi Esriel Hildesheimer's Rabbinical Seminary in Berlin, the flagship institution that combined rigorous Torah scholarship with secular academic standards. This was a deliberate, considered choice: Hildesheimer's seminary represented a particular way of being Jewish in the modern world — serious, educated, engaged.</p>
+      <p>He married <em>Pesel Lieberman</em>. Together they raised their son <em>Shimon</em> in Nowy Sącz — known in Jewish tradition as Sanz, home of the great Halberstam Hasidic dynasty. The world Shimon grew up in was shaped by both his father's Modern Orthodox seriousness and the intense Hasidic culture of the city around him.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's account · Ahron's birthplace remains an open research question</div>
+      <div class="memory-placeholder" onclick="openMemory('ahron')">+ Add family knowledge</div>
+    </div>
+  </div>
+
+  <!-- Chapter III -->
+  <div id="ch-invitation" class="story-panel">
+    <div class="story-chapter">Chapter III — Arrival in Prešov</div>
+    <div class="story-title">The Invitation: From Sanz to Prešov</div>
+    <div class="story-body">
+      <p>An invitation changed the course of the family's history. <em>Moshe Aryeh Rosman</em> — Shimon's uncle, his father's brother — called him to Prešov to work in his dry goods store. Come learn the trade, earn a livelihood. Shimon came.</p>
+      <p>While working in his uncle's store, he met <em>Sara</em> — Moshe Aryeh's own daughter. His cousin. He fell in love with her. Sara had a prior betrothal, a long-standing commitment to another family. She broke it to marry Shimon. The family was in an uproar. But the marriage held.</p>
+      <p>Shimon and Sara settled in Prešov and raised six children: <em>Ilona</em> (Denise's Oma), <em>Rosie (Raizel), Yakov, Margit (Malca), Pirike (Perel),</em> and <em>Josi</em>. Prešov — a royal free town in Upper Hungary, today northeast Slovakia — became their permanent home. Three generations of Mullers would live here.</p>
+      <p>The Prešov Orthodox Cemetery records independently confirm this: the Hebrew epitaphs record <em>Moshe Ariel Rozman</em>, his wife <em>Rivka</em>, and their daughter <em>Sara</em> wife of <em>Simon Miller/Muller</em> — a perfect match for the family account, confirmed in stone.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik) · Prešov Orthodox Cemetery records (JewishGen / Futtersack)</div>
+      <div class="memory-placeholder" onclick="openMemory('invitation')">+ Add family knowledge</div>
+    </div>
+  </div>
+
+  <!-- Chapter IV -->
+  <div id="ch-business" class="story-panel">
+    <div class="story-chapter">Chapter IV — The Businessman</div>
+    <div class="story-title">Cheese, Plum Liqueur, and the Munkacser Rebbe's Blessing</div>
+    <div class="story-body">
+      <p>After years working for his father-in-law, Shimon's first independent venture was a cheese factory, co-owned with partners <em>Grosswirt and Schnitzer</em>. Business was in his nature.</p>
+      <p>Then came the opportunity to acquire <em>Schwartz &amp; Glassner</em> — a fruit liqueur enterprise. Before committing, Shimon did what a serious man of his world did: he consulted the Munkacser Rebbe, one of the most revered Hasidic authorities of the era. The Rebbe advised him to buy. He did.</p>
+      <p>The business flourished. The factory produced <em>plum liqueurs and raspberry syrups</em>, stored in great multi-colored glass vats, and shipped as far as Germany. The factory courtyard sat directly behind the family's spacious apartment — the smell of fruit always nearby. For the next generation of Mullers, this factory was the sound and smell of home.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's account</div>
+      <div class="memory-placeholder" onclick="openMemory('business')">+ Add family knowledge</div>
+    </div>
+  </div>
+
+  <!-- Chapter V -->
+  <div id="ch-war" class="story-panel">
+    <div class="story-chapter">Chapter V — World War I</div>
+    <div class="story-title">A Fourteen-Year-Old Runs the Factory</div>
+    <div class="story-body">
+      <p>During World War I, the army requisitioned Shimon's forest for timber. Russian prisoners of war were sent to log it; Shimon had to travel there to supervise, away from Prešov for long stretches.</p>
+      <p>The factory could not stop. So Shimon taught his daughter <em>Ilona</em> — Denise's Oma, fourteen years old — how to run it entirely: balancing the ledgers, managing the workers, operating the bottling machinery, which was powerful and potentially dangerous. She did it. The daughter he trusted most with the work he had built.</p>
+      <p>Denise's Oma's written account of this, preserved decades later, carries no complaint — only the quiet pride of someone who was given something serious to do, and did it.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's firsthand account</div>
+      <div class="memory-placeholder" onclick="openMemory('war')">+ Add family knowledge</div>
+    </div>
+  </div>
+
+  <!-- Chapter VI -->
+  <div id="ch-grief" class="story-panel">
+    <div class="story-chapter">Chapter VI — Grief &amp; Faith</div>
+    <div class="story-title">Margit's Death — A Torah Scroll for the Shul</div>
+    <div class="story-body">
+      <p>Tragedy came through his daughter <em>Margit (Malca)</em>, who died from internal injuries after jumping from the wrong train. The loss cut deeply into the family.</p>
+      <p>Shimon's response was neither silence nor collapse. He commissioned a <em>Sefer Torah</em> to be written and donated it to the Prešov shul in Margit's memory. A man expressing grief the only way that seemed adequate: by giving something eternal to the community she had been part of.</p>
+      <p>A cemetery record from Prešov — <em>"Panna Malke bas Simon"</em>, buried September 1923 — lists a daughter of Simon who predeceased her mother Sara, likely Margit herself. The stone and the Torah scroll, taken together: a father keeping his daughter present.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik) · Prešov Orthodox Cemetery records (JewishGen)</div>
+      <div class="memory-placeholder" onclick="openMemory('margit')">+ Add family knowledge</div>
+    </div>
+  </div>
+
+  <!-- Chapter VII -->
+  <div id="ch-family" class="story-panel">
+    <div class="story-chapter">Chapter VII — Father &amp; Grandfather</div>
+    <div class="story-title">Frankfurt, Remarriage, and Sunday Excursions</div>
+    <div class="story-body">
+      <p>When it came time for his son <em>Yakov</em> to attend Yeshiva, the Frankfurt institution was hesitant — reluctant to accept a boy from a strict local Yeshiva in Prešov. Shimon traveled to Frankfurt personally and advocated for <em>ten days</em> until they relented. A father who knew that access to the right education was worth a journey and a fight.</p>
+      <p>After Sara's death from an infected cut, Shimon remarried <em>Malvinka Fonfedder</em> — Sara's cousin, who had grown up attending the same school as Sara. A remarriage within the circle of memory.</p>
+      <p>As a grandfather, he was devoted. He loved taking his grandchildren on Sunday excursions outside the city — by truck or horse and wagon. <em>Robert</em> was born in 1931 while Shimon was very much the living center of the family. In those early years, the factory courtyard, the Sunday rides, the grandfather who had fought ten days in Frankfurt for Yakov's education — this was the world Robert came into.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's account</div>
+      <div class="memory-placeholder" onclick="openMemory('family')">+ Add family knowledge</div>
+    </div>
+  </div>
+
+  <!-- Chapter VIII -->
+  <div id="ch-shoah" class="story-panel tragedy-panel">
+    <div class="story-chapter">Chapter VIII — The Shoah</div>
+    <div class="story-title">Budapest, 1944 — The Last Blessing</div>
+    <div class="story-body">
+      <p>As German occupation advanced through Hungary in 1944, the family's options collapsed. Shimon first stayed with his daughter <em>Rosi in Munkacs</em> — but he spoke no local language and was too visibly a foreigner, too easily identified. He was smuggled to <em>Miskolc</em> to live with Denise's Oma, Ilona.</p>
+      <p>The family made a plan to flee to Budapest with forged <em>Aryan papers</em>. They boarded the train. They arrived at Budapest station. Shimon was identified as Jewish, arrested, and taken to prison.</p>
+      <p>His granddaughter <em>Gretl</em> — herself captured and held in the same prison — spotted him across the yard during a registration lineup. She ran to him. He placed his hands on her head. He gave her his blessing.</p>
+      <p>A guard chased her away.</p>
+      <p>That was the last time anyone in the family saw Shimon Muller. He was deported from Budapest to <em>Auschwitz</em>, where he was murdered by the Nazis.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik) · Hungarian Jewish deportation records, 1944 · Yad Vashem</div>
+      <div class="memory-placeholder" onclick="openMemory('shoah')">+ Add family knowledge or Yad Vashem records</div>
+    </div>
+  </div>
+
+  <!-- Chapter IX -->
+  <div id="ch-robert" class="story-panel" style="border-color:rgba(201,168,76,.4);">
+    <div class="story-chapter">Chapter IX — The Destination</div>
+    <div class="story-title">Robert Moyshe Arie Muller — 1931, Prešov</div>
+    <div class="story-body">
+      <p>Born 1931 in Prešov. Firstborn of Yakov Muller and Teresa Bernfeld. He came into a family that was still whole — grandfather Shimon alive and taking grandchildren on Sunday truck rides, the factory humming in the courtyard, the community still intact.</p>
+      <p>His Hebrew name <em>Moyshe Arie</em> echoes <em>Moshe Aryeh Rosman</em> — the great-uncle whose invitation to Prešov had started everything. Through the name, that founding act is remembered in every generation that follows.</p>
+      <p>Through his mother Teresa Bernfeld, Robert carries the documented rabbinic chain: Löw-Beer of Boskovice → Rabbi Samuel Kolin → Shapira of Kraków → and, by family tradition, back to Rashi of Troyes. Through his father Yakov, he carries the Sanz-born Muller line, the Hildesheimer scholar, the liqueur factory, the Munkacser Rebbe's blessing.</p>
+      <p>A thousand years of migration, scholarship, grief, and survival — arriving here, in this person, in Prešov, in 1931.</p>
+    </div>
+    <div class="chapter-footer">
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik), Prešov cemetery records, Topolčany Yizkor Book, Geni, Ancestry, Encyclopaedia Judaica</div>
+      <div class="memory-placeholder" onclick="openMemory('robert-personal')">+ Add your memory of Robi</div>
+    </div>
+  </div>
+
+  <div class="contribute-banner">
+    <h3>Help this story grow.</h3>
+    <p>Each chapter has a contribution slot. If you carry a detail, photograph, document, or memory — add it. This archive grows with the family.</p>
+    <button class="btn-contribute" onclick="openMemory('general')">Contribute to the Archive</button>
+  </div>
+</div><!-- /view-story -->
+
+<!-- ══════════════════════════════════════
+     TAB 3 — FAMILY TREE
+══════════════════════════════════════ -->
+<div id="view-tree" class="view">
+  <p class="section-title">Family Tree</p>
+  <p class="section-sub">Confirmed generations · Muller paternal line · Click any card for detail</p>
+  <div class="tree-container">
+
+    <div class="gen-label">Generation I — The Patriarch</div>
+    <div class="generation">
+      <div class="person-card" onclick="openPerson('ahron')">
+        <div class="p-name">Ahron Muller</div>
+        <div class="p-name-heb">אהרון מִילֶר</div>
+        <div class="p-dates">b. ~1852 · Teacher</div>
+        <div class="p-location">Hildesheimer Seminary, Berlin</div>
+      </div>
+      <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+      <div class="person-card" onclick="openPerson('pesel')">
+        <div class="p-name">Pesel Lieberman</div>
+        <div class="p-name-heb">פֶּסֶל ליברמן</div>
+        <div class="p-dates">b. ~1855 est.</div>
+      </div>
+    </div>
+
+    <div class="connector-row"><div class="connector-v"></div></div>
+
+    <div class="gen-label">Generation II — Shimon &amp; Sara</div>
+    <div class="generation">
+      <div class="person-card deceased" onclick="openPerson('shimon')">
+        <div class="p-name">Shimon Muller</div>
+        <div class="p-name-heb">שמעון מִילֶר</div>
+        <div class="p-dates">b. ~1874–1889, Nowy Sącz</div>
+        <div class="p-location">d. 1944, Auschwitz</div>
+      </div>
+      <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+      <div class="person-card deceased" onclick="openPerson('sara')">
+        <div class="p-name">Sara Rosman</div>
+        <div class="p-name-heb">שרה רוסמן</div>
+        <div class="p-dates">b. ~1875 est.</div>
+        <div class="p-location">Daughter of Moshe Aryeh Rosman</div>
+      </div>
+    </div>
+
+    <div style="margin:.4rem 0;text-align:center;font-size:.68rem;color:var(--sepia-dark);font-style:italic;">
+      Sara = daughter of Shimon's uncle Moshe Aryeh Rosman · cousin marriage confirmed by Prešov cemetery records
+    </div>
+
+    <div class="siblings-section">
+      <div class="siblings-label">Shimon &amp; Sara's Six Children</div>
+      <div class="siblings-row">
+        <div class="sibling-chip" onclick="openPerson('ilona')">
+          Ilona — Denise's Oma
+          <small>אילונה · author of Oma's Story</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('rosie')">
+          Rosie (Raizel)
+          <small>רייזל</small>
+        </div>
+        <div class="sibling-chip focal-sibling" onclick="openPerson('yakov')">
+          Yakov ★
+          <small>יעקב — father of Robert</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('margit')">
+          Margit (Malca)
+          <small>מרגית — נפטרה</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('pirike')">
+          Pirike (Perel)
+          <small>פרל</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('josi')">
+          Josi
+          <small>יוסי</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector-row" style="margin-top:1rem;"><div class="connector-v"></div></div>
+
+    <div class="gen-label">Generation III — Yakov's Branch</div>
+    <div class="generation">
+      <div class="person-card" onclick="openPerson('yakov')">
+        <div class="p-name">Yakov Muller</div>
+        <div class="p-name-heb">יעקב מִילֶר</div>
+        <div class="p-dates">b. ~1900–1910, Prešov</div>
+        <div class="p-location">Frankfurt Yeshiva</div>
+      </div>
+      <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+      <div class="person-card" onclick="openPerson('teresa')">
+        <div class="p-name">Teresa (Tereza-Devora) Bernfeld</div>
+        <div class="p-name-heb">טרזה ברנפלד</div>
+        <div class="p-dates">b. December 12, 1909</div>
+        <div class="p-location">Carries Löw-Beer → Kolin → Shapira lineage</div>
+      </div>
+    </div>
+
+    <div class="connector-row"><div class="connector-v"></div></div>
+
+    <div class="gen-label">Generation IV — The Destination</div>
+    <div class="generation">
+      <div class="person-card focal" onclick="openPerson('robert')">
+        <div class="p-name">Robert Moyshe Arie Muller</div>
+        <div class="p-name-heb">משה אריה מִילֶר — רובי</div>
+        <div class="p-dates">b. 1931 · Prešov</div>
+        <div class="p-location">Firstborn · End of the thousand-year chain</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:2rem;padding:1rem 1.2rem;background:rgba(242,232,213,.04);border:1px solid rgba(201,168,76,.12);border-radius:2px;">
+    <p style="font-size:.78rem;color:var(--sepia-mid);line-height:1.8;">
+      <strong style="color:var(--parchment);">Name note:</strong> Robert's Hebrew name <em>Moyshe Arie</em> echoes <em>Moshe Aryeh Rosman</em> — the great-uncle who invited Shimon to Prešov, whose daughter Sara became Shimon's wife. The name closes the circle. The rabbinic chain (Rashi → Megale Amukot → Shapira → Kolin → Löw-Beer → Bernfeld) enters through Teresa Bernfeld, Robert's mother.
+    </p>
+  </div>
+</div><!-- /view-tree -->
+
+<!-- ══════════════════════════════════════
+     TAB 4 — PLACES
+══════════════════════════════════════ -->
+<div id="view-places" class="view">
+  <p class="section-title">The Places</p>
+  <p class="section-sub">Every location in the family's story — from Troyes to Auschwitz</p>
+  <div class="places-grid">
+
+    <div class="place-card">
+      <div class="place-name">Troyes</div>
+      <div class="place-alt-names">Champagne, France</div>
+      <div class="place-period">~1040 CE — Origin of Chain (oral tradition)</div>
+      <p class="place-desc">Birthplace of Rashi. The most distant anchor in the family's claimed lineage. From here, through daughters and descendants, the rabbinic chain began its long eastward migration toward Poland and Galicia. This link rests on family tradition; the academic connection to the Shapira and Kolin families runs through wife's line, not direct patrilineal descent.</p>
+      <div class="place-people"><span class="person-chip">Rashi</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Kraków</div>
+      <div class="place-alt-names">Cracow, Poland · קראקא</div>
+      <div class="place-period">1585–1633 — Rabbinic Apex</div>
+      <p class="place-desc">Home of the Megale Amukot and capital of Polish Jewish learning. Rabbi Natan Neta Shapira served as Chief Rabbi here. The Shapira lineage from Rashi runs through this city. Through Teresa Bernfeld, this chain reaches Robert.</p>
+      <div class="place-people"><span class="person-chip">Rabbi Natan Neta Shapira</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Boskovice</div>
+      <div class="place-alt-names">Moravia, Czech Republic</div>
+      <div class="place-period">~1720–1870 — Löw-Beer Dynasty</div>
+      <p class="place-desc">Rabbi Samuel Ha-Levi Kolin (c. 1720–1806) presided over the yeshiva here for nearly 60 years. His son Jehuda Löw married Buna Beer; their son Salomon took the hyphenated name Löw-Beer. From Boskovice, Abraham Löw-Beer moved to the Nitra region of Slovakia, bringing the dynasty eastward. The Bernfeld family also originated here.</p>
+      <div class="place-people"><span class="person-chip">Rabbi Samuel Kolin</span><span class="person-chip">Salomon Löw-Beer</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Topolčany</div>
+      <div class="place-alt-names">Nagytapolcsány (Hungarian) · Slovakia</div>
+      <div class="place-period">~1820–1944 — Bernfeld &amp; Löw-Beer Hub</div>
+      <p class="place-desc">The Bernfeld and Löw-Beer families were among the most prominent in Topolčany's Jewish community — community leaders, synagogue wardens, builders of a Beth Medrash. Nathan Nota Löw-Beer (1820–1888) was born here. Teresa Bernfeld's family connects here — though Erna Herzfeld (her grandmother) was actually from nearby Brezova, not Topolčany itself.</p>
+      <div class="place-people"><span class="person-chip">Nathan Nota Löw-Beer</span><span class="person-chip">Moshe Bernfeld</span><span class="person-chip">Max Bernfeld</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Berlin</div>
+      <div class="place-alt-names">Germany</div>
+      <div class="place-period">~1870s — Hildesheimer Seminary</div>
+      <p class="place-desc">Rabbi Esriel Hildesheimer's Rabbinical Seminary, founded 1873, blended rigorous Orthodox Torah scholarship with secular academic standards. Ahron Muller studied here — placing the Muller family at the center of Modern Orthodox intellectual life.</p>
+      <div class="place-people"><span class="person-chip">Ahron Muller (student)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Nowy Sącz</div>
+      <div class="place-alt-names">Sanz · נייסאנץ · Austrian Galicia</div>
+      <div class="place-period">~1874–1889 — Muller Origin</div>
+      <p class="place-desc">Known in Jewish tradition as Sanz — home of the Halberstam Hasidic dynasty. Shimon Muller was born here. Rich kehila records survive at the Kraków State Archive and JRI-Poland.</p>
+      <div class="place-people"><span class="person-chip">Shimon Muller (born here)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Prešov</div>
+      <div class="place-alt-names">Eperjes (Hungarian) · פרשוב · Slovakia</div>
+      <div class="place-period">~1870s–1944 — The Family Home</div>
+      <p class="place-desc">A royal free town in Upper Hungary (today northeast Slovakia). Moshe Aryeh Rosman's dry goods store brought Shimon here. Three generations of Mullers lived here. The liqueur factory sat behind the family apartment. Robert was born here in 1931. The Orthodox cemetery records independently confirm the Rozman–Miller/Muller marriages with exact Hebrew name matches.</p>
+      <div class="place-people">
+        <span class="person-chip">Moshe Aryeh Rosman</span>
+        <span class="person-chip">Shimon &amp; Sara Muller</span>
+        <span class="person-chip">Yakov Muller</span>
+        <span class="person-chip">Robert (b. 1931)</span>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Frankfurt</div>
+      <div class="place-alt-names">Germany</div>
+      <div class="place-period">~1910s–1920s — Yakov's Yeshiva</div>
+      <p class="place-desc">Shimon traveled here alone and spent ten days persuading a Frankfurt Yeshiva to accept Yakov on probation. One of the great centers of German Orthodox Jewry. Shimon's persistence prevailed.</p>
+      <div class="place-people"><span class="person-chip">Shimon (advocate)</span><span class="person-chip">Yakov (student)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Munkacs / Miskolc</div>
+      <div class="place-alt-names">Mukachevo (Ukraine) · Miskolc (Hungary)</div>
+      <div class="place-period">1943–1944 — Wartime Flight</div>
+      <p class="place-desc">Shimon first sought refuge with his daughter Rosi in Munkacs, but was too visibly foreign. He was smuggled to Miskolc to live with Denise's Oma, Ilona. From Miskolc, the family attempted to flee to Budapest with forged papers — the last journey.</p>
+      <div class="place-people"><span class="person-chip">Shimon (refugee)</span><span class="person-chip">Rosi (Munkacs)</span><span class="person-chip">Ilona — Denise's Oma (Miskolc)</span></div>
+    </div>
+
+    <div class="place-card" style="border-color:rgba(139,44,44,.4);">
+      <div class="place-name" style="color:#d4b4b4;">Auschwitz</div>
+      <div class="place-alt-names">Oświęcim, Poland · 1944</div>
+      <div class="place-period">Murder — 1944</div>
+      <p class="place-desc" style="color:#b89898;">Shimon was arrested at Budapest station, imprisoned, and deported here. His granddaughter Gretl saw him in the prison yard and ran to him. He placed his hands on her head and gave her his blessing. A guard chased her away. He was murdered by the Nazis in 1944.</p>
+      <div class="place-people"><span class="person-chip" style="border-color:rgba(139,44,44,.4);color:#d08080;">Shimon Muller · murdered 1944</span></div>
+    </div>
+
+  </div>
+</div><!-- /view-places -->
+
+<!-- ══════════════════════════════════════
+     TAB 5 — SURNAMES
+══════════════════════════════════════ -->
+<div id="view-surnames" class="view">
+  <p class="section-title">The Family Names</p>
+  <p class="section-sub">Each surname a world — a community, a history, a migration</p>
+  <div class="surnames-grid">
+
+    <div class="surname-card">
+      <div class="surname-main">Muller</div>
+      <div class="surname-heb">מִילֶר</div>
+      <div class="surname-role">Primary Line</div>
+      <p class="surname-desc">German occupational name meaning "miller," widely adopted by Ashkenazi Jews during the Habsburg surname decree (~1787–1804). Four confirmed generations: Ahron → Shimon → Yakov → Robert. Transliterated in Prešov cemetery records as "Miller" — Hebrew makes no distinction.</p>
+      <p class="surname-connection">Nowy Sącz → Prešov · confirmed · cemetery records independent verification</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Rosman</div>
+      <div class="surname-heb">רוסמן</div>
+      <div class="surname-role">The Prešov Anchor</div>
+      <p class="surname-desc">Moshe Aryeh Rosman invited Shimon to Prešov and gave the Muller family its foothold in Slovakia. His daughter Sara became Shimon's wife — making Rosman the maternal root of Yakov. Robert's Hebrew name Moyshe Arie directly echoes Moshe Aryeh Rosman. Confirmed independently by Prešov Orthodox Cemetery epitaphs.</p>
+      <p class="surname-connection">Shimon's wife Sara · Source: Oma's Story (Denise Karasik) + cemetery records</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Bernfeld</div>
+      <div class="surname-heb">ברנפלד</div>
+      <div class="surname-role">Lineage Carrier — Löw-Beer &amp; Shapira Chain</div>
+      <p class="surname-desc">Moravian/Galician family confirmed as prominent leaders of the Topolčany Jewish community. They connect through marriage to the Löw-Beer industrial dynasty. Through Teresa Bernfeld, Robert's mother, this entire chain enters the Muller family. The Bernfeld family also originated in Boskovice, Moravia — same town as the Löw-Beers.</p>
+      <p class="surname-connection">Teresa Bernfeld = Robert's mother · Topolčany Yizkor Book confirmed</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Löw-Beer</div>
+      <div class="surname-heb">לוֹאו-בֵּר</div>
+      <div class="surname-role">Moravian Dynasty — via Bernfeld</div>
+      <p class="surname-desc">Prominent Moravian Jewish industrialists whose descendants built Villa Tugendhat in Brno — a UNESCO World Heritage Site designed by Mies van der Rohe. The name fuses Löw (from Rabbi Kolin's Löw family) and Beer (from Buna Beer, Jehuda's wife) — created after the 1788 Josefinian surname decree. Connection to the Muller family runs through the Bernfeld–Löw-Beer marriage.</p>
+      <p class="surname-connection">Via Bernfeld–Löw-Beer marriage · Czech Wikipedia, Encyclopaedia Judaica confirmed</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Kolin</div>
+      <div class="surname-heb">קולין</div>
+      <div class="surname-role">Rabbinic Root — Boskovice</div>
+      <p class="surname-desc">Rabbi Samuel Ha-Levi Kolin (c. 1720–1806), born in Kolín, Bohemia, presided over the Boskovice yeshiva for nearly 60 years. His son Jehuda Löw married Buna Beer; their son Salomon took the name Löw-Beer. The Kolin connection is <em>paternal</em> — through Jehuda Löw, not through Perl/Paulina (Salomon's wife).</p>
+      <p class="surname-connection">Patrilineal: Kolin → Jehuda Löw → Salomon Löw-Beer · Encyclopaedia Judaica confirmed</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Shapira</div>
+      <div class="surname-heb">שפירא</div>
+      <div class="surname-role">Rabbinic Ancestry — via Bernfeld/Kolin</div>
+      <p class="surname-desc">From Speyer, Germany. One of the great Ashkenazi rabbinic dynasties. The Kraków branch produced the Megale Amukot. The connection to the Kolin/Löw-Beer line likely runs through Rabbi Samuel Kolin's wife's family — academically unverified as a direct patrilineal link, but carried as family tradition.</p>
+      <p class="surname-connection">Tradition: Shapira → Kolin → Löw-Beer → Bernfeld · oral tradition, flag accordingly</p>
+    </div>
+
+    <div class="surname-card">
+      <div class="surname-main">Lieberman</div>
+      <div class="surname-heb">ליברמן</div>
+      <div class="surname-role">Generation I — Ahron's Wife</div>
+      <p class="surname-desc">Pesel Lieberman married Ahron Muller and is Shimon's mother. The name also appears in Prešov cemetery records — a Josef Lieberman buried November 1916, possibly a relative. Her parents and further genealogy are an open research area.</p>
+      <p class="surname-connection">Generation I · Pesel's parents unknown · cemetery name match</p>
+    </div>
+
+    <div class="surname-card" style="opacity:.75;border-style:dashed;">
+      <div class="surname-main">Fonfedder</div>
+      <div class="surname-heb">פונפדר</div>
+      <div class="surname-role">Shimon's Second Wife</div>
+      <p class="surname-desc">Malvinka Fonfedder married Shimon after Sara's death. She had grown up attending the same school as Sara — Sara's cousin. A remarriage within the circle of family and memory.</p>
+      <p class="surname-connection">Source: Oma's Story (Denise Karasik)</p>
+    </div>
+
+  </div>
+</div><!-- /view-surnames -->
+
+<!-- ══════════════════════════════════════
+     TAB 6 — OPEN RESEARCH
+══════════════════════════════════════ -->
+<div id="view-gaps" class="view">
+  <p class="section-title">Open Research</p>
+  <p class="section-sub">What's confirmed, what's a single source, what remains open — and where to look</p>
+
+  <div style="margin-bottom:1.5rem;padding:.9rem 1.2rem;background:rgba(60,100,60,.08);border:1px solid rgba(60,100,60,.2);border-radius:2px;font-size:.8rem;color:#90c890;line-height:1.85;">
+    <strong style="color:#b0e0b0;display:block;margin-bottom:.4rem;">Resolved by Oma's Story (Denise Karasik):</strong>
+    Ahron's occupation (teacher); his wife (Pesel Lieberman); Shimon's wife (Sara Rosman — daughter of Moshe Aryeh Rosman, not Bernfeld); reason for Prešov move (uncle Moshe Aryeh Rosman's invitation); all six children named (Ilona — Denise's Oma, Rosie, Yakov, Margit, Pirike, Josi); cheese factory before liqueur; Schwartz &amp; Glassner acquisition; Munkacser Rebbe consultation; WWI logging; Ilona running factory at 14; Margit's death and Torah scroll; Malvinka Fonfedder second marriage; Frankfurt Yeshiva advocacy; Shimon's arrest and murder in Auschwitz 1944.
+  </div>
+
+  <div style="margin-bottom:1.5rem;padding:.9rem 1.2rem;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.18);border-radius:2px;font-size:.8rem;color:var(--sepia-light);line-height:1.85;">
+    <strong style="color:var(--parchment);display:block;margin-bottom:.4rem;">Resolved by independent records (Geni, Ancestry, Encyclopaedia Judaica, Prešov cemetery, Topolčany Yizkor Book):</strong>
+    The Löw-Beer dynasty chain from Rabbi Samuel Kolin through Boskovice to Topolčany; the Bernfeld family's prominence in Topolčany; the Rosman–Miller/Muller marriage confirmed in Prešov Orthodox Cemetery Hebrew epitaphs; Erna Herzfeld was from Brezova (not Topolčany); the Kolin connection is paternal through Jehuda Löw (not through Perl); Max and Erna Bernfeld survived and emigrated to Israel (Erna died Haifa, 1966).
+  </div>
+
+  <div class="gap-resolved gap-card">
+    <div class="gap-number">✓</div>
+    <div class="gap-text"><strong>Shimon's wife — resolved</strong> Sara Rosman, daughter of Moshe Aryeh Rosman (Shimon's uncle). The Bernfeld name enters only at Generation III — Yakov's wife Teresa Bernfeld. Confirmed: Oma's Story + Prešov cemetery records.</div>
+  </div>
+  <div class="gap-resolved gap-card">
+    <div class="gap-number">✓</div>
+    <div class="gap-text"><strong>Kolin connection — corrected</strong> The link to Rabbi Samuel Kolin is paternal (through son Jehuda Löw → Salomon Löw-Beer), not through Perl/Paulina who married into the family. Confirmed: Geni, Czech Wikipedia, Encyclopaedia Judaica.</div>
+  </div>
+  <div class="gap-resolved gap-card">
+    <div class="gap-number">✓</div>
+    <div class="gap-text"><strong>Erna Herzfeld birthplace — corrected</strong> Brezova, not Topolčany. Confirmed: Ancestry.com birth record. The Herzfeld family was connected to Topolčany through the Löw-Beer marriage network but based in the Brezova area.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">01</div>
+    <div class="gap-text"><strong>Ahron Muller — birthplace and parents</strong> Born ~1852, origin unknown. Hildesheimer Seminary student records (Berlin) may have an admission entry. Also: JRI-Poland, Hungarian Jewish records for Muller name in Nowy Sącz region.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">02</div>
+    <div class="gap-text"><strong>Shimon's exact birth year — Nowy Sącz records</strong> Nowy Sącz metrical books are at the Kraków State Archive and partly on JRI-Poland. Search: Muller births, Nowy Sącz, 1870–1895.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">03</div>
+    <div class="gap-text"><strong>Tereza-Devora Bernfeld → Yakov Muller marriage — single source</strong> Currently rests on MyHeritage tree alone. This is the weakest link — the bridge between Topolčany (Bernfeld) and Prešov (Muller). Slovak State Archive, Prešov branch; also the 1942 Súpis Židov (Census of Jews) at the Slovak National Archive would be the most likely sources to confirm.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">04</div>
+    <div class="gap-text"><strong>Bernfeld → Shapira → Megale Amukot — generational chain</strong> Confirmed at family level. The exact link spans ~1633–1850. Sources: seforim yuchasin, Gesher Galicia, Geni.com Shapira lineage trees.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">05</div>
+    <div class="gap-text"><strong>Pesel Lieberman — parents and family</strong> Mother of Shimon, wife of Ahron. Hungarian Jewish metrical records (MNL OL Budapest) and Slovak National Archive, Prešov branch. The name Lieberman appears in Prešov cemetery — Josef Lieberman, November 1916.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">06</div>
+    <div class="gap-text"><strong>Yakov — exact birth year and which Frankfurt Yeshiva</strong> Born ~1900–1910. Which Frankfurt institution accepted him (Breuer? Hirschheimer community)? Seminary records and Slovak civil birth registers for Prešov.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">07</div>
+    <div class="gap-text"><strong>Rashi → Shapira — the medieval chain (oral tradition)</strong> ~15 generations, ~1040 to 1585. The Shapira/Spira descent from Rashi is well-documented for the Nathan Neta Spira family. The connection to Rabbi Samuel Kolin appears to run through his wife's line. Currently carried as family tradition in this archive.</div>
+  </div>
+  <div class="gap-card">
+    <div class="gap-number">08</div>
+    <div class="gap-text"><strong>Robert — post-Prešov life</strong> Birth 1931 confirmed. Life in Israel, family, marriage to Ruth Singer — single-source (MyHeritage). This section grows with family contributions. See the Robert tab.</div>
+  </div>
+
+  <div style="margin-top:2rem;padding:1rem 1.4rem;background:rgba(242,232,213,.04);border:1px solid rgba(201,168,76,.12);border-radius:2px;">
+    <p style="font-size:.78rem;color:var(--sepia-mid);line-height:1.85;">
+      <strong style="color:var(--parchment);">Key archives to search:</strong> JRI-Poland · Gesher Galicia · Hungarian National Archive (MNL OL Budapest) · Slovak National Archive Prešov (Štátny archív v Prešove) · Slovak National Archive Nitra · Yad Vashem Central Database · FamilySearch Hungarian &amp; Slovak collections · Geni.com Shapira lineage trees · Czech National Archive Brno · Hildesheimer Seminary records, Berlin
+    </p>
+  </div>
+</div><!-- /view-gaps -->
+
+</main>
+</div><!-- /#app -->
+
+<!-- ══ MODAL ══ -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(null, true)">✕</button>
+    <h2 id="modal-title"></h2>
+    <div id="modal-heb" class="modal-heb"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ── View switching ──
+function showView(id, btn) {
+  document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
+  document.querySelectorAll('nav button').forEach(function(b) { b.classList.remove('active'); });
+  var el = document.getElementById('view-' + id);
+  if (el) el.classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Chapter pills — FIX: ensure story tab is visible before scrolling ──
+function scrollToChapter(id, btn) {
+  // Make story view active if not already
+  var storyView = document.getElementById('view-story');
+  if (!storyView.classList.contains('active')) {
+    document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
+    document.querySelectorAll('nav button').forEach(function(b) { b.classList.remove('active'); });
+    storyView.classList.add('active');
+  }
+  document.querySelectorAll('.ch-pill').forEach(function(p) { p.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  setTimeout(function() {
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
+}
+
+// ── Google Sheets endpoint ──
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbziCCnrjTg8-h8DzZyHR0AFJn5qqzLKxPEJ1RwNPyj7XfsgHDVBq-mf7ajlwht9e3jFrg/exec';
+
+// ── Memory contribution data ──
+var memData = {
+  'robert-personal': {
+    title: 'Memories of Robi',
+    heb: 'זכרונות — רובי',
+    body: '<p>Personal memories of Robert Moyshe Arie Muller. His character, his voice, his home, his habits, his stories. Write what you carry — the archive grows with family contributions.</p>'
+  },
+  'general': {
+    title: 'Contribute to the Archive',
+    heb: 'הוסף לארכיון',
+    body: '<p>If you are a family member with a story, photograph, document, or memory — from any generation — this is where it belongs.</p>'
+  },
+  'chain': {
+    title: 'The Ancient Chain',
+    heb: 'השלשלת הקדומה',
+    body: '<p>Do you have family knowledge about the lineage from Rashi through the Shapira dynasty? Any documents, seforim, or oral accounts passed through the family?</p>'
+  },
+  'ahron': {
+    title: 'Ahron Muller & Pesel Lieberman',
+    heb: 'אהרון מִילֶר · פֶּסֶל ליברמן',
+    body: '<p>Do you have any additional information about Ahron\'s birthplace, family origins, or his time at the Hildesheimer Seminary? Any details about Pesel Lieberman\'s family?</p>'
+  },
+  'invitation': {
+    title: 'The Invitation — Shimon comes to Prešov',
+    heb: 'ההזמנה לפרשוב',
+    body: '<p>Anything additional about Moshe Aryeh Rosman\'s dry goods store, the cousin marriage, or the family uproar when Sara broke her betrothal?</p>'
+  },
+  'business': {
+    title: 'The Liqueur Business',
+    heb: 'עסק הלִיקֶר',
+    body: '<p>Do you have memories of the Schwartz &amp; Glassner factory, the multi-colored vats, the smell of the factory courtyard, or the business\'s operation?</p>'
+  },
+  'war': {
+    title: 'WWI — Ilona Runs the Factory',
+    heb: 'אילונה מנהלת את המפעל',
+    body: '<p>Additional details about the WWI logging operation, the Russian prisoners of war, or Denise\'s Oma Ilona\'s experience running the factory at 14?</p>'
+  },
+  'margit': {
+    title: 'Margit — The Torah Scroll',
+    heb: 'מרגית — ספר תורה לזכרה',
+    body: '<p>Do you have any additional information about Margit (Malca), the circumstances of her death, or the Sefer Torah donated to the Prešov shul in her memory?</p>'
+  },
+  'family': {
+    title: 'Shimon as Father and Grandfather',
+    heb: 'שמעון — אבא וסבא',
+    body: '<p>Memories of Shimon\'s Sunday excursions, the Frankfurt Yeshiva advocacy, or life in the Prešov apartment in the 1930s when Robert was a small child?</p>'
+  },
+  'shoah': {
+    title: 'Budapest, 1944',
+    heb: 'בודפשט, 1944',
+    body: '<p>Additional information about the Budapest arrest, Gretl\'s last encounter with Shimon, Yad Vashem records, or Hungarian deportation documentation?</p>'
+  }
+};
+
+// ── Person data ──
+var personData = {
+  'ahron': {
+    title: 'Ahron Muller',
+    heb: 'אהרון מִילֶר',
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1852</span></div><div class="meta-item"><span class="meta-label">Occupation</span><span class="meta-value">Teacher</span></div><div class="meta-item"><span class="meta-label">Education</span><span class="meta-value">Hildesheimer Seminary, Berlin</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Pesel Lieberman</span></div></div><p>Trained at Hildesheimer\'s Berlin Seminary — placing him at the intellectual center of Modern Orthodoxy. His son Shimon inherited his seriousness of purpose. Birthplace unknown, research open.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik)</p>'
+  },
+  'pesel': {
+    title: 'Pesel Lieberman',
+    heb: 'פֶּסֶל ליברמן',
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Ahron Muller</span></div><div class="meta-item"><span class="meta-label">Son</span><span class="meta-value">Shimon Muller</span></div></div><p>Mother of Shimon. Her parents and family origins are an open research question. The name Lieberman appears in Prešov cemetery records (Josef Lieberman, buried November 1916) — possibly a relative.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik)</p>'
+  },
+  'shimon': {
+    title: 'Shimon Muller',
+    heb: 'שמעון מִילֶר',
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1874–1889, Nowy Sącz</span></div><div class="meta-item"><span class="meta-label">Died</span><span class="meta-value">1944, Auschwitz</span></div><div class="meta-item"><span class="meta-label">First Wife</span><span class="meta-value">Sara Rosman</span></div><div class="meta-item"><span class="meta-label">Second Wife</span><span class="meta-value">Malvinka Fonfedder</span></div><div class="meta-item"><span class="meta-label">Children</span><span class="meta-value">Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div><div class="meta-item"><span class="meta-label">Business</span><span class="meta-value">Schwartz &amp; Glassner liqueur</span></div></div><p>See The Story tab for his full documented life — from Nowy Sącz to Prešov, the liqueur factory, WWI, his children, and his murder in Auschwitz 1944.</p>'
+  },
+  'sara': {
+    title: 'Sara Rosman',
+    heb: 'שרה רוסמן',
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Moshe Aryeh Rosman</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Shimon Muller (her cousin)</span></div><div class="meta-item"><span class="meta-label">Children</span><span class="meta-value">6: Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div></div><p>Sara broke a prior betrothal to marry Shimon, causing family upheaval. Confirmed by Prešov Orthodox Cemetery: "Sure bas Mose Arie HaLevi Zena Simon." She died from an infected cut before the war; Shimon later married her cousin Malvinka Fonfedder.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasik) + Prešov cemetery records (JewishGen)</p>'
+  },
+  'ilona': {
+    title: "Ilona Muller — Denise's Oma",
+    heb: 'אילונה מִילֶר — סבתא של דניז',
+    body: '<p>Eldest daughter of Shimon and Sara. Author of "Oma\'s Story" — preserved and written by her granddaughter <strong>Denise Karasik</strong>. The primary source for this entire archive. At age 14, during WWI, she ran the liqueur factory alone while Shimon supervised logging in the requisitioned forest. She survived the Holocaust.</p><p><strong>Source:</strong> Oma\'s Story — Denise Karasik</p>'
+  },
+  'rosie': {
+    title: 'Rosie (Raizel) Muller',
+    heb: 'רייזל מִילֶר',
+    body: '<p>Second child of Shimon and Sara. During the war, Shimon first sought refuge with Rosie in Munkacs — but he spoke no local language and was too visibly foreign. He was then smuggled to Miskolc. Further details to be documented.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik)</p>'
+  },
+  'yakov': {
+    title: 'Yakov Muller',
+    heb: 'יעקב מִילֶר',
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1900–1910, Prešov</span></div><div class="meta-item"><span class="meta-label">Parents</span><span class="meta-value">Shimon &amp; Sara Rosman</span></div><div class="meta-item"><span class="meta-label">Yeshiva</span><span class="meta-value">Frankfurt (Shimon advocated 10 days)</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Teresa (Tereza-Devora) Bernfeld</span></div></div><p>Son of Shimon and Sara. Shimon traveled to Frankfurt and spent ten days persuading a Yeshiva to accept him. Yakov married Teresa Bernfeld, bringing the Löw-Beer / Bernfeld lineage into the Muller family. Their firstborn Robert arrived in 1931.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik) · Teresa marriage: single source (MyHeritage)</p>'
+  },
+  'margit': {
+    title: 'Margit (Malca) Muller',
+    heb: 'מרגית — מלכה מִילֶר',
+    body: '<p>Daughter of Shimon and Sara. Died from internal injuries after jumping from the wrong train. In her memory, Shimon commissioned a Sefer Torah and donated it to the Prešov shul. The Prešov cemetery records a "Panna Malke bas Simon" (buried September 1923) — possibly Margit herself.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasik) + Prešov cemetery records (JewishGen)</p>'
+  },
+  'pirike': {
+    title: 'Pirike (Perel) Muller',
+    heb: 'פרל מִילֶר',
+    body: '<p>Daughter of Shimon and Sara. Further details to be documented. If you have memories or information about Pirike, please contribute to the archive.</p>'
+  },
+  'josi': {
+    title: 'Josi Muller',
+    heb: 'יוסי מִילֶר',
+    body: '<p>Son of Shimon and Sara. Further details to be researched. If you have memories or information about Josi, please contribute to the archive.</p>'
+  },
+  'teresa': {
+    title: 'Teresa (Tereza-Devora) Bernfeld',
+    heb: 'טרזה ברנפלד',
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">December 12, 1909</span></div><div class="meta-item"><span class="meta-label">Family</span><span class="meta-value">Bernfeld of Topolčany</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Yakov Muller</span></div><div class="meta-item"><span class="meta-label">Son</span><span class="meta-value">Robert (b. 1931)</span></div></div><p>Robert\'s mother. The Bernfeld family carries the documented Löw-Beer → Rabbi Kolin → Shapira → Megale Amukot lineage. Her parents were Max (Mordechai) Bernfeld (1884–1964) and Erna Ester Herzfeld — Erna was from Brezova, not Topolčany. The specific marriage to Yakov Muller is confirmed by single source (MyHeritage) — Slovak archives could close this gap.</p><p><strong>Sources:</strong> Geni, Ancestry · Marriage to Yakov: MyHeritage only</p>'
+  },
+  'robert': {
+    title: 'Robert Moyshe Arie Muller — Robi',
+    heb: 'משה אריה מִילֶר — רובי',
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">1931, Prešov</span></div><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Yakov Muller</span></div><div class="meta-item"><span class="meta-label">Mother</span><span class="meta-value">Teresa Bernfeld</span></div><div class="meta-item"><span class="meta-label">Grandfather</span><span class="meta-value">Shimon Muller</span></div></div><p>The destination of this archive — the point where a thousand years of migration, scholarship, grief, and survival converge. His Hebrew name Moyshe Arie echoes Moshe Aryeh Rosman — the man who invited Shimon to Prešov, closing the circle across generations.</p>'
+  }
+};
+
+// ── Build contribution form HTML ──
+function contributionForm() {
+  return '<div class="field-row">' +
+    '<input class="memory-field" id="contrib-name" type="text" placeholder="Your name" autocomplete="name">' +
+    '<input class="memory-field" id="contrib-email" type="email" placeholder="Your email" autocomplete="email">' +
+    '</div>' +
+    '<textarea class="memory-input" id="contrib-text" placeholder="Write your memory, story, document reference, or correction here\u2026"></textarea>' +
+    '<button class="btn-contribute" style="margin-top:.9rem;width:100%;" onclick="submitMemory()">Submit to Archive</button>' +
+    '<div id="submit-status"></div>';
+}
+
+// ── Open modal: memory ──
+function openMemory(key) {
+  var d = memData[key];
+  if (!d) return;
+  document.getElementById('modal-title').textContent = d.title;
+  document.getElementById('modal-heb').textContent = d.heb || '';
+  document.getElementById('modal-body').innerHTML =
+    d.body +
+    '<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(201,168,76,.15);">' +
+    '<div style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Add to the Archive</div>' +
+    contributionForm() +
+    '</div>';
+  document.getElementById('modal-body').dataset.tag = d.title;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+// ── Open modal: person ──
+function openPerson(key) {
+  var d = personData[key];
+  if (!d) return;
+  document.getElementById('modal-title').textContent = d.title;
+  document.getElementById('modal-heb').textContent = d.heb || '';
+  document.getElementById('modal-body').innerHTML =
+    d.body +
+    '<div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(201,168,76,.15);">' +
+    '<div style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;">Add a Memory About This Person</div>' +
+    contributionForm() +
+    '</div>';
+  document.getElementById('modal-body').dataset.tag = d.title;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+// ── Close modal ──
+function closeModal(e, force) {
+  if (force || (e && e.target === document.getElementById('modal-overlay'))) {
+    document.getElementById('modal-overlay').classList.remove('open');
+  }
+}
+
+// ── Submit to Google Sheets ──
+function submitMemory() {
+  var nameEl  = document.getElementById('contrib-name');
+  var emailEl = document.getElementById('contrib-email');
+  var textEl  = document.getElementById('contrib-text');
+  var tagVal  = (document.getElementById('modal-body').dataset.tag) || 'General';
+  var statusEl = document.getElementById('submit-status');
+
+  var name  = nameEl  ? nameEl.value.trim()  : '';
+  var email = emailEl ? emailEl.value.trim() : '';
+  var text  = textEl  ? textEl.value.trim()  : '';
+
+  if (!text) {
+    statusEl.className = 'submit-status error';
+    statusEl.textContent = 'Please write something before submitting.';
+    return;
+  }
+
+  statusEl.className = 'submit-status sending';
+  statusEl.textContent = 'Sending\u2026';
+
+  var payload = {
+    timestamp: new Date().toISOString(),
+    name:  name  || '(anonymous)',
+    email: email || '(not provided)',
+    tag:   tagVal,
+    text:  text
+  };
+
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function() {
+    statusEl.className = 'submit-status success';
+    statusEl.textContent = '\u2713 Contribution received \u2014 thank you. It will be reviewed and added to the archive.';
+    if (nameEl)  nameEl.value  = '';
+    if (emailEl) emailEl.value = '';
+    if (textEl)  textEl.value  = '';
+  })
+  .catch(function() {
+    statusEl.className = 'submit-status error';
+    statusEl.textContent = 'Something went wrong. Please try again or email your contribution directly.';
+  });
+}
+</script>
+</body>
+</html>
