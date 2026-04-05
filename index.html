@@ -490,7 +490,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
 <div class="map-lines"></div>
 <div id="app">
 
-<!-- ══ HEADER ══ -->
 <header>
   <div class="archive-label">Living Family Archive</div>
   <h1>The House of <em>Muller</em><br>A Thousand Years to <em>Robert</em></h1>
@@ -501,7 +500,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   </p>
 </header>
 
-<!-- ══ NAV ══ -->
 <nav>
   <button class="active" onclick="showView('robert', this)">Robert</button>
   <button onclick="showView('story', this)">The Story</button>
@@ -513,9 +511,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
 
 <main>
 
-<!-- ══════════════════════════════════════
-     TAB 1 — ROBERT
-══════════════════════════════════════ -->
 <div id="view-robert" class="view active">
 
   <div class="robert-crown">
@@ -638,12 +633,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     <button class="btn-contribute" onclick="openMemory('general')">Contribute to the Archive</button>
   </div>
 
-</div><!-- /view-robert -->
-
-<!-- ══════════════════════════════════════
-     TAB 2 — THE STORY
-══════════════════════════════════════ -->
-<div id="view-story" class="view">
+</div><div id="view-story" class="view">
   <p class="section-title">The Story</p>
   <p class="section-sub">
     A linear narrative — from the ancient chain to Prešov and Robert.<br>
@@ -663,7 +653,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     <button class="ch-pill" onclick="scrollToChapter('ch-robert', this)">IX · Robert</button>
   </div>
 
-  <!-- Chapter I -->
   <div id="ch-rashi" class="story-panel oral-panel">
     <div class="story-chapter">Chapter I — The Ancient Chain</div>
     <div class="story-title">From Troyes to Kraków: The Rabbinic Lineage <span class="oral-flag">Oral tradition</span></div>
@@ -678,7 +667,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter II -->
   <div id="ch-ahron" class="story-panel">
     <div class="story-chapter">Chapter II — The Patriarch</div>
     <div class="story-title">Ahron Muller &amp; Pesel Lieberman — Teachers from Sanz</div>
@@ -692,7 +680,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter III -->
   <div id="ch-invitation" class="story-panel">
     <div class="story-chapter">Chapter III — Arrival in Prešov</div>
     <div class="story-title">The Invitation: From Sanz to Prešov</div>
@@ -708,7 +695,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter IV -->
   <div id="ch-business" class="story-panel">
     <div class="story-chapter">Chapter IV — The Businessman</div>
     <div class="story-title">Cheese, Plum Liqueur, and the Munkacser Rebbe's Blessing</div>
@@ -723,7 +709,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter V -->
   <div id="ch-war" class="story-panel">
     <div class="story-chapter">Chapter V — World War I</div>
     <div class="story-title">A Fourteen-Year-Old Runs the Factory</div>
@@ -738,7 +723,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter VI -->
   <div id="ch-grief" class="story-panel">
     <div class="story-chapter">Chapter VI — Grief &amp; Faith</div>
     <div class="story-title">Margit's Death — A Torah Scroll for the Shul</div>
@@ -753,7 +737,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter VII -->
   <div id="ch-family" class="story-panel">
     <div class="story-chapter">Chapter VII — Father &amp; Grandfather</div>
     <div class="story-title">Frankfurt, Remarriage, and Sunday Excursions</div>
@@ -768,7 +751,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter VIII -->
   <div id="ch-shoah" class="story-panel tragedy-panel">
     <div class="story-chapter">Chapter VIII — The Shoah</div>
     <div class="story-title">Budapest, 1944 — The Last Blessing</div>
@@ -785,7 +767,6 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
   </div>
 
-  <!-- Chapter IX -->
   <div id="ch-robert" class="story-panel" style="border-color:rgba(201,168,76,.4);">
     <div class="story-chapter">Chapter IX — The Destination</div>
     <div class="story-title">Robert Moyshe Arie Muller — 1931, Prešov</div>
@@ -806,12 +787,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     <p>Each chapter has a contribution slot. If you carry a detail, photograph, document, or memory — add it. This archive grows with the family.</p>
     <button class="btn-contribute" onclick="openMemory('general')">Contribute to the Archive</button>
   </div>
-</div><!-- /view-story -->
-
-<!-- ══════════════════════════════════════
-     TAB 3 — FAMILY TREE
-══════════════════════════════════════ -->
-<div id="view-tree" class="view">
+</div><div id="view-tree" class="view">
   <p class="section-title">Family Tree</p>
   <p class="section-sub">Confirmed generations · Muller paternal line · Click any card for detail</p>
   <div class="tree-container">
@@ -923,12 +899,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <strong style="color:var(--parchment);">Name note:</strong> Robert's Hebrew name <em>Moyshe Arie</em> echoes <em>Moshe Aryeh Rosman</em> — the great-uncle who invited Shimon to Prešov, whose daughter Sara became Shimon's wife. The name closes the circle. The rabbinic chain (Rashi → Megale Amukot → Shapira → Kolin → Löw-Beer → Bernfeld) enters through Teresa Bernfeld, Robert's mother.
     </p>
   </div>
-</div><!-- /view-tree -->
-
-<!-- ══════════════════════════════════════
-     TAB 4 — PLACES
-══════════════════════════════════════ -->
-<div id="view-places" class="view">
+</div><div id="view-places" class="view">
   <p class="section-title">The Places</p>
   <p class="section-sub">Every location in the family's story — from Troyes to Auschwitz</p>
   <div class="places-grid">
@@ -1019,12 +990,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
 
   </div>
-</div><!-- /view-places -->
-
-<!-- ══════════════════════════════════════
-     TAB 5 — SURNAMES
-══════════════════════════════════════ -->
-<div id="view-surnames" class="view">
+</div><div id="view-surnames" class="view">
   <p class="section-title">The Family Names</p>
   <p class="section-sub">Each surname a world — a community, a history, a migration</p>
   <div class="surnames-grid">
@@ -1094,12 +1060,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
 
   </div>
-</div><!-- /view-surnames -->
-
-<!-- ══════════════════════════════════════
-     TAB 6 — OPEN RESEARCH
-══════════════════════════════════════ -->
-<div id="view-gaps" class="view">
+</div><div id="view-gaps" class="view">
   <p class="section-title">Open Research</p>
   <p class="section-sub">What's confirmed, what's a single source, what remains open — and where to look</p>
 
@@ -1163,13 +1124,8 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <strong style="color:var(--parchment);">Key archives to search:</strong> JRI-Poland · Gesher Galicia · Hungarian National Archive (MNL OL Budapest) · Slovak National Archive Prešov (Štátny archív v Prešove) · Slovak National Archive Nitra · Yad Vashem Central Database · FamilySearch Hungarian &amp; Slovak collections · Geni.com Shapira lineage trees · Czech National Archive Brno · Hildesheimer Seminary records, Berlin
     </p>
   </div>
-</div><!-- /view-gaps -->
-
-</main>
-</div><!-- /#app -->
-
-<!-- ══ MODAL ══ -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+</div></main>
+</div><div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal(null, true)">✕</button>
     <h2 id="modal-title"></h2>
@@ -1207,7 +1163,7 @@ function scrollToChapter(id, btn) {
 }
 
 // ── Google Sheets endpoint ──
-var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbziCCnrjTg8-h8DzZyHR0AFJn5qqzLKxPEJ1RwNPyj7XfsgHDVBq-mf7ajlwht9e3jFrg/exec';
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxtLNSpMilxgBRvvypSUZ4U0cDoC62drugOuI5YCYttVrp2gNwMWFbvbCulO-txCaFV9Q/exec';
 
 // ── Memory contribution data ──
 var memData = {
@@ -1409,7 +1365,7 @@ function submitMemory() {
   fetch(SHEETS_URL, {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // This is the crucial fix
     body: JSON.stringify(payload)
   })
   .then(function() {
