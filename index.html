@@ -251,7 +251,7 @@ main{padding:1.5rem 1rem 3rem}
 <main>
 
 <!-- ══════════════════════════════════════
-     TAB 1 — ROBERT (the hero, the destination)
+     TAB 1 — ROBERT
 ══════════════════════════════════════ -->
 
 <div id="view-robert" class="view active">
@@ -268,8 +268,6 @@ main{padding:1.5rem 1rem 3rem}
       <strong>Grandfather:</strong> Shimon Muller — the liqueur factory, the man who came from Sanz
     </div>
   </div>
-
-  <!-- The chain that reaches him -->
 
   <p class="section-title" style="margin-bottom:.4rem;">The chain that reaches him</p>
   <p class="section-sub" style="margin-bottom:1.2rem;">From Troyes to Prešov — a condensed lineage · Expand <em>The Story</em> tab for full narrative</p>
@@ -349,8 +347,6 @@ main{padding:1.5rem 1rem 3rem}
     </div>
   </div>
 
-  <!-- What Robert inherited -->
-
   <div class="robert-chain" style="margin-top:2rem;">
     <div class="chain-card">
       <span class="cc-label">What he inherited — Paternal</span>
@@ -370,8 +366,6 @@ main{padding:1.5rem 1rem 3rem}
     </div>
   </div>
 
-  <!-- Family memories section -->
-
   <div class="robi-memories">
     <h3>What do you remember about Robi?</h3>
     <p>This archive is built on Denise Karasik's <em>Oma's Story</em> — her grandmother Ilona's account. But Robert belongs to all of you. His voice, his habits, his character, his home, the things he said and didn't say — no document holds those. If you knew him, write it here. This section grows with family contributions.</p>
@@ -387,8 +381,7 @@ main{padding:1.5rem 1rem 3rem}
 </div>
 
 <!-- ══════════════════════════════════════
-     TAB 2 — THE STORY (merged Chronicle + Shimon's Story)
-     Linear chapters flowing Rashi → Shimon → The Shoah → Robert
+     TAB 2 — THE STORY
 ══════════════════════════════════════ -->
 
 <div id="view-story" class="view">
@@ -399,24 +392,20 @@ main{padding:1.5rem 1rem 3rem}
     Click any chapter header to jump directly.
   </p>
 
-  <!-- Chapter navigation pills -->
-
   <div class="chapter-nav">
     <div class="chapter-nav-label">Jump to chapter</div>
     <button class="ch-pill active" onclick="scrollToChapter('ch-rashi',this)">I · The Ancient Chain</button>
-    <button class="ch-pill" onclick="scrollToChapter('ch-ahron',this)">II · Ahron & Pesel</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-ahron',this)">II · Ahron &amp; Pesel</button>
     <button class="ch-pill" onclick="scrollToChapter('ch-invitation',this)">III · The Invitation</button>
     <button class="ch-pill" onclick="scrollToChapter('ch-business',this)">IV · The Business</button>
     <button class="ch-pill" onclick="scrollToChapter('ch-war',this)">V · War</button>
-    <button class="ch-pill" onclick="scrollToChapter('ch-grief',this)">VI · Grief & Faith</button>
-    <button class="ch-pill" onclick="scrollToChapter('ch-family',this)">VII · Father & Grandfather</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-grief',this)">VI · Grief &amp; Faith</button>
+    <button class="ch-pill" onclick="scrollToChapter('ch-family',this)">VII · Father &amp; Grandfather</button>
     <button class="ch-pill" onclick="scrollToChapter('ch-shoah',this)">VIII · The Shoah</button>
     <button class="ch-pill" onclick="scrollToChapter('ch-robert',this)">IX · Robert</button>
   </div>
 
-  <!-- Chapter I — The Ancient Chain -->
-
-  <div id="ch-rashi" class="story-panel oral-panel" style="scroll-margin-top:1rem;">
+  <div id="ch-rashi" class="story-panel oral-panel">
     <div class="story-chapter">Chapter I — The Ancient Chain</div>
     <div class="story-title">From Troyes to Kraków: The Rabbinic Lineage<span class="story-body"><span class="oral-flag">Oral tradition</span></span></div>
     <div class="story-body">
@@ -430,11 +419,9 @@ main{padding:1.5rem 1rem 3rem}
     </div>
   </div>
 
-  <!-- Chapter II — Ahron & Pesel -->
-
   <div id="ch-ahron" class="story-panel">
     <div class="story-chapter">Chapter II — The Patriarch</div>
-    <div class="story-title">Ahron Muller & Pesel Lieberman — Teachers from Sanz</div>
+    <div class="story-title">Ahron Muller &amp; Pesel Lieberman — Teachers from Sanz</div>
     <div class="story-body">
       <p><em>Ahron Muller</em>, born around 1852, was a teacher — not a rabbi, but a man shaped by the serious intellectual life of Modern Orthodox Judaism. He studied at Rabbi Esriel Hildesheimer's Rabbinical Seminary in Berlin, the flagship institution that combined rigorous Torah scholarship with secular academic standards. This was a deliberate, considered choice: Hildesheimer's seminary represented a particular way of being Jewish in the modern world — serious, educated, engaged.</p>
       <p>He married <em>Pesel Lieberman</em>. Together they raised their son <em>Shimon</em> in Nowy Sącz — known in Jewish tradition as Sanz, home of the great Halberstam Hasidic dynasty. The world Shimon grew up in was shaped by both his father's Modern Orthodox seriousness and the intense Hasidic culture of the city around him.</p>
@@ -444,8 +431,6 @@ main{padding:1.5rem 1rem 3rem}
       <div class="memory-placeholder" onclick="openMemory('ahron')">+ Add family knowledge</div>
     </div>
   </div>
-
-  <!-- Chapter III — The Invitation -->
 
   <div id="ch-invitation" class="story-panel">
     <div class="story-chapter">Chapter III — Arrival in Prešov</div>
@@ -462,8 +447,6 @@ main{padding:1.5rem 1rem 3rem}
     </div>
   </div>
 
-  <!-- Chapter IV — The Business -->
-
   <div id="ch-business" class="story-panel">
     <div class="story-chapter">Chapter IV — The Businessman</div>
     <div class="story-title">Cheese, Plum Liqueur, and the Munkacser Rebbe's Blessing</div>
@@ -477,8 +460,6 @@ main{padding:1.5rem 1rem 3rem}
       <div class="memory-placeholder" onclick="openMemory('business')">+ Add family knowledge</div>
     </div>
   </div>
-
-  <!-- Chapter V — War -->
 
   <div id="ch-war" class="story-panel">
     <div class="story-chapter">Chapter V — World War I</div>
@@ -494,8 +475,6 @@ main{padding:1.5rem 1rem 3rem}
     </div>
   </div>
 
-  <!-- Chapter VI — Grief and Faith -->
-
   <div id="ch-grief" class="story-panel">
     <div class="story-chapter">Chapter VI — Grief &amp; Faith</div>
     <div class="story-title">Margit's Death — A Torah Scroll for the Shul</div>
@@ -510,8 +489,6 @@ main{padding:1.5rem 1rem 3rem}
     </div>
   </div>
 
-  <!-- Chapter VII — Father and Grandfather -->
-
   <div id="ch-family" class="story-panel">
     <div class="story-chapter">Chapter VII — Father &amp; Grandfather</div>
     <div class="story-title">Frankfurt, Remarriage, and Sunday Excursions</div>
@@ -525,8 +502,6 @@ main{padding:1.5rem 1rem 3rem}
       <div class="memory-placeholder" onclick="openMemory('family')">+ Add family knowledge</div>
     </div>
   </div>
-
-  <!-- Chapter VIII — The Shoah -->
 
   <div id="ch-shoah" class="story-panel tragedy-panel">
     <div class="story-chapter">Chapter VIII — The Shoah</div>
@@ -543,8 +518,6 @@ main{padding:1.5rem 1rem 3rem}
       <div class="memory-placeholder" onclick="openMemory('shoah')">+ Add family knowledge or Yad Vashem records</div>
     </div>
   </div>
-
-  <!-- Chapter IX — Robert -->
 
   <div id="ch-robert" class="story-panel" style="border-color:rgba(201,168,76,.35);">
     <div class="story-chapter">Chapter IX — The Destination</div>
@@ -596,7 +569,7 @@ main{padding:1.5rem 1rem 3rem}
 
 <div class="connector-row"><div class="connector-v"></div></div>
 
-<div class="gen-label">Generation II — Shimon & Sara</div>
+<div class="gen-label">Generation II — Shimon &amp; Sara</div>
 <div class="generation">
   <div class="person-card deceased" onclick="openPerson('shimon')">
     <div class="p-name">Shimon Muller</div>
@@ -616,9 +589,8 @@ main{padding:1.5rem 1rem 3rem}
 <div style="margin:.4rem 0; text-align:center; font-size:.68rem; color:var(--sepia-dark); font-style:italic;">Sara = daughter of Shimon's uncle Moshe Aryeh Rosman · cousin marriage confirmed by Prešov cemetery records</div>
 
 <div class="siblings-section">
-  <div class="siblings-label">Shimon & Sara's Six Children</div>
+  <div class="siblings-label">Shimon &amp; Sara's Six Children</div>
   <div class="siblings-row">
-    <!-- NOTE: Ilona is Denise Karasik's Oma — author of "Oma's Story" -->
     <div class="sibling-chip" onclick="openPerson('ilona')">Ilona — Denise's Oma<small>אילונה · author of Oma's Story</small></div>
     <div class="sibling-chip" onclick="openPerson('rosie')">Rosie (Raizel)<small>רייזל</small></div>
     <div class="sibling-chip focal-sibling" onclick="openPerson('yakov')">Yakov ★<small>יעקב — father of Robert</small></div>
@@ -704,7 +676,7 @@ main{padding:1.5rem 1rem 3rem}
 <div class="place-card">
   <div class="place-name">Topolčany</div>
   <div class="place-alt-names">Nagytapolcsány (Hungarian) · Slovakia</div>
-  <div class="place-period">~1820–1944 — Bernfeld & Löw-Beer Hub</div>
+  <div class="place-period">~1820–1944 — Bernfeld &amp; Löw-Beer Hub</div>
   <p class="place-desc">The Bernfeld and Löw-Beer families were among the most prominent in Topolčany's Jewish community — community leaders, synagogue wardens, builders of a Beth Medrash. Nathan Nota Löw-Beer (1820–1888) was born here. The Topolčany Yizkor Book confirms their presence, leadership, and martyrdom. Teresa Bernfeld's family connects here — though Erna Herzfeld (her grandmother) was actually from nearby Brezova, not Topolčany itself.</p>
   <div class="place-people"><span class="person-chip">Nathan Nota Löw-Beer</span><span class="person-chip">Moshe Bernfeld</span><span class="person-chip">Max Bernfeld</span></div>
 </div>
@@ -732,7 +704,7 @@ main{padding:1.5rem 1rem 3rem}
   <p class="place-desc">A royal free town in Upper Hungary (today northeast Slovakia). Moshe Aryeh Rosman's dry goods store brought Shimon here. Three generations of Mullers lived here. The liqueur factory sat behind the family apartment. Robert was born here in 1931. The Orthodox cemetery records independently confirm the Rozman–Miller/Muller marriages with exact Hebrew name matches.</p>
   <div class="place-people">
     <span class="person-chip">Moshe Aryeh Rosman</span>
-    <span class="person-chip">Shimon & Sara Muller</span>
+    <span class="person-chip">Shimon &amp; Sara Muller</span>
     <span class="person-chip">Yakov Muller</span>
     <span class="person-chip">Robert (b. 1931)</span>
   </div>
@@ -795,7 +767,7 @@ main{padding:1.5rem 1rem 3rem}
 <div class="surname-card">
   <div class="surname-main">Bernfeld</div>
   <div class="surname-heb">ברנפלד</div>
-  <div class="surname-role">Lineage Carrier — Löw-Beer & Shapira Chain</div>
+  <div class="surname-role">Lineage Carrier — Löw-Beer &amp; Shapira Chain</div>
   <p class="surname-desc">Moravian/Galician family confirmed as prominent leaders of the Topolčany Jewish community. They connect through marriage to the Löw-Beer industrial dynasty. Through Teresa Bernfeld, Robert's mother, this entire chain enters the Muller family. The Bernfeld family also originated in Boskovice, Moravia — same town as the Löw-Beers.</p>
   <p class="surname-connection">Teresa Bernfeld = Robert's mother · Topolčany Yizkor Book confirmed</p>
 </div>
@@ -946,16 +918,13 @@ function showView(id, btn) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ── Chapter pill navigation (within The Story tab) ──
+// ── Chapter pill navigation ──
 function scrollToChapter(id, btn) {
   document.querySelectorAll('.ch-pill').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
-
-// ── Timeline node expand ──
-function toggleNode(el) { el.classList.toggle('open'); }
 
 // ── Google Sheets endpoint ──
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbziCCnrjTg8-h8DzZyHR0AFJn5qqzLKxPEJ1RwNPyj7XfsgHDVBq-mf7ajlwht9e3jFrg/exec';
@@ -1015,7 +984,6 @@ const memData = {
 };
 
 // ── Person data for modal ──
-// NOTE: Ilona Muller = Denise Karasik's Oma — referred to throughout as "Denise's Oma, Ilona"
 const personData = {
   'ahron': {
     title: 'Ahron Muller',
@@ -1038,7 +1006,6 @@ const personData = {
     body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Moshe Aryeh Rosman</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Shimon Muller (her cousin)</span></div><div class="meta-item"><span class="meta-label">Children</span><span class="meta-value">6: Ilona (Denise\'s Oma), Rosie, Yakov, Margit, Pirike, Josi</span></div></div><p>Sara broke a prior betrothal to marry Shimon, causing family upheaval. Confirmed by Prešov Orthodox Cemetery: "Sure bas Mose Arie HaLevi Zena Simon" — Sara, daughter of Moshe Aryeh HaLevi, wife of Simon. She died from an infected cut before the war; Shimon later married her cousin Malvinka Fonfedder.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasik) + Prešov cemetery records (JewishGen)</p>'
   },
   'ilona': {
-    // Ilona Muller = Denise Karasik's Oma — author of "Oma's Story"
     title: "Ilona Muller — Denise's Oma",
     heb: 'אילונה מִילֶר — סבתא של דניז',
     body: '<p>Eldest daughter of Shimon and Sara. Author of "Oma\'s Story" — as preserved and written by her granddaughter <strong>Denise Karasik</strong>. The primary source for this entire archive. At age 14, during WWI, she ran the liqueur factory alone while Shimon supervised logging in the requisitioned forest. Her written account is the foundation of the family\'s documented history.</p><p>During the Shoah, Shimon hid with Denise\'s Oma, Ilona, in Miskolc before the failed flight to Budapest. She survived.</p><p><strong>Source:</strong> Oma\'s Story — Denise Karasik (Ilona\'s account, preserved by Denise)</p>'
@@ -1051,7 +1018,7 @@ const personData = {
   'yakov': {
     title: 'Yakov Muller',
     heb: 'יעקב מִילֶר',
-    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1900–1910, Prešov</span></div><div class="meta-item"><span class="meta-label">Parents</span><span class="meta-value">Shimon & Sara Rosman</span></div><div class="meta-item"><span class="meta-label">Yeshiva</span><span class="meta-value">Frankfurt (Shimon advocated 10 days)</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Teresa (Tereza-Devora) Bernfeld</span></div></div><p>Son of Shimon and Sara. Shimon traveled to Frankfurt and spent ten days persuading a Yeshiva to accept him. Yakov married Teresa Bernfeld, bringing the Löw-Beer / Bernfeld lineage into the Muller family. Their firstborn Robert arrived in 1931.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik) · Teresa marriage: single source (MyHeritage)</p>'
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1900–1910, Prešov</span></div><div class="meta-item"><span class="meta-label">Parents</span><span class="meta-value">Shimon &amp; Sara Rosman</span></div><div class="meta-item"><span class="meta-label">Yeshiva</span><span class="meta-value">Frankfurt (Shimon advocated 10 days)</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Teresa (Tereza-Devora) Bernfeld</span></div></div><p>Son of Shimon and Sara. Shimon traveled to Frankfurt and spent ten days persuading a Yeshiva to accept him. Yakov married Teresa Bernfeld, bringing the Löw-Beer / Bernfeld lineage into the Muller family. Their firstborn Robert arrived in 1931.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik) · Teresa marriage: single source (MyHeritage)</p>'
   },
   'margit': {
     title: 'Margit (Malca) Muller',
@@ -1080,7 +1047,7 @@ const personData = {
   }
 };
 
-// ── Shared form HTML injected into every contribution modal ──
+// ── Contribution form HTML ──
 function contributionForm() {
   return `
     <div class="field-row">
@@ -1152,7 +1119,6 @@ tag,
 text
 };
 
-// Google Apps Script requires no-cors — response is opaque but data goes through
 fetch(SHEETS_URL, {
 method: ‘POST’,
 mode: ‘no-cors’,
