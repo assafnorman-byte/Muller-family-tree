@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The House of Muller — A Thousand Years to Robert</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLs=" crossorigin=""></script>
 <style>
 :root {
   --ink: #1a1209;
@@ -483,6 +487,122 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   .field-row { grid-template-columns: 1fr; }
   .modal { padding: 1.4rem; }
 }
+
+/* ── MAP VIEW ── */
+.map-wrapper { position: relative; overflow: hidden; }
+#map-container {
+  width: 100%; height: 520px;
+  border: 1px solid rgba(201,168,76,.25); border-radius: 2px;
+  background: #1a1209;
+  position: relative;
+}
+#map-container .leaflet-tile-pane {
+  filter: sepia(0.85) hue-rotate(-10deg) saturate(0.35) brightness(0.52);
+}
+#map-container .leaflet-control-zoom a {
+  background: rgba(26,18,9,.88) !important;
+  border-color: rgba(201,168,76,.25) !important;
+  color: #c9a84c !important;
+}
+#map-container .leaflet-control-zoom a:hover {
+  background: rgba(201,168,76,.15) !important;
+}
+#map-container .leaflet-control-attribution {
+  background: rgba(26,18,9,.75) !important;
+  color: #8b6f47 !important; font-size: .6rem;
+}
+
+/* Route line animation */
+@keyframes mapdash {
+  to { stroke-dashoffset: 0; }
+}
+.route-line {
+  stroke-linecap: round;
+  stroke-dashoffset: 2000;
+  animation: mapdash 3s linear forwards;
+  fill: none;
+}
+.route-line-bernfeld { stroke: #c9a84c; stroke-width: 2.5; stroke-dasharray: 10 6; }
+.route-line-muller   { stroke: #b87c5a; stroke-width: 2;   stroke-dasharray: 7 5;  animation-delay: .8s; }
+.route-line-business { stroke: #8a9ba8; stroke-width: 1.5; stroke-dasharray: 3 5;  animation-delay: 1.4s; }
+
+/* Legend */
+.map-legend {
+  position: absolute; bottom: 2rem; left: 1rem; z-index: 1000;
+  background: rgba(26,18,9,.87); border: 1px solid rgba(201,168,76,.2);
+  padding: .7rem 1rem; font-size: .65rem; color: #c4a882;
+  font-family: 'DM Sans', sans-serif; line-height: 1.95; pointer-events: none;
+}
+.legend-line { display: flex; align-items: center; gap: .5rem; }
+.legend-swatch { width: 22px; height: 3px; flex-shrink: 0; }
+.legend-swatch.bernfeld { background: #c9a84c; }
+.legend-swatch.muller   { background: #b87c5a; }
+.legend-swatch.business {
+  background: repeating-linear-gradient(90deg,#8a9ba8 0,#8a9ba8 3px,transparent 3px,transparent 8px);
+}
+
+/* Detail panel */
+.map-detail-panel {
+  position: absolute; top: 0; right: 0;
+  width: 300px; height: 100%;
+  background: linear-gradient(160deg,#211a0e,#1a1209);
+  border-left: 1px solid rgba(201,168,76,.25);
+  overflow-y: auto; z-index: 999;
+  transform: translateX(100%);
+  transition: transform .3s ease;
+}
+.map-detail-panel.open { transform: translateX(0); }
+.map-detail-close {
+  position: absolute; top: .6rem; right: .7rem;
+  background: none; border: none; color: #8b6f47;
+  font-size: 1.1rem; cursor: pointer; z-index: 1;
+}
+.map-detail-close:hover { color: #c9a84c; }
+.map-detail-inner { padding: 1.5rem 1.2rem; }
+.map-detail-branch-tag {
+  display: inline-block; font-size: .58rem; letter-spacing: .12em;
+  text-transform: uppercase; padding: .2rem .6rem;
+  border-radius: 1px; margin-bottom: .9rem;
+}
+.tag-bernfeld { background: rgba(201,168,76,.15); color: #c9a84c; border: 1px solid rgba(201,168,76,.3); }
+.tag-muller   { background: rgba(184,124,90,.15); color: #b87c5a; border: 1px solid rgba(184,124,90,.3); }
+.tag-business { background: rgba(138,155,168,.12); color: #8a9ba8; border: 1px solid rgba(138,155,168,.25); }
+.map-detail-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+  font-weight: 300; color: #f2e8d5; margin-bottom: .2rem;
+}
+.map-detail-alt  { font-size: .68rem; font-style: italic; color: #c4a882; margin-bottom: .4rem; }
+.map-detail-period {
+  font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
+  color: #c9a84c; margin-bottom: .9rem;
+}
+.map-detail-desc { font-size: .8rem; color: #e8d9bc; line-height: 1.7; margin-bottom: 1rem; }
+.map-detail-people { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1.1rem; }
+.map-family-chip {
+  font-size: .62rem; padding: .18rem .5rem;
+  border-radius: 1px; border: 1px solid rgba(201,168,76,.4);
+  background: rgba(201,168,76,.1); color: #e8d08a;
+}
+.map-detail-cta {
+  display: block; background: rgba(201,168,76,.12);
+  border: 1px solid rgba(201,168,76,.3); color: #e8d08a;
+  font-family: 'DM Sans', sans-serif; font-size: .65rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .55rem; text-align: center; cursor: pointer;
+  border-radius: 1px; transition: all .2s; width: 100%;
+}
+.map-detail-cta:hover { background: rgba(201,168,76,.22); border-color: #c9a84c; }
+
+@media (max-width: 600px) {
+  #map-container { height: 360px; }
+  .map-detail-panel {
+    width: 100%; height: 55%;
+    top: auto; bottom: 0; right: 0;
+    border-left: none; border-top: 1px solid rgba(201,168,76,.25);
+    transform: translateY(100%);
+  }
+  .map-detail-panel.open { transform: translateY(0); }
+}
 </style>
 </head>
 <body>
@@ -505,6 +625,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   <button onclick="showView('story', this)">The Story</button>
   <button onclick="showView('tree', this)">Family Tree</button>
   <button onclick="showView('places', this)">Places</button>
+  <button onclick="showView('map', this)">Map</button>
   <button onclick="showView('surnames', this)">Surnames</button>
   <button onclick="showView('gaps', this)">Open Research</button>
 </nav>
@@ -990,6 +1111,21 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
 
   </div>
+</div><div id="view-map" class="view">
+  <p class="section-title">Migration Map</p>
+  <p class="section-sub">Three family lines — traced across nine centuries</p>
+  <div class="map-wrapper">
+    <div id="map-container"></div>
+    <div id="map-detail-panel" class="map-detail-panel">
+      <button class="map-detail-close" onclick="closeMapPanel()">✕</button>
+      <div class="map-detail-inner" id="map-detail-inner"></div>
+    </div>
+    <div class="map-legend">
+      <div class="legend-line"><span class="legend-swatch bernfeld"></span> Bernfeld rabbinic chain <span style="opacity:.6;font-size:.58rem">(Shapira · Kolin · Löw-Beer · Bernfeld)</span></div>
+      <div class="legend-line"><span class="legend-swatch muller"></span> Muller / Sanz paternal line</div>
+      <div class="legend-line"><span class="legend-swatch business"></span> Business network</div>
+    </div>
+  </div>
 </div><div id="view-surnames" class="view">
   <p class="section-title">The Family Names</p>
   <p class="section-sub">Each surname a world — a community, a history, a migration</p>
@@ -1143,6 +1279,7 @@ function showView(id, btn) {
   if (el) el.classList.add('active');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'map' && !mapReady) { mapReady = true; setTimeout(initMap, 50); }
 }
 
 // ── Chapter pills — FIX: ensure story tab is visible before scrolling ──
@@ -1379,6 +1516,215 @@ function submitMemory() {
     statusEl.className = 'submit-status error';
     statusEl.textContent = 'Something went wrong. Please try again or email your contribution directly.';
   });
+}
+
+// ── MAP ──
+var mapReady = false;
+var _map = null;
+
+var MAP_BRANCHES = {
+  bernfeld: { label: 'Bernfeld Rabbinic Chain', color: '#c9a84c', tagClass: 'tag-bernfeld' },
+  muller:   { label: 'Muller / Sanz Line',      color: '#b87c5a', tagClass: 'tag-muller'   },
+  business: { label: 'Business Network',        color: '#8a9ba8', tagClass: 'tag-business' }
+};
+
+var MAP_PLACES = [
+  { id:'troyes',
+    name:'Troyes', altNames:'Champagne, France',
+    lat:48.2973, lng:4.0744, branch:'bernfeld',
+    period:'~1040 CE',
+    people:['Rashi'], namedFamilies:[],
+    desc:'Home of Rashi (Rabbi Shlomo Yitzchaki). The oral tradition places the lineage origin here. From Troyes, the rabbinic chain spread eastward through the Rhineland toward Poland — eventually reaching the Shapira dynasty of Krak\u00f3w.',
+    chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
+
+  { id:'krakow',
+    name:'Krak\u00f3w', altNames:'Cracow, Poland \u00b7 \u05e7\u05e8\u05d0\u05e7\u05d0',
+    lat:50.0647, lng:19.9450, branch:'bernfeld',
+    period:'1585\u20131633',
+    people:['Rabbi Natan Neta Shapira'], namedFamilies:['Shapira'],
+    desc:'Rabbi Natan Neta Shapira \u2014 the Megale Amukot \u2014 served as Chief Rabbi of Krak\u00f3w. His documented descent from Rashi anchors the rabbinic chain. The Shapira dynasty of Krak\u00f3w is the first firmly verified link in the family\u2019s genealogy.',
+    chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
+
+  { id:'boskovice',
+    name:'Boskovice', altNames:'Moravia, Czech Republic',
+    lat:49.4873, lng:16.6611, branch:'bernfeld',
+    period:'~1720\u20131870',
+    people:['Rabbi Samuel Kolin','Salomon L\u00f6w-Beer'], namedFamilies:['Kolin','L\u00f6w-Beer'],
+    desc:'Rabbi Samuel Ha-Levi Kolin (c.\u00a01720\u20131806) presided over the Boskovice yeshiva for nearly 60 years. His son Jehuda L\u00f6w married Buna Beer; their son Salomon took the hyphenated name L\u00f6w-Beer. The Bernfeld family also originated here before moving east to Slovakia.',
+    chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
+
+  { id:'topolcany',
+    name:'Topo\u013c\u010dany', altNames:'Nagytapolcs\u00e1ny \u00b7 Slovakia',
+    lat:48.5601, lng:18.1686, branch:'bernfeld',
+    period:'1820s\u20131944',
+    people:['Moshe Bernfeld','Gittel n\u00e9e L\u00f6w-Beer','Max Bernfeld','Teresa Bernfeld'], namedFamilies:['Bernfeld','L\u00f6w-Beer'],
+    desc:'The Bernfeld and L\u00f6w-Beer families were among the most prominent in Topo\u013c\u010dany\u2019s Jewish community \u2014 community leaders and synagogue wardens. Teresa Bernfeld was born here in 1909. When she married Yakov Muller in Pre\u0161ov, the full rabbinic chain entered the Muller family.',
+    chapterId:null, chapterLabel:null },
+
+  { id:'sanz',
+    name:'Nowy S\u0105cz', altNames:'Sanz, Galicia \u00b7 Poland',
+    lat:49.6249, lng:20.6934, branch:'muller',
+    period:'~1800s',
+    people:['Ahron Muller (origin)'], namedFamilies:[],
+    desc:'Seat of the Sanz Hasidic dynasty. Ahron Muller was raised here under its influence. When the Jewish community of Pre\u0161ov sent an invitation to lead their congregation, Ahron left Sanz \u2014 beginning the Muller family\u2019s Slovak chapter.',
+    chapterId:'chapter-iii', chapterLabel:'Chapter III \u2014 The Invitation' },
+
+  { id:'presov',
+    name:'Pre\u0161ov', altNames:'Eperjes, Slovakia \u00b7 \u05e4\u05e8\u05e9\u05d1\u05d5\u05e8\u05d2',
+    lat:48.9983, lng:21.2394, branch:'muller',
+    period:'1850s\u20131940s',
+    people:['Ahron Muller','Pesel Lieberman','Shimon Muller','Yakov Muller','Teresa Bernfeld','Robert Muller'],
+    namedFamilies:['Bernfeld'],
+    desc:'The heart of the story. Ahron arrived from Sanz, built the liqueur factory, and raised the next generation here. A generation later, Yakov Muller married Teresa Bernfeld \u2014 uniting the Sanz/Muller paternal line with the Shapira\u2013Kolin\u2013L\u00f6w-Beer\u2013Bernfeld rabbinic chain. All routes converge here.',
+    chapterId:'chapter-ii', chapterLabel:'Chapter II \u2014 Ahron & Pesel' },
+
+  { id:'frankfurt',
+    name:'Frankfurt', altNames:'Hesse, Germany',
+    lat:50.1109, lng:8.6821, branch:'business',
+    period:'~1880s\u20131930s',
+    people:['Shimon Muller (trade)','Yakov (yeshiva)'], namedFamilies:[],
+    desc:'A key commercial hub in the Muller liqueur business network, and home to the yeshiva where Yakov studied after Shimon advocated ten days for his admission.',
+    chapterId:'chapter-iv', chapterLabel:'Chapter IV \u2014 The Business' },
+
+  { id:'berlin',
+    name:'Berlin', altNames:'Prussia / Germany',
+    lat:52.5200, lng:13.4050, branch:'business',
+    period:'~1870s\u20131930s',
+    people:['Ahron Muller (seminary)','Business contacts'], namedFamilies:[],
+    desc:'Site of the Hildesheimer Rabbinical Seminary where Ahron Muller studied, and a node in the Muller commercial network. This western reach reflected the modernity and ambition of the Pre\u0161ov enterprise.',
+    chapterId:null, chapterLabel:null },
+
+  { id:'miskolc',
+    name:'Miskolc', altNames:'Northern Hungary',
+    lat:48.1035, lng:20.7784, branch:'muller',
+    period:'1943\u20131944',
+    people:['Shimon (refugee)','Ilona \u2014 Denise\u2019s Oma'], namedFamilies:[],
+    desc:'Shimon sought refuge here with Ilona during the war, after being smuggled from Munkacs. From Miskolc, the family attempted to flee to Budapest with forged papers \u2014 the last journey.',
+    chapterId:null, chapterLabel:null }
+];
+
+var MAP_ROUTES = {
+  bernfeld: ['troyes','krakow','boskovice','topolcany','presov'],
+  muller:   ['sanz','presov','miskolc'],
+  business: ['berlin','presov','frankfurt']
+};
+
+function initMap() {
+  _map = L.map('map-container', { zoomControl: true }).setView([49.5, 14.5], 5);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(_map);
+
+  // Index places by id
+  var placeById = {};
+  MAP_PLACES.forEach(function(p) { placeById[p.id] = p; });
+
+  // Draw routes
+  Object.keys(MAP_ROUTES).forEach(function(branch) {
+    var ids = MAP_ROUTES[branch];
+    var latlngs = ids.map(function(id) {
+      var p = placeById[id];
+      return p ? [p.lat, p.lng] : null;
+    }).filter(Boolean);
+    if (latlngs.length < 2) return;
+
+    var branchCfg = MAP_BRANCHES[branch];
+    var polyline = L.polyline(latlngs, {
+      color: branchCfg.color,
+      weight: branch === 'bernfeld' ? 2.5 : branch === 'muller' ? 2 : 1.5,
+      dashArray: branch === 'bernfeld' ? '10, 6' : branch === 'muller' ? '7, 5' : '3, 5',
+      opacity: 0.85,
+      className: 'route-line route-line-' + branch
+    }).addTo(_map);
+
+    // Animate via SVG path
+    setTimeout(function() {
+      var el = polyline.getElement ? polyline.getElement() : null;
+      if (el) {
+        var len = el.getTotalLength ? el.getTotalLength() : 2000;
+        el.style.strokeDasharray = len;
+        el.style.strokeDashoffset = len;
+        el.style.transition = 'stroke-dashoffset 3s linear';
+        requestAnimationFrame(function() {
+          el.style.strokeDashoffset = '0';
+        });
+      }
+    }, branch === 'bernfeld' ? 100 : branch === 'muller' ? 900 : 1500);
+  });
+
+  // Draw pins
+  MAP_PLACES.forEach(function(place) {
+    var branchCfg = MAP_BRANCHES[place.branch];
+    var isPresov = place.id === 'presov';
+    var iconHtml = isPresov
+      ? '<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle cx="14" cy="14" r="12" fill="none" stroke="#c9a84c" stroke-width="2.5" opacity=".9"/>' +
+        '<circle cx="14" cy="14" r="8"  fill="none" stroke="#b87c5a" stroke-width="2"   opacity=".85"/>' +
+        '<circle cx="14" cy="14" r="4"  fill="none" stroke="#8a9ba8" stroke-width="1.5" opacity=".8"/>' +
+        '<circle cx="14" cy="14" r="2"  fill="#f2e8d5" opacity=".9"/>' +
+        '</svg>'
+      : '<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle cx="10" cy="10" r="8" fill="none" stroke="' + branchCfg.color + '" stroke-width="2" opacity=".9"/>' +
+        '<circle cx="10" cy="10" r="3.5" fill="' + branchCfg.color + '" opacity=".85"/>' +
+        '</svg>';
+
+    var iconSize = isPresov ? [28, 28] : [20, 20];
+    var iconAnchor = isPresov ? [14, 14] : [10, 10];
+
+    var icon = L.divIcon({
+      html: iconHtml,
+      className: '',
+      iconSize: iconSize,
+      iconAnchor: iconAnchor
+    });
+
+    var marker = L.marker([place.lat, place.lng], { icon: icon }).addTo(_map);
+    marker.on('click', function() { openMapDetail(place); });
+  });
+}
+
+function openMapDetail(place) {
+  var branchCfg = MAP_BRANCHES[place.branch];
+  var html = '';
+
+  html += '<span class="map-detail-branch-tag ' + branchCfg.tagClass + '">' + branchCfg.label + '</span>';
+  html += '<div class="map-detail-name">' + place.name + '</div>';
+  if (place.altNames) html += '<div class="map-detail-alt">' + place.altNames + '</div>';
+  html += '<div class="map-detail-period">' + place.period + '</div>';
+  html += '<div class="map-detail-desc">' + place.desc + '</div>';
+
+  if (place.namedFamilies && place.namedFamilies.length) {
+    html += '<div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:.4rem;">Named Families</div>';
+    html += '<div class="map-detail-people">';
+    place.namedFamilies.forEach(function(f) {
+      html += '<span class="map-family-chip">' + f + '</span>';
+    });
+    html += '</div>';
+  }
+
+  if (place.people && place.people.length) {
+    html += '<div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sepia-mid);margin-bottom:.4rem;">People</div>';
+    html += '<div class="map-detail-people">';
+    place.people.forEach(function(p) {
+      html += '<span class="person-chip">' + p + '</span>';
+    });
+    html += '</div>';
+  }
+
+  if (place.chapterId) {
+    html += '<button class="map-detail-cta" onclick="scrollToChapter(\'' + place.chapterId + '\', null); closeMapPanel();">Read in The Story \u2192</button>';
+  }
+
+  document.getElementById('map-detail-inner').innerHTML = html;
+  document.getElementById('map-detail-panel').classList.add('open');
+  if (_map) { setTimeout(function() { _map.invalidateSize(); }, 310); }
+}
+
+function closeMapPanel() {
+  document.getElementById('map-detail-panel').classList.remove('open');
+  if (_map) { setTimeout(function() { _map.invalidateSize(); }, 310); }
 }
 </script>
 </body>
