@@ -512,19 +512,14 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   color: #8b6f47 !important; font-size: .6rem;
 }
 
-/* Route line animation */
-@keyframes mapdash {
-  to { stroke-dashoffset: 0; }
-}
+/* Route line base styles — animation handled via JS */
 .route-line {
   stroke-linecap: round;
-  stroke-dashoffset: 2000;
-  animation: mapdash 3s linear forwards;
   fill: none;
 }
 .route-line-bernfeld { stroke: #c9a84c; stroke-width: 2.5; stroke-dasharray: 10 6; }
-.route-line-muller   { stroke: #b87c5a; stroke-width: 2;   stroke-dasharray: 7 5;  animation-delay: .8s; }
-.route-line-business { stroke: #8a9ba8; stroke-width: 1.5; stroke-dasharray: 3 5;  animation-delay: 1.4s; }
+.route-line-muller   { stroke: #b87c5a; stroke-width: 2;   stroke-dasharray: 7 5;  }
+.route-line-business { stroke: #8a9ba8; stroke-width: 1.5; stroke-dasharray: 3 5;  }
 
 /* Legend */
 .map-legend {
@@ -1279,7 +1274,10 @@ function showView(id, btn) {
   if (el) el.classList.add('active');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  if (id === 'map' && !mapReady) { mapReady = true; setTimeout(initMap, 50); }
+  if (id === 'map') {
+    if (!mapReady) { mapReady = true; setTimeout(initMap, 50); }
+    else if (_map) { setTimeout(function() { _map.invalidateSize(); }, 50); }
+  }
 }
 
 // ── Chapter pills — FIX: ensure story tab is visible before scrolling ──
@@ -1639,19 +1637,31 @@ function initMap() {
       className: 'route-line route-line-' + branch
     }).addTo(_map);
 
-    // Animate via SVG path
-    setTimeout(function() {
-      var el = polyline.getElement ? polyline.getElement() : null;
-      if (el) {
-        var len = el.getTotalLength ? el.getTotalLength() : 2000;
-        el.style.strokeDasharray = len;
+    // Animate: draw line from start to end, then restore visual dash pattern
+    var DASH_RESTORE = { bernfeld: '10 6', muller: '7 5', business: '3 5' };
+    var animDelay = branch === 'bernfeld' ? 100 : branch === 'muller' ? 900 : 1500;
+    (function(poly, br) {
+      setTimeout(function() {
+        var el = poly.getElement ? poly.getElement() : null;
+        if (!el) return;
+        var len = el.getTotalLength ? el.getTotalLength() : 3000;
+        // Hide line by making dasharray = full length (solid) with full offset
+        el.style.transition = 'none';
+        el.style.strokeDasharray = len + ' ' + len;
         el.style.strokeDashoffset = len;
-        el.style.transition = 'stroke-dashoffset 3s linear';
-        requestAnimationFrame(function() {
+        // Force reflow so initial state is committed before transition starts
+        el.getBoundingClientRect();
+        el.style.transition = 'stroke-dashoffset 2.5s ease-in-out';
+        el.style.strokeDashoffset = '0';
+        // After draw-on completes, restore the visual dash pattern
+        el.addEventListener('transitionend', function restore() {
+          el.removeEventListener('transitionend', restore);
+          el.style.transition = 'none';
+          el.style.strokeDasharray = DASH_RESTORE[br];
           el.style.strokeDashoffset = '0';
         });
-      }
-    }, branch === 'bernfeld' ? 100 : branch === 'muller' ? 900 : 1500);
+      }, animDelay);
+    }(polyline, branch));
   });
 
   // Draw pins
