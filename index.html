@@ -2005,6 +2005,38 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
 
     <div class="place-card">
+      <div class="place-name">Falaise</div>
+      <div class="place-alt-names">Calvados, Normandy, France · Generations 3–5</div>
+      <div class="place-period">~1060–1140 — The Rivan-Treves Branch</div>
+      <p class="place-desc">Three generations after Rashi, the chain moved to Falaise, Normandy. Gen 3 — Rabbi Yehuda “Rivan” Ben Nathan, Rashi’s son-in-law — settled here. His son Rabbi Yom Tov of Falaise (Gen 4, ~1090–1140) was born here. Gen 5, Yehudah Bar Natan Treves (b. 1115), continued the line before the family shifted east through Paris, then Italy, and eventually toward the Rhineland and the Spira dynasty.</p>
+      <div class="place-people">
+        <span class="person-chip">Rabbi Yehuda “Rivan” Ben Nathan (Gen 3)</span>
+        <span class="person-chip">Rabbi Yom Tov of Falaise (Gen 4)</span>
+        <span class="person-chip">Yehudah Bar Natan Treves (Gen 5)</span>
+      </div>
+      <div class="place-lineage">
+        <div class="place-lineage-title">Generations at this location</div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">3</span><span class="place-lineage-name">Rabbi Yehuda “Rivan” Ben Nathan</span><span class="place-lineage-dates">~1060–1105</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">4</span><span class="place-lineage-name">Rabbi Yom Tov of Falaise</span><span class="place-lineage-dates">1090–1140</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">5</span><span class="place-lineage-name">Yehudah Bar Natan Treves</span><span class="place-lineage-dates">b. 1115</span></div>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Speyer</div>
+      <div class="place-alt-names">Rhineland-Palatinate, Germany · שפירא · Generation 11</div>
+      <div class="place-period">~1320–1414 — Origin of the Shapira Name</div>
+      <p class="place-desc">One of the ancient ShUM cities (Speyer, Worms, Mainz), Speyer was a center of Rhineland Jewish scholarship. The Hebrew word “Shapira” (שפירא) is a direct transliteration of “Speyer.” Gen 11 — Rabbi Samuel Shmuel Spira (~1320–1414) — settled here, and his descendants carried the name eastward for eight generations until Rabbi Natan Neta Shapira became Chief Rabbi of Kraków (Gen 19, 1585–1633).</p>
+      <div class="place-people">
+        <span class="person-chip">Rabbi Samuel Shmuel Spira (Gen 11)</span>
+      </div>
+      <div class="place-lineage">
+        <div class="place-lineage-title">Generations at this location</div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">11</span><span class="place-lineage-name">Rabbi Samuel Shmuel Spira of Speyer</span><span class="place-lineage-dates">~1320–1414</span></div>
+      </div>
+    </div>
+
+    <div class="place-card">
       <div class="place-name">Kraków</div>
       <div class="place-alt-names">Cracow, Poland · קראקא · Generation 19 of 31</div>
       <div class="place-period">1585–1633 — Rabbinic Apex · First Verified Link</div>
@@ -2549,6 +2581,24 @@ var MAP_PLACES = [
     gens:[{n:1,name:'Rashi (Rabbi Shlomo Yitzchaki)',dates:'1040\u20131105'},{n:2,name:'Miriam bat Rashi',dates:'1066\u20131105'}],
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
+  { id:'falaise',
+    name:'Falaise', altNames:'Calvados, Normandy, France',
+    lat:48.8954, lng:-0.1989, branch:'bernfeld',
+    period:'~1060\u20131140 \u00b7 Generations 3\u20135',
+    people:['Rabbi Yehuda \"Rivan\" Ben Nathan (Gen 3)','Rabbi Yom Tov of Falaise (Gen 4)','Yehudah Bar Natan Treves (Gen 5)'], namedFamilies:['Treves'],
+    desc:'Three generations of the lineage settled in Falaise, Normandy, after Troyes. Gen 3 \u2014 Rabbi Yehuda \u201cRivan\u201d Ben Nathan, Rashi\u2019s son-in-law \u2014 came here from Paris. His son Rabbi Yom Tov of Falaise (Gen 4, ~1090\u20131140) was born here. Gen 5 Yehudah Bar Natan Treves (b. 1115) continued the line before the family moved east through Paris and Italy toward the Rhineland and the Spira dynasty.',
+    gens:[{n:3,name:'Rabbi Yehuda \"Rivan\" Ben Nathan',dates:'~1060\u20131105'},{n:4,name:'Rabbi Yom Tov of Falaise',dates:'1090\u20131140'},{n:5,name:'Yehudah Bar Natan Treves',dates:'b. 1115'}],
+    chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
+
+  { id:'speyer',
+    name:'Speyer', altNames:'Rhineland-Palatinate, Germany \u00b7 \u05e9\u05e4\u05d9\u05e8\u05d0',
+    lat:49.3205, lng:8.4307, branch:'bernfeld',
+    period:'~1320\u20131414 \u00b7 Generation 11',
+    people:['Rabbi Samuel Shmuel Spira of Speyer (Gen 11)'], namedFamilies:['Spira','Shapira'],
+    desc:'The medieval ShUM city of Speyer gave the lineage its family name. \u201cShapira\u201d (\u05e9\u05e4\u05d9\u05e8\u05d0) is the Hebrew transliteration of Speyer. Gen 11, Rabbi Samuel Shmuel Spira (~1320\u20131414), settled here and his descendants carried the name eastward through Germany and Poland for eight more generations \u2014 culminating in Rabbi Natan Neta Shapira, the Megale Amukot, as Chief Rabbi of Krak\u00f3w.',
+    gens:[{n:11,name:'Rabbi Samuel Shmuel Spira of Speyer',dates:'~1320\u20131414'}],
+    chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
+
   { id:'krakow',
     name:'Krak\u00f3w', altNames:'Cracow, Poland \u00b7 \u05e7\u05e8\u05d0\u05e7\u05d0',
     lat:50.0647, lng:19.9450, branch:'bernfeld',
@@ -2628,7 +2678,7 @@ var MAP_PLACES = [
 ];
 
 var MAP_ROUTES = {
-  bernfeld: ['troyes','krakow','kolin','boskovice','topolcany','presov'],
+  bernfeld: ['troyes','falaise','speyer','krakow','kolin','boskovice','topolcany','presov'],
   muller:   ['sanz','presov','miskolc'],
   business: ['berlin','presov','frankfurt']
 };
