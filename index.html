@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The House of Muller — A Thousand Years to Robert</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 4,14 10,14 5,22 11,22 6,30 26,30 21,22 27,22 22,14 28,14' fill='%23c9a84c'/%3E%3Crect x='14' y='28' width='4' height='4' fill='%23b87c5a'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet">
 <style>/* Leaflet 1.9.4 — inlined */
 /* required styles */
@@ -668,6 +669,55 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 
+/* ── MATERNAL LINEAGE TIMELINE ── */
+.lineage-section { margin-top: 2rem; }
+.lineage-section-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300;
+  color: var(--parchment); letter-spacing: .06em; margin-bottom: .3rem;
+}
+.lineage-section-sub {
+  font-size: .68rem; color: var(--sepia-mid); margin-bottom: 1.2rem; line-height: 1.6;
+}
+.lineage-era {
+  margin: .8rem 0;
+  border-left: 2px solid rgba(201,168,76,.2);
+  padding-left: 1rem;
+}
+.lineage-era summary {
+  cursor: pointer; font-size: .65rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  list-style: none; user-select: none; padding: .2rem 0;
+}
+.lineage-era summary::-webkit-details-marker { display: none; }
+.lineage-era summary::before { content: '▸ '; opacity: .6; }
+.lineage-era[open] summary::before { content: '▾ '; }
+.lineage-row {
+  display: flex; gap: .5rem; align-items: baseline;
+  font-size: .72rem; color: var(--sepia-mid); padding: .2rem 0;
+  border-bottom: 1px solid rgba(201,168,76,.06);
+}
+.lineage-gen {
+  min-width: 1.8rem; color: rgba(201,168,76,.4);
+  font-size: .58rem; text-align: right; flex-shrink: 0;
+}
+.lineage-name { color: var(--sepia-light); flex: 1; }
+.lineage-meta {
+  font-size: .6rem; color: var(--sepia-dark); white-space: nowrap;
+  font-style: italic;
+}
+.lineage-anchor {
+  background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.2);
+  border-radius: 2px; padding: .55rem .8rem; margin: .5rem 0;
+}
+.lineage-anchor .lineage-name {
+  color: var(--parchment); font-weight: 500; font-size: .78rem;
+}
+.lineage-anchor .lineage-meta { white-space: normal; margin-top: .15rem; }
+.lineage-note {
+  font-size: .62rem; color: var(--sepia-dark); font-style: italic;
+  margin: .3rem 0 .5rem; line-height: 1.6;
+}
+
 </style>
 <script>/* Leaflet 1.9.4 — inlined */
 /* @preserve
@@ -1279,7 +1329,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   <div class="hebrew-title">בית מִילֶר — מרשי ועד רובי</div>
   <p class="subtitle">
     From Troyes, France · Through Kraków · Nowy Sącz · Prešov, Slovakia · To Israel<br>
-    <strong>Based on <em>Oma's Story</em> by Denise Karasik</strong> — and ongoing family research
+    <strong>Based on <em>Oma's Story</em> by Denise Karasick</strong> — and ongoing family research
   </p>
 </header>
 
@@ -1299,7 +1349,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
 
   <div class="robert-crown">
     <span class="label">The Destination — At the End of a Thousand-Year Chain</span>
-    <div class="r-name">Robert Moyshe Arie Muller</div>
+    <div class="r-name">Robert Moshe Aryeh Muller</div>
     <div class="r-heb">משה אריה מִילֶר — רובי</div>
     <div class="r-meta">
       <strong>Born:</strong> 1931 &nbsp;·&nbsp; <strong>Place:</strong> Prešov (Eperjes), Slovakia<br>
@@ -1379,7 +1429,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     <div class="lineage-step hero">
       <div class="ls-year">1931</div>
       <div>
-        <div class="ls-name" style="color:var(--gold-light);font-size:1.1rem;">Robert Moyshe Arie Muller — Robi ✦</div>
+        <div class="ls-name" style="color:var(--gold-light);font-size:1.1rem;">Robert Moshe Aryeh Muller — Robi ✦</div>
         <div class="ls-sub">Born Prešov · firstborn of Yakov &amp; Teresa · named for Moshe Aryeh Rosman, closing the circle</div>
         <span class="ls-tag tag-verified">Confirmed</span>
       </div>
@@ -1397,7 +1447,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </div>
     <div class="chain-card">
       <span class="cc-label">His name</span>
-      <div class="cc-content"><strong>Moyshe Arie</strong> — the Hebrew name echoes <strong>Moshe Aryeh Rosman</strong>, Shimon's uncle, the man whose invitation to Prešov started everything. The city, the factory, the community, the family — all of it began with one invitation. Robert's name carries that memory forward.</div>
+      <div class="cc-content"><strong>Moshe Aryeh</strong> — the Hebrew name echoes <strong>Moshe Aryeh Rosman</strong>, Shimon's uncle, the man whose invitation to Prešov started everything. The city, the factory, the community, the family — all of it began with one invitation. Robert's name carries that memory forward.</div>
     </div>
     <div class="chain-card">
       <span class="cc-label">His world as a child</span>
@@ -1407,7 +1457,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
 
   <div class="robi-memories">
     <h3>What do you remember about Robi?</h3>
-    <p>This archive is built on Denise Karasik's <em>Oma's Story</em> — her grandmother Ilona's account. But Robert belongs to all of you. His voice, his habits, his character, his home, the things he said and didn't say — no document holds those. If you knew him, write it here.</p>
+    <p>This archive is built on Denise Karasick's <em>Oma's Story</em> — her grandmother Ilona's account. But Robert belongs to all of you. His voice, his habits, his character, his home, the things he said and didn't say — no document holds those. If you knew him, write it here.</p>
     <div class="memory-placeholder" onclick="openMemory('robert-personal')">+ Add your memory of Robi</div>
   </div>
 
@@ -1421,7 +1471,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   <p class="section-title">The Story</p>
   <p class="section-sub">
     A linear narrative — from the ancient chain to Prešov and Robert.<br>
-    Based on <strong><em>Oma's Story</em> by Denise Karasik</strong> and independent genealogical research.
+    Based on <strong><em>Oma's Story</em> by Denise Karasick</strong> and independent genealogical research.
   </p>
 
   <div class="chapter-nav">
@@ -1446,7 +1496,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p><strong>Note on sourcing:</strong> The direct patrilineal link between Rabbi Samuel Kolin and the Shapira/Spira family is not confirmed by academic sources. The connection more likely runs through Samuel's wife's line. The Rashi → Shapira chain itself is well-established; the link to the Kolin family carries the nature of oral genealogical tradition. This archive presents it as such.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Sources:</strong> Encyclopaedia Judaica (Shapira entry); Geni.com lineage trees; research notes (Denise Karasik)</div>
+      <div class="source-note"><strong>Sources:</strong> Encyclopaedia Judaica (Shapira entry); Geni.com lineage trees; research notes (Denise Karasick)</div>
       <div class="memory-placeholder" onclick="openMemory('chain')">+ Add family knowledge</div>
     </div>
   </div>
@@ -1459,7 +1509,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p>He married <em>Pesel Lieberman</em>. Together they raised their son <em>Shimon</em> in Nowy Sącz — known in Jewish tradition as Sanz, home of the great Halberstam Hasidic dynasty. The world Shimon grew up in was shaped by both his father's Modern Orthodox seriousness and the intense Hasidic culture of the city around him.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's account · Ahron's birthplace remains an open research question</div>
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasick's grandmother Ilona's account · Ahron's birthplace remains an open research question</div>
       <div class="memory-placeholder" onclick="openMemory('ahron')">+ Add family knowledge</div>
     </div>
   </div>
@@ -1474,7 +1524,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p>The Prešov Orthodox Cemetery records independently confirm this: the Hebrew epitaphs record <em>Moshe Ariel Rozman</em>, his wife <em>Rivka</em>, and their daughter <em>Sara</em> wife of <em>Simon Miller/Muller</em> — a perfect match for the family account, confirmed in stone.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik) · Prešov Orthodox Cemetery records (JewishGen / Futtersack)</div>
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasick) · Prešov Orthodox Cemetery records (JewishGen / Futtersack)</div>
       <div class="memory-placeholder" onclick="openMemory('invitation')">+ Add family knowledge</div>
     </div>
   </div>
@@ -1488,7 +1538,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p>The business flourished. The factory produced <em>plum liqueurs and raspberry syrups</em>, stored in great multi-colored glass vats, and shipped as far as Germany. The factory courtyard sat directly behind the family's spacious apartment — the smell of fruit always nearby. For the next generation of Mullers, this factory was the sound and smell of home.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's account</div>
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasick's grandmother Ilona's account</div>
       <div class="memory-placeholder" onclick="openMemory('business')">+ Add family knowledge</div>
     </div>
   </div>
@@ -1502,7 +1552,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p>Denise's Oma's written account of this, preserved decades later, carries no complaint — only the quiet pride of someone who was given something serious to do, and did it.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's firsthand account</div>
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasick's grandmother Ilona's firsthand account</div>
       <div class="memory-placeholder" onclick="openMemory('war')">+ Add family knowledge</div>
     </div>
   </div>
@@ -1516,7 +1566,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p>A cemetery record from Prešov — <em>"Panna Malke bas Simon"</em>, buried September 1923 — lists a daughter of Simon who predeceased her mother Sara, likely Margit herself. The stone and the Torah scroll, taken together: a father keeping his daughter present.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik) · Prešov Orthodox Cemetery records (JewishGen)</div>
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasick) · Prešov Orthodox Cemetery records (JewishGen)</div>
       <div class="memory-placeholder" onclick="openMemory('margit')">+ Add family knowledge</div>
     </div>
   </div>
@@ -1530,7 +1580,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p>As a grandfather, he was devoted. He loved taking his grandchildren on Sunday excursions outside the city — by truck or horse and wagon. <em>Robert</em> was born in 1931 while Shimon was very much the living center of the family. In those early years, the factory courtyard, the Sunday rides, the grandfather who had fought ten days in Frankfurt for Yakov's education — this was the world Robert came into.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasik's grandmother Ilona's account</div>
+      <div class="source-note"><strong>Source:</strong> <em>Oma's Story</em> — Denise Karasick's grandmother Ilona's account</div>
       <div class="memory-placeholder" onclick="openMemory('family')">+ Add family knowledge</div>
     </div>
   </div>
@@ -1546,22 +1596,22 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <p>That was the last time anyone in the family saw Shimon Muller. He was deported from Budapest to <em>Auschwitz</em>, where he was murdered by the Nazis.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik) · Hungarian Jewish deportation records, 1944 · Yad Vashem</div>
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasick) · Hungarian Jewish deportation records, 1944 · Yad Vashem</div>
       <div class="memory-placeholder" onclick="openMemory('shoah')">+ Add family knowledge or Yad Vashem records</div>
     </div>
   </div>
 
   <div id="ch-robert" class="story-panel" style="border-color:rgba(201,168,76,.4);">
     <div class="story-chapter">Chapter IX — The Destination</div>
-    <div class="story-title">Robert Moyshe Arie Muller — 1931, Prešov</div>
+    <div class="story-title">Robert Moshe Aryeh Muller — 1931, Prešov</div>
     <div class="story-body">
       <p>Born 1931 in Prešov. Firstborn of Yakov Muller and Teresa Bernfeld. He came into a family that was still whole — grandfather Shimon alive and taking grandchildren on Sunday truck rides, the factory humming in the courtyard, the community still intact.</p>
-      <p>His Hebrew name <em>Moyshe Arie</em> echoes <em>Moshe Aryeh Rosman</em> — the great-uncle whose invitation to Prešov had started everything. Through the name, that founding act is remembered in every generation that follows.</p>
+      <p>His Hebrew name <em>Moshe Aryeh</em> echoes <em>Moshe Aryeh Rosman</em> — the great-uncle whose invitation to Prešov had started everything. Through the name, that founding act is remembered in every generation that follows.</p>
       <p>Through his mother Teresa Bernfeld, Robert carries the documented rabbinic chain: Löw-Beer of Boskovice → Rabbi Samuel Kolin → Shapira of Kraków → and, by family tradition, back to Rashi of Troyes. Through his father Yakov, he carries the Sanz-born Muller line, the Hildesheimer scholar, the liqueur factory, the Munkacser Rebbe's blessing.</p>
       <p>A thousand years of migration, scholarship, grief, and survival — arriving here, in this person, in Prešov, in 1931.</p>
     </div>
     <div class="chapter-footer">
-      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasik), Prešov cemetery records, Topolčany Yizkor Book, Geni, Ancestry, Encyclopaedia Judaica</div>
+      <div class="source-note"><strong>Sources:</strong> <em>Oma's Story</em> (Denise Karasick), Prešov cemetery records, Topolčany Yizkor Book, Geni, Ancestry, Encyclopaedia Judaica</div>
       <div class="memory-placeholder" onclick="openMemory('robert-personal')">+ Add your memory of Robi</div>
     </div>
   </div>
@@ -1669,7 +1719,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     <div class="gen-label">Generation IV — The Destination</div>
     <div class="generation">
       <div class="person-card focal" onclick="openPerson('robert')">
-        <div class="p-name">Robert Moyshe Arie Muller</div>
+        <div class="p-name">Robert Moshe Aryeh Muller</div>
         <div class="p-name-heb">משה אריה מִילֶר — רובי</div>
         <div class="p-dates">b. 1931 · Prešov</div>
         <div class="p-location">Firstborn · End of the thousand-year chain</div>
@@ -1680,9 +1730,101 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
 
   <div style="margin-top:2rem;padding:1rem 1.2rem;background:rgba(242,232,213,.04);border:1px solid rgba(201,168,76,.12);border-radius:2px;">
     <p style="font-size:.78rem;color:var(--sepia-mid);line-height:1.8;">
-      <strong style="color:var(--parchment);">Name note:</strong> Robert's Hebrew name <em>Moyshe Arie</em> echoes <em>Moshe Aryeh Rosman</em> — the great-uncle who invited Shimon to Prešov, whose daughter Sara became Shimon's wife. The name closes the circle. The rabbinic chain (Rashi → Megale Amukot → Shapira → Kolin → Löw-Beer → Bernfeld) enters through Teresa Bernfeld, Robert's mother.
+      <strong style="color:var(--parchment);">Name note:</strong> Robert's Hebrew name <em>Moshe Aryeh</em> echoes <em>Moshe Aryeh Rosman</em> — the great-uncle who invited Shimon to Prešov, whose daughter Sara became Shimon's wife. The name closes the circle. The rabbinic chain (Rashi → Megale Amukot → Shapira → Kolin → Löw-Beer → Bernfeld) enters through Teresa Bernfeld, Robert's mother.
     </p>
   </div>
+
+  <!-- ── MATERNAL LINEAGE: RASHI → ROBERT ── -->
+  <div class="lineage-section">
+    <p class="lineage-section-title">Teresa's Maternal Line — Rashi to Robert · 31 Generations</p>
+    <p class="lineage-section-sub">The chain that enters the Muller family through Teresa (Tereza-Devora) Bernfeld, Robert's mother.
+      Generations 1–18 rest on genealogical research and oral tradition; verified from Generation 19 onward
+      by encyclopaedic, cemetery, and yeshiva records.</p>
+
+    <!-- ERA 1 -->
+    <details class="lineage-era" open>
+      <summary>Era I — The Ancient Chain · Gen 1–10 · Troyes to Italy · ~1040–1266</summary>
+      <p class="lineage-note">Oral tradition. Academic connection to Shapira/Kolin runs through daughters and wives, not direct patrilineal descent. <span class="tag-oral" style="font-style:normal;">oral tradition</span></p>
+      <div class="lineage-row lineage-anchor">
+        <span class="lineage-gen">1</span>
+        <span class="lineage-name">Rabbi Shlomo "Rashi" Yitzchaki</span>
+        <span class="lineage-meta">1040–1105 · Troyes, France</span>
+      </div>
+      <div class="lineage-row"><span class="lineage-gen">2</span><span class="lineage-name">Miriam bat Rashi</span><span class="lineage-meta">1066–1105 · Troyes</span></div>
+      <div class="lineage-row"><span class="lineage-gen">3</span><span class="lineage-name">Rabbi Yehuda "Rivan" Ben Nathan</span><span class="lineage-meta">1060–1105 · Paris / Falaise, France</span></div>
+      <div class="lineage-row"><span class="lineage-gen">4</span><span class="lineage-name">Rabbi Yom Tov of Falaise</span><span class="lineage-meta">1090–1140 · Falaise, Calvados</span></div>
+      <div class="lineage-row"><span class="lineage-gen">5</span><span class="lineage-name">Yehudah Ben Yom Tov of Falaise Bar Natan Treves</span><span class="lineage-meta">b. 1115 · Falaise, France</span></div>
+      <div class="lineage-row"><span class="lineage-gen">6</span><span class="lineage-name">Itzhak "Hazaken" ben Yehuda Treves of Paris</span><span class="lineage-meta">1140–1188 · Paris</span></div>
+      <div class="lineage-row"><span class="lineage-gen">7</span><span class="lineage-name">Yehuda Sir Leon of Paris Treves</span><span class="lineage-meta">1166–1224 · Paris</span></div>
+      <div class="lineage-row"><span class="lineage-gen">8</span><span class="lineage-name">bat Judah Sir Leon Treves</span><span class="lineage-meta">1200–1255 · Sesanne, France</span></div>
+      <div class="lineage-row"><span class="lineage-gen">9</span><span class="lineage-name">Rabbi Avraham ben Matityahu Ashkenazi of Treves</span><span class="lineage-meta">b. 1240 · Troyes</span></div>
+      <div class="lineage-row"><span class="lineage-gen">10</span><span class="lineage-name">Rabbi Yochanan Hagadol Treves Ashkenazi</span><span class="lineage-meta">~1266–~1330 · Treviso, Italy / Troyes</span></div>
+    </details>
+
+    <!-- ERA 2 -->
+    <details class="lineage-era">
+      <summary>Era II — Spira · Shapira Dynasty · Gen 11–19 · Germany &amp; Poland · ~1320–1633</summary>
+      <p class="lineage-note">Oral tradition through Gen 18. Gen 19 is the first fully documented link. <span class="tag-oral" style="font-style:normal;">oral tradition</span></p>
+      <div class="lineage-row"><span class="lineage-gen">11</span><span class="lineage-name">Rabbi Samuel Shmuel Spira of Speyer</span><span class="lineage-meta">~1320–1414 · Speyer, Rhineland, Germany</span></div>
+      <div class="lineage-row"><span class="lineage-gen">12</span><span class="lineage-name">Marianne Shapira Manecier</span><span class="lineage-meta">1335–1417 · Vesoul, Haute-Saône</span></div>
+      <div class="lineage-row"><span class="lineage-gen">13</span><span class="lineage-name">Vergentlin Hanna Treves</span><span class="lineage-meta">~1375–1427 · Landau in der Pfalz</span></div>
+      <div class="lineage-row"><span class="lineage-gen">14</span><span class="lineage-name">Peretz Spira of Konstanz</span><span class="lineage-meta">1430–1480 · Konstanz</span></div>
+      <div class="lineage-row"><span class="lineage-gen">15</span><span class="lineage-name">Nathan Neta I ben Peretz Spira of Poznań</span><span class="lineage-meta">~1440–1505 · Poznań, Poland</span></div>
+      <div class="lineage-row"><span class="lineage-gen">16</span><span class="lineage-name">Shimshon Samson Shapira of Poznań</span><span class="lineage-meta">1460–1540 · Leszno (Lissa), Poland</span></div>
+      <div class="lineage-row"><span class="lineage-gen">17</span><span class="lineage-name">Rabbi Nosson Nota Shapiro, ABD</span><span class="lineage-meta">b. 1510 · Grodno</span></div>
+      <div class="lineage-row"><span class="lineage-gen">18</span><span class="lineage-name">Shlomo ben Nosson Nota of Horodna</span><span class="lineage-meta">1540–1590 · Horazdovice, Plzeň</span></div>
+      <div class="lineage-row lineage-anchor">
+        <span class="lineage-gen">19</span>
+        <span class="lineage-name">Rabbi Natan Neta Shapira — <em>Megale Amukot</em></span>
+        <span class="lineage-meta">1585–1633 · Chief Rabbi of Kraków <span class="tag-verified" style="font-style:normal;margin-left:.3rem;">verified</span></span>
+      </div>
+    </details>
+
+    <!-- ERA 3 -->
+    <details class="lineage-era">
+      <summary>Era III — The Kolin Interlude · Gen 20–24 · Kraków → Kolín → Boskovice · ~1634–1753</summary>
+      <p class="lineage-note">The family name "Kolin" derives from the Bohemian town of Kolín. Samuel Ha-Levi Kolin later moved to Boskovice, Moravia, where he led the yeshiva for nearly 60 years.</p>
+      <div class="lineage-row"><span class="lineage-gen">20</span><span class="lineage-name">Binyomin Natan Nate Shapira</span><span class="lineage-meta">b. 1634 · Kraków</span></div>
+      <div class="lineage-row"><span class="lineage-gen">21</span><span class="lineage-name">Kolin Ha-Levi (ancestor)</span><span class="lineage-meta">Kolín, Bohemia</span></div>
+      <div class="lineage-row"><span class="lineage-gen">22</span><span class="lineage-name">Nathan Nora Ha-Levi Kolin</span><span class="lineage-meta">Kolín, Bohemia</span></div>
+      <div class="lineage-row lineage-anchor">
+        <span class="lineage-gen">23</span>
+        <span class="lineage-name">Rabbi Samuel Ha-Levi Kolin · <em>Machatzit HaShekel</em></span>
+        <span class="lineage-meta">1724–1806 · Kolín → Boskovice <span class="tag-verified" style="font-style:normal;margin-left:.3rem;">verified</span></span>
+      </div>
+      <div class="lineage-row"><span class="lineage-gen">24</span><span class="lineage-name">Pavline Perl Kolin → marries Abraham Löw-Beer</span><span class="lineage-meta">b. ~1753 · Boskovice, Moravia</span></div>
+    </details>
+
+    <!-- ERA 4 -->
+    <details class="lineage-era">
+      <summary>Era IV — Löw-Beer Dynasty · Gen 25–28 · Boskovice → Topolčany · 1789–1905</summary>
+      <div class="lineage-row lineage-anchor">
+        <span class="lineage-gen">25</span>
+        <span class="lineage-name">Abraham Löw-Beer</span>
+        <span class="lineage-meta">1789–1870 · Boskovice, Moravia <span class="tag-verified" style="font-style:normal;margin-left:.3rem;">verified</span></span>
+      </div>
+      <div class="lineage-row"><span class="lineage-gen">26</span><span class="lineage-name">Nathan Nota Löw-Beer</span><span class="lineage-meta">1820–1888 · Topolčany, Slovakia</span></div>
+      <div class="lineage-row"><span class="lineage-gen">27</span><span class="lineage-name">Yosef Ya'akov Löw-Beer</span><span class="lineage-meta">1840–1905 · Topolčany</span></div>
+      <div class="lineage-row"><span class="lineage-gen">28</span><span class="lineage-name">Gittel Löw-Beer → marries Moshe Bernfeld</span><span class="lineage-meta">1836–1905 · Hrušovany, Topolčany district</span></div>
+    </details>
+
+    <!-- ERA 5 -->
+    <details class="lineage-era" open>
+      <summary>Era V — Bernfeld · Into Robert · Gen 29–31 · Topolčany → Prešov → Haifa · 1884–2022</summary>
+      <div class="lineage-row"><span class="lineage-gen">29</span><span class="lineage-name">Max (Mordechai) Bernfeld</span><span class="lineage-meta">1884–1964 · Topolčany <span class="tag-verified" style="font-style:normal;margin-left:.3rem;">verified</span></span></div>
+      <div class="lineage-row lineage-anchor">
+        <span class="lineage-gen">30</span>
+        <span class="lineage-name">Tereza-Devora Bernfeld → marries Yakov Muller</span>
+        <span class="lineage-meta">1909–1986 · Topolčany → Prešov <span class="tag-oral" style="font-style:normal;margin-left:.3rem;">single source</span></span>
+      </div>
+      <div class="lineage-row lineage-anchor" style="border-color:var(--gold);background:rgba(201,168,76,.13);">
+        <span class="lineage-gen" style="color:var(--gold);">31</span>
+        <span class="lineage-name" style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:.9rem;">Robert Moshe Aryeh Muller</span>
+        <span class="lineage-meta">1931–2022 · Prešov → Haifa, Israel <span class="tag-verified" style="font-style:normal;margin-left:.3rem;">verified</span></span>
+      </div>
+    </details>
+  </div>
+
 </div><div id="view-places" class="view">
   <p class="section-title">The Places</p>
   <p class="section-sub">Every location in the family's story — from Troyes to Auschwitz</p>
@@ -1690,34 +1832,46 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
 
     <div class="place-card">
       <div class="place-name">Troyes</div>
-      <div class="place-alt-names">Champagne, France</div>
+      <div class="place-alt-names">Champagne, France · Generation 1 of 31</div>
       <div class="place-period">~1040 CE — Origin of Chain (oral tradition)</div>
-      <p class="place-desc">Birthplace of Rashi. The most distant anchor in the family's claimed lineage. From here, through daughters and descendants, the rabbinic chain began its long eastward migration toward Poland and Galicia. This link rests on family tradition; the academic connection to the Shapira and Kolin families runs through wife's line, not direct patrilineal descent.</p>
-      <div class="place-people"><span class="person-chip">Rashi</span></div>
+      <p class="place-desc">Birthplace of Rashi (Rabbi Shlomo Yitzchaki, 1040–1105) — Generation 1 of the 31-generation chain that reaches Robert Moshe Aryeh Muller. From Troyes, through daughters and descendants across ten medieval generations in France and Italy, the lineage spread eastward toward the Rhineland and Poland. This link rests on genealogical research and oral tradition; the academic connection to the Shapira and Kolin families runs through the maternal line.</p>
+      <div class="place-people"><span class="person-chip">Rashi (Gen 1)</span><span class="person-chip">Miriam bat Rashi (Gen 2)</span></div>
     </div>
 
     <div class="place-card">
       <div class="place-name">Kraków</div>
-      <div class="place-alt-names">Cracow, Poland · קראקא</div>
-      <div class="place-period">1585–1633 — Rabbinic Apex</div>
-      <p class="place-desc">Home of the Megale Amukot and capital of Polish Jewish learning. Rabbi Natan Neta Shapira served as Chief Rabbi here. The Shapira lineage from Rashi runs through this city. Through Teresa Bernfeld, this chain reaches Robert.</p>
-      <div class="place-people"><span class="person-chip">Rabbi Natan Neta Shapira</span></div>
+      <div class="place-alt-names">Cracow, Poland · קראקא · Generation 19 of 31</div>
+      <div class="place-period">1585–1633 — Rabbinic Apex · First Verified Link</div>
+      <p class="place-desc">Home of the Megale Amukot and capital of Polish Jewish learning. Rabbi Natan Neta Shapira (Generation 19, 1585–1633) served as Chief Rabbi here — the first fully documented link in the chain. His son Binyomin Natan (Gen 20) was born here before the lineage passed through Kolín, Bohemia, and onward to Boskovice. Through Teresa Bernfeld, this verified chain reaches Robert.</p>
+      <div class="place-people"><span class="person-chip">Rabbi Natan Neta Shapira (Gen 19)</span><span class="person-chip">Binyomin Natan Shapira (Gen 20)</span></div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-name">Kolín</div>
+      <div class="place-alt-names">Bohemia, Czech Republic · קולין · Generations 21–23</div>
+      <div class="place-period">~1634–1789 — The Kolin Family Origin</div>
+      <p class="place-desc">The Bohemian town whose name became the family surname. Three generations of the Ha-Levi Kolin family lived here (Gen 21–23) before Rabbi Samuel Ha-Levi Kolin (1724–1806) moved to Boskovice, Moravia, to lead its yeshiva for nearly 60 years. His daughter Pavline Perl Kolin (Gen 24) married Abraham Löw-Beer in Boskovice — the link that connects this chain to Teresa Bernfeld and Robert.</p>
+      <div class="place-people">
+        <span class="person-chip">Kolin Ha-Levi (Gen 21)</span>
+        <span class="person-chip">Nathan Nora Ha-Levi Kolin (Gen 22)</span>
+        <span class="person-chip">Rabbi Samuel Ha-Levi Kolin (Gen 23)</span>
+      </div>
     </div>
 
     <div class="place-card">
       <div class="place-name">Boskovice</div>
-      <div class="place-alt-names">Moravia, Czech Republic</div>
-      <div class="place-period">~1720–1870 — Löw-Beer Dynasty</div>
-      <p class="place-desc">Rabbi Samuel Ha-Levi Kolin (c. 1720–1806) presided over the yeshiva here for nearly 60 years. His son Jehuda Löw married Buna Beer; their son Salomon took the hyphenated name Löw-Beer. From Boskovice, Abraham Löw-Beer moved to the Nitra region of Slovakia, bringing the dynasty eastward. The Bernfeld family also originated here.</p>
-      <div class="place-people"><span class="person-chip">Rabbi Samuel Kolin</span><span class="person-chip">Salomon Löw-Beer</span></div>
+      <div class="place-alt-names">Moravia, Czech Republic · Generations 24–25</div>
+      <div class="place-period">~1753–1870 — Löw-Beer Dynasty</div>
+      <p class="place-desc">Rabbi Samuel Ha-Levi Kolin came from Kolín to lead the Boskovice yeshiva. His daughter Pavline Perl Kolin (Gen 24, b. ~1753) married Abraham Löw-Beer here — founding the Löw-Beer dynasty (Gen 25, 1789–1870). The hyphenated name "Löw-Beer" was adopted by their son Salomon, combining both family names. From Boskovice, the Löw-Beer line moved east to Topolčany in Slovakia.</p>
+      <div class="place-people"><span class="person-chip">Pavline Perl Kolin (Gen 24)</span><span class="person-chip">Abraham Löw-Beer (Gen 25)</span><span class="person-chip">Salomon Löw-Beer</span></div>
     </div>
 
     <div class="place-card">
       <div class="place-name">Topolčany</div>
-      <div class="place-alt-names">Nagytapolcsány (Hungarian) · Slovakia</div>
-      <div class="place-period">~1820–1944 — Bernfeld &amp; Löw-Beer Hub</div>
-      <p class="place-desc">The Bernfeld and Löw-Beer families were among the most prominent in Topolčany's Jewish community — community leaders, synagogue wardens, builders of a Beth Medrash. Nathan Nota Löw-Beer (1820–1888) was born here. Teresa Bernfeld's family connects here — though Erna Herzfeld (her grandmother) was actually from nearby Brezova, not Topolčany itself.</p>
-      <div class="place-people"><span class="person-chip">Nathan Nota Löw-Beer</span><span class="person-chip">Moshe Bernfeld</span><span class="person-chip">Max Bernfeld</span></div>
+      <div class="place-alt-names">Nagytapolcsány (Hungarian) · Slovakia · Generations 26–30</div>
+      <div class="place-period">~1820–1944 — Bernfeld &amp; Löw-Beer Hub · Five Generations</div>
+      <p class="place-desc">Five consecutive generations of the lineage passed through Topolčany. Nathan Nota Löw-Beer (Gen 26, 1820–1888) brought the family east from Boskovice. His son Yosef Ya'akov (Gen 27, 1840–1905) and daughter Gittel (Gen 28, 1836–1905) continued the line. Gittel married Moshe Bernfeld; their son Max (Gen 29, 1884–1964) was Teresa's father. Teresa Bernfeld (Gen 30, 1909–1986) was born here — and when she married Yakov Muller in Prešov, the entire 30-generation chain entered the Muller family.</p>
+      <div class="place-people"><span class="person-chip">Nathan Nota Löw-Beer (Gen 26)</span><span class="person-chip">Yosef Ya'akov Löw-Beer (Gen 27)</span><span class="person-chip">Gittel Löw-Beer (Gen 28)</span><span class="person-chip">Max Bernfeld (Gen 29)</span><span class="person-chip">Teresa Bernfeld (Gen 30)</span></div>
     </div>
 
     <div class="place-card">
@@ -1806,8 +1960,8 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <div class="surname-main">Rosman</div>
       <div class="surname-heb">רוסמן</div>
       <div class="surname-role">The Prešov Anchor</div>
-      <p class="surname-desc">Moshe Aryeh Rosman invited Shimon to Prešov and gave the Muller family its foothold in Slovakia. His daughter Sara became Shimon's wife — making Rosman the maternal root of Yakov. Robert's Hebrew name Moyshe Arie directly echoes Moshe Aryeh Rosman. Confirmed independently by Prešov Orthodox Cemetery epitaphs.</p>
-      <p class="surname-connection">Shimon's wife Sara · Source: Oma's Story (Denise Karasik) + cemetery records</p>
+      <p class="surname-desc">Moshe Aryeh Rosman invited Shimon to Prešov and gave the Muller family its foothold in Slovakia. His daughter Sara became Shimon's wife — making Rosman the maternal root of Yakov. Robert's Hebrew name Moshe Aryeh directly echoes Moshe Aryeh Rosman. Confirmed independently by Prešov Orthodox Cemetery epitaphs.</p>
+      <p class="surname-connection">Shimon's wife Sara · Source: Oma's Story (Denise Karasick) + cemetery records</p>
     </div>
 
     <div class="surname-card">
@@ -1855,7 +2009,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <div class="surname-heb">פונפדר</div>
       <div class="surname-role">Shimon's Second Wife</div>
       <p class="surname-desc">Malvinka Fonfedder married Shimon after Sara's death. She had grown up attending the same school as Sara — Sara's cousin. A remarriage within the circle of family and memory.</p>
-      <p class="surname-connection">Source: Oma's Story (Denise Karasik)</p>
+      <p class="surname-connection">Source: Oma's Story (Denise Karasick)</p>
     </div>
 
   </div>
@@ -1864,7 +2018,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   <p class="section-sub">What's confirmed, what's a single source, what remains open — and where to look</p>
 
   <div style="margin-bottom:1.5rem;padding:.9rem 1.2rem;background:rgba(60,100,60,.08);border:1px solid rgba(60,100,60,.2);border-radius:2px;font-size:.8rem;color:#90c890;line-height:1.85;">
-    <strong style="color:#b0e0b0;display:block;margin-bottom:.4rem;">Resolved by Oma's Story (Denise Karasik):</strong>
+    <strong style="color:#b0e0b0;display:block;margin-bottom:.4rem;">Resolved by Oma's Story (Denise Karasick):</strong>
     Ahron's occupation (teacher); his wife (Pesel Lieberman); Shimon's wife (Sara Rosman — daughter of Moshe Aryeh Rosman, not Bernfeld); reason for Prešov move (uncle Moshe Aryeh Rosman's invitation); all six children named (Ilona — Denise's Oma, Rosie, Yakov, Margit, Pirike, Josi); cheese factory before liqueur; Schwartz &amp; Glassner acquisition; Munkacser Rebbe consultation; WWI logging; Ilona running factory at 14; Margit's death and Torah scroll; Malvinka Fonfedder second marriage; Frankfurt Yeshiva advocacy; Shimon's arrest and murder in Auschwitz 1944.
   </div>
 
@@ -1973,7 +2127,7 @@ var memData = {
   'robert-personal': {
     title: 'Memories of Robi',
     heb: 'זכרונות — רובי',
-    body: '<p>Personal memories of Robert Moyshe Arie Muller. His character, his voice, his home, his habits, his stories. Write what you carry — the archive grows with family contributions.</p>'
+    body: '<p>Personal memories of Robert Moshe Aryeh Muller. His character, his voice, his home, his habits, his stories. Write what you carry — the archive grows with family contributions.</p>'
   },
   'general': {
     title: 'Contribute to the Archive',
@@ -2027,12 +2181,12 @@ var personData = {
   'ahron': {
     title: 'Ahron Muller',
     heb: 'אהרון מִילֶר',
-    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1852</span></div><div class="meta-item"><span class="meta-label">Occupation</span><span class="meta-value">Teacher</span></div><div class="meta-item"><span class="meta-label">Education</span><span class="meta-value">Hildesheimer Seminary, Berlin</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Pesel Lieberman</span></div></div><p>Trained at Hildesheimer\'s Berlin Seminary — placing him at the intellectual center of Modern Orthodoxy. His son Shimon inherited his seriousness of purpose. Birthplace unknown, research open.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik)</p>'
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1852</span></div><div class="meta-item"><span class="meta-label">Occupation</span><span class="meta-value">Teacher</span></div><div class="meta-item"><span class="meta-label">Education</span><span class="meta-value">Hildesheimer Seminary, Berlin</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Pesel Lieberman</span></div></div><p>Trained at Hildesheimer\'s Berlin Seminary — placing him at the intellectual center of Modern Orthodoxy. His son Shimon inherited his seriousness of purpose. Birthplace unknown, research open.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick)</p>'
   },
   'pesel': {
     title: 'Pesel Lieberman',
     heb: 'פֶּסֶל ליברמן',
-    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Ahron Muller</span></div><div class="meta-item"><span class="meta-label">Son</span><span class="meta-value">Shimon Muller</span></div></div><p>Mother of Shimon. Her parents and family origins are an open research question. The name Lieberman appears in Prešov cemetery records (Josef Lieberman, buried November 1916) — possibly a relative.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik)</p>'
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Ahron Muller</span></div><div class="meta-item"><span class="meta-label">Son</span><span class="meta-value">Shimon Muller</span></div></div><p>Mother of Shimon. Her parents and family origins are an open research question. The name Lieberman appears in Prešov cemetery records (Josef Lieberman, buried November 1916) — possibly a relative.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick)</p>'
   },
   'shimon': {
     title: 'Shimon Muller',
@@ -2042,27 +2196,27 @@ var personData = {
   'sara': {
     title: 'Sara Rosman',
     heb: 'שרה רוסמן',
-    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Moshe Aryeh Rosman</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Shimon Muller (her cousin)</span></div><div class="meta-item"><span class="meta-label">Children</span><span class="meta-value">6: Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div></div><p>Sara broke a prior betrothal to marry Shimon, causing family upheaval. Confirmed by Prešov Orthodox Cemetery: "Sure bas Mose Arie HaLevi Zena Simon." She died from an infected cut before the war; Shimon later married her cousin Malvinka Fonfedder.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasik) + Prešov cemetery records (JewishGen)</p>'
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Moshe Aryeh Rosman</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Shimon Muller (her cousin)</span></div><div class="meta-item"><span class="meta-label">Children</span><span class="meta-value">6: Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div></div><p>Sara broke a prior betrothal to marry Shimon, causing family upheaval. Confirmed by Prešov Orthodox Cemetery: "Sure bas Mose Arie HaLevi Zena Simon." She died from an infected cut before the war; Shimon later married her cousin Malvinka Fonfedder.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasick) + Prešov cemetery records (JewishGen)</p>'
   },
   'ilona': {
     title: "Ilona Muller — Denise's Oma",
     heb: 'אילונה מִילֶר — סבתא של דניז',
-    body: '<p>Eldest daughter of Shimon and Sara. Author of "Oma\'s Story" — preserved and written by her granddaughter <strong>Denise Karasik</strong>. The primary source for this entire archive. At age 14, during WWI, she ran the liqueur factory alone while Shimon supervised logging in the requisitioned forest. She survived the Holocaust.</p><p><strong>Source:</strong> Oma\'s Story — Denise Karasik</p>'
+    body: '<p>Eldest daughter of Shimon and Sara. Author of "Oma\'s Story" — preserved and written by her granddaughter <strong>Denise Karasick</strong>. The primary source for this entire archive. At age 14, during WWI, she ran the liqueur factory alone while Shimon supervised logging in the requisitioned forest. She survived the Holocaust.</p><p><strong>Source:</strong> Oma\'s Story — Denise Karasick</p>'
   },
   'rosie': {
     title: 'Rosie (Raizel) Muller',
     heb: 'רייזל מִילֶר',
-    body: '<p>Second child of Shimon and Sara. During the war, Shimon first sought refuge with Rosie in Munkacs — but he spoke no local language and was too visibly foreign. He was then smuggled to Miskolc. Further details to be documented.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik)</p>'
+    body: '<p>Second child of Shimon and Sara. During the war, Shimon first sought refuge with Rosie in Munkacs — but he spoke no local language and was too visibly foreign. He was then smuggled to Miskolc. Further details to be documented.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick)</p>'
   },
   'yakov': {
     title: 'Yakov Muller',
     heb: 'יעקב מִילֶר',
-    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1900–1910, Prešov</span></div><div class="meta-item"><span class="meta-label">Parents</span><span class="meta-value">Shimon &amp; Sara Rosman</span></div><div class="meta-item"><span class="meta-label">Yeshiva</span><span class="meta-value">Frankfurt (Shimon advocated 10 days)</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Teresa (Tereza-Devora) Bernfeld</span></div></div><p>Son of Shimon and Sara. Shimon traveled to Frankfurt and spent ten days persuading a Yeshiva to accept him. Yakov married Teresa Bernfeld, bringing the Löw-Beer / Bernfeld lineage into the Muller family. Their firstborn Robert arrived in 1931.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasik) · Teresa marriage: single source (MyHeritage)</p>'
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1900–1910, Prešov</span></div><div class="meta-item"><span class="meta-label">Parents</span><span class="meta-value">Shimon &amp; Sara Rosman</span></div><div class="meta-item"><span class="meta-label">Yeshiva</span><span class="meta-value">Frankfurt (Shimon advocated 10 days)</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Teresa (Tereza-Devora) Bernfeld</span></div></div><p>Son of Shimon and Sara. Shimon traveled to Frankfurt and spent ten days persuading a Yeshiva to accept him. Yakov married Teresa Bernfeld, bringing the Löw-Beer / Bernfeld lineage into the Muller family. Their firstborn Robert arrived in 1931.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick) · Teresa marriage: single source (MyHeritage)</p>'
   },
   'margit': {
     title: 'Margit (Malca) Muller',
     heb: 'מרגית — מלכה מִילֶר',
-    body: '<p>Daughter of Shimon and Sara. Died from internal injuries after jumping from the wrong train. In her memory, Shimon commissioned a Sefer Torah and donated it to the Prešov shul. The Prešov cemetery records a "Panna Malke bas Simon" (buried September 1923) — possibly Margit herself.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasik) + Prešov cemetery records (JewishGen)</p>'
+    body: '<p>Daughter of Shimon and Sara. Died from internal injuries after jumping from the wrong train. In her memory, Shimon commissioned a Sefer Torah and donated it to the Prešov shul. The Prešov cemetery records a "Panna Malke bas Simon" (buried September 1923) — possibly Margit herself.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasick) + Prešov cemetery records (JewishGen)</p>'
   },
   'pirike': {
     title: 'Pirike (Perel) Muller',
@@ -2080,9 +2234,9 @@ var personData = {
     body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">December 12, 1909</span></div><div class="meta-item"><span class="meta-label">Family</span><span class="meta-value">Bernfeld of Topolčany</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Yakov Muller</span></div><div class="meta-item"><span class="meta-label">Son</span><span class="meta-value">Robert (b. 1931)</span></div></div><p>Robert\'s mother. The Bernfeld family carries the documented Löw-Beer → Rabbi Kolin → Shapira → Megale Amukot lineage. Her parents were Max (Mordechai) Bernfeld (1884–1964) and Erna Ester Herzfeld — Erna was from Brezova, not Topolčany. The specific marriage to Yakov Muller is confirmed by single source (MyHeritage) — Slovak archives could close this gap.</p><p><strong>Sources:</strong> Geni, Ancestry · Marriage to Yakov: MyHeritage only</p>'
   },
   'robert': {
-    title: 'Robert Moyshe Arie Muller — Robi',
+    title: 'Robert Moshe Aryeh Muller — Robi',
     heb: 'משה אריה מִילֶר — רובי',
-    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">1931, Prešov</span></div><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Yakov Muller</span></div><div class="meta-item"><span class="meta-label">Mother</span><span class="meta-value">Teresa Bernfeld</span></div><div class="meta-item"><span class="meta-label">Grandfather</span><span class="meta-value">Shimon Muller</span></div></div><p>The destination of this archive — the point where a thousand years of migration, scholarship, grief, and survival converge. His Hebrew name Moyshe Arie echoes Moshe Aryeh Rosman — the man who invited Shimon to Prešov, closing the circle across generations.</p>'
+    body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">1931, Prešov</span></div><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Yakov Muller</span></div><div class="meta-item"><span class="meta-label">Mother</span><span class="meta-value">Teresa Bernfeld</span></div><div class="meta-item"><span class="meta-label">Grandfather</span><span class="meta-value">Shimon Muller</span></div></div><p>The destination of this archive — the point where a thousand years of migration, scholarship, grief, and survival converge. His Hebrew name Moshe Aryeh echoes Moshe Aryeh Rosman — the man who invited Shimon to Prešov, closing the circle across generations.</p>'
   }
 };
 
@@ -2198,33 +2352,41 @@ var MAP_PLACES = [
   { id:'troyes',
     name:'Troyes', altNames:'Champagne, France',
     lat:48.2973, lng:4.0744, branch:'bernfeld',
-    period:'~1040 CE',
-    people:['Rashi'], namedFamilies:[],
-    desc:'Home of Rashi (Rabbi Shlomo Yitzchaki). The oral tradition places the lineage origin here. From Troyes, the rabbinic chain spread eastward through the Rhineland toward Poland — eventually reaching the Shapira dynasty of Krak\u00f3w.',
+    period:'~1040 CE \u00b7 Generation 1 of 31',
+    people:['Rashi (Gen 1)','Miriam bat Rashi (Gen 2)'], namedFamilies:[],
+    desc:'Home of Rashi (Rabbi Shlomo Yitzchaki, 1040\u20131105) \u2014 Generation 1 of the 31-generation chain that reaches Robert. From Troyes, through daughters and descendants over ten medieval generations, the rabbinic lineage spread eastward through France and Italy toward the Rhineland and Poland \u2014 eventually reaching the Shapira dynasty of Krak\u00f3w.',
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
   { id:'krakow',
     name:'Krak\u00f3w', altNames:'Cracow, Poland \u00b7 \u05e7\u05e8\u05d0\u05e7\u05d0',
     lat:50.0647, lng:19.9450, branch:'bernfeld',
-    period:'1585\u20131633',
-    people:['Rabbi Natan Neta Shapira'], namedFamilies:['Shapira'],
-    desc:'Rabbi Natan Neta Shapira \u2014 the Megale Amukot \u2014 served as Chief Rabbi of Krak\u00f3w. His documented descent from Rashi anchors the rabbinic chain. The Shapira dynasty of Krak\u00f3w is the first firmly verified link in the family\u2019s genealogy.',
+    period:'1585\u20131633 \u00b7 Generation 19 of 31',
+    people:['Rabbi Natan Neta Shapira (Gen 19)','Binyomin Natan Shapira (Gen 20)'], namedFamilies:['Shapira'],
+    desc:'Generation 19 \u2014 the first fully verified link in the chain. Rabbi Natan Neta Shapira (the Megale Amukot, 1585\u20131633) served as Chief Rabbi of Krak\u00f3w. His documented Rashi descent anchors the entire lineage. After Krak\u00f3w, the chain moves to the Bohemian town of Kol\u00edn, where the Kolin Ha-Levi family takes the story forward.',
+    chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
+
+  { id:'kolin',
+    name:'Kol\u00edn', altNames:'Bohemia, Czech Republic \u00b7 \u05e7\u05d5\u05dc\u05d9\u05df',
+    lat:50.0289, lng:15.2031, branch:'bernfeld',
+    period:'~1634\u20131789 \u00b7 Generations 21\u201323',
+    people:['Kolin Ha-Levi (Gen 21)','Nathan Nora Ha-Levi Kolin (Gen 22)','Rabbi Samuel Ha-Levi Kolin (Gen 23)'], namedFamilies:['Kolin'],
+    desc:'The Bohemian town of Kol\u00edn gave its name to the Ha-Levi Kolin rabbinical family (Generations 21\u201323). Rabbi Samuel Ha-Levi Kolin (1724\u20131806) \u2014 author of the Machatzit HaShekel \u2014 later moved to Boskovice, Moravia, to lead its yeshiva for nearly 60 years. His daughter Pavline Perl Kolin (Gen 24) married Abraham L\u00f6w-Beer in Boskovice, carrying the chain onward.',
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
   { id:'boskovice',
     name:'Boskovice', altNames:'Moravia, Czech Republic',
     lat:49.4873, lng:16.6611, branch:'bernfeld',
-    period:'~1720\u20131870',
-    people:['Rabbi Samuel Kolin','Salomon L\u00f6w-Beer'], namedFamilies:['Kolin','L\u00f6w-Beer'],
-    desc:'Rabbi Samuel Ha-Levi Kolin (c.\u00a01720\u20131806) presided over the Boskovice yeshiva for nearly 60 years. His son Jehuda L\u00f6w married Buna Beer; their son Salomon took the hyphenated name L\u00f6w-Beer. The Bernfeld family also originated here before moving east to Slovakia.',
+    period:'~1753\u20131870 \u00b7 Generations 24\u201325',
+    people:['Pavline Perl Kolin (Gen 24)','Abraham L\u00f6w-Beer (Gen 25)','Salomon L\u00f6w-Beer'], namedFamilies:['Kolin','L\u00f6w-Beer'],
+    desc:'Rabbi Samuel Ha-Levi Kolin came from Kol\u00edn to lead the Boskovice yeshiva. His daughter Pavline Perl Kolin (Gen 24, b. ~1753) married Abraham L\u00f6w-Beer here \u2014 founding the L\u00f6w-Beer dynasty (Gen 25, 1789\u20131870). The family name \u201cL\u00f6w-Beer\u201d was taken by their son Salomon, combining both family names. From Boskovice the L\u00f6w-Beer line moved east to Topo\u013c\u010dany in Slovakia.',
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
   { id:'topolcany',
     name:'Topo\u013c\u010dany', altNames:'Nagytapolcs\u00e1ny \u00b7 Slovakia',
     lat:48.5601, lng:18.1686, branch:'bernfeld',
-    period:'1820s\u20131944',
-    people:['Moshe Bernfeld','Gittel n\u00e9e L\u00f6w-Beer','Max Bernfeld','Teresa Bernfeld'], namedFamilies:['Bernfeld','L\u00f6w-Beer'],
-    desc:'The Bernfeld and L\u00f6w-Beer families were among the most prominent in Topo\u013c\u010dany\u2019s Jewish community \u2014 community leaders and synagogue wardens. Teresa Bernfeld was born here in 1909. When she married Yakov Muller in Pre\u0161ov, the full rabbinic chain entered the Muller family.',
+    period:'1820\u20131944 \u00b7 Generations 26\u201330',
+    people:['Nathan Nota L\u00f6w-Beer (Gen 26)','Yosef Ya\u02bcakov L\u00f6w-Beer (Gen 27)','Gittel L\u00f6w-Beer (Gen 28)','Max Bernfeld (Gen 29)','Teresa Bernfeld (Gen 30)'], namedFamilies:['Bernfeld','L\u00f6w-Beer'],
+    desc:'Five generations of the lineage passed through Topo\u013c\u010dany. Nathan Nota L\u00f6w-Beer (Gen 26, 1820\u20131888) brought the family east from Boskovice. His son Yosef Ya\u02bcakov (Gen 27, 1840\u20131905) and daughter Gittel (Gen 28, 1836\u20131905) continued the line. Gittel married Moshe Bernfeld; their son Max (Gen 29, 1884\u20131964) was Teresa\u2019s father. Teresa Bernfeld (Gen 30, 1909\u20131986) was born here and married Yakov Muller in Pre\u0161ov, bringing the full 30-generation chain into the Muller family.',
     chapterId:null, chapterLabel:null },
 
   { id:'sanz',
@@ -2270,7 +2432,7 @@ var MAP_PLACES = [
 ];
 
 var MAP_ROUTES = {
-  bernfeld: ['troyes','krakow','boskovice','topolcany','presov'],
+  bernfeld: ['troyes','krakow','kolin','boskovice','topolcany','presov'],
   muller:   ['sanz','presov','miskolc'],
   business: ['berlin','presov','frankfurt']
 };
