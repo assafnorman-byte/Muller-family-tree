@@ -718,6 +718,55 @@ svg.leaflet-image-layer.leaflet-interactive path {
   margin: .3rem 0 .5rem; line-height: 1.6;
 }
 
+/* ── MATERNAL VISUAL TREE ── */
+.maternal-tree-section { margin-top: 2.5rem; }
+.maternal-tree-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300;
+  color: var(--parchment); letter-spacing: .06em; margin-bottom: .2rem;
+}
+.maternal-tree-sub {
+  font-size: .68rem; color: var(--sepia-mid); margin-bottom: 1.2rem;
+}
+.maternal-tree .gen-label { color: #b87c5a; border-color: rgba(184,124,90,.25); }
+.maternal-tree .generation { justify-content: center; }
+.maternal-tree .person-card { border-color: rgba(184,124,90,.3); }
+.maternal-tree .person-card:hover { border-color: rgba(184,124,90,.6); }
+.maternal-tree .connector-v { border-color: rgba(184,124,90,.3); }
+.maternal-tree-connect {
+  text-align: center; font-size: .62rem; color: var(--sepia-dark);
+  font-style: italic; margin: .6rem 0;
+}
+
+/* ── PLACE-CARD LINEAGE TABLE ── */
+.place-lineage { margin-top: .9rem; border-top: 1px solid rgba(201,168,76,.12); padding-top: .7rem; }
+.place-lineage-title {
+  font-size: .58rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .35rem;
+}
+.place-lineage-row {
+  display: flex; gap: .5rem; align-items: baseline;
+  font-size: .67rem; color: var(--sepia-mid);
+  padding: .15rem 0; border-bottom: 1px solid rgba(201,168,76,.05);
+}
+.place-lineage-gen { min-width: 1.6rem; color: rgba(201,168,76,.4); font-size: .57rem; flex-shrink: 0; }
+.place-lineage-name { flex: 1; color: var(--sepia-light); }
+.place-lineage-dates { font-size: .58rem; color: var(--sepia-dark); font-style: italic; white-space: nowrap; }
+
+/* ── MAP DETAIL GENERATIONS TABLE ── */
+.map-gen-table { margin-top: .9rem; border-top: 1px solid rgba(201,168,76,.15); padding-top: .6rem; }
+.map-gen-title {
+  font-size: .57rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .3rem;
+}
+.map-gen-row {
+  display: flex; gap: .4rem; align-items: baseline;
+  font-size: .65rem; color: #c4a882; padding: .12rem 0;
+  border-bottom: 1px solid rgba(201,168,76,.07);
+}
+.map-gen-num { min-width: 1.6rem; color: rgba(201,168,76,.4); font-size: .57rem; flex-shrink: 0; }
+.map-gen-name { flex: 1; }
+.map-gen-dates { font-size: .57rem; color: #8b6f47; font-style: italic; white-space: nowrap; }
+
 </style>
 <script>/* Leaflet 1.9.4 — inlined */
 /* @preserve
@@ -1734,6 +1783,107 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
     </p>
   </div>
 
+  <!-- ── MATERNAL VISUAL TREE: LÖW-BEER · BERNFELD ── -->
+  <div class="maternal-tree-section">
+    <p class="maternal-tree-title">Teresa's Maternal Line — Löw-Beer · Bernfeld</p>
+    <p class="maternal-tree-sub">Generations 25–30 of the 31-generation rabbinic chain · Boskovice → Topolčany → Prešov</p>
+
+    <div class="tree-container maternal-tree">
+
+      <div class="gen-label">Generation 25 — Löw-Beer Patriarch · Boskovice</div>
+      <div class="generation">
+        <div class="person-card">
+          <div class="p-name">Abraham Löw-Beer</div>
+          <div class="p-dates">1789–1870 · Boskovice, Moravia</div>
+          <div class="p-location">Son of Salomon Löw-Beer</div>
+        </div>
+        <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+        <div class="person-card">
+          <div class="p-name">Pavline Perl Kolin</div>
+          <div class="p-dates">b. ~1753 · Boskovice</div>
+          <div class="p-location">Daughter of Rabbi Samuel Ha-Levi Kolin</div>
+        </div>
+      </div>
+
+      <div class="connector-row"><div class="connector-v"></div></div>
+
+      <div class="gen-label">Generation 26 — Topolčany</div>
+      <div class="generation">
+        <div class="person-card">
+          <div class="p-name">Nathan Nota Löw-Beer</div>
+          <div class="p-dates">1820–1888 · Topolčany, Slovakia</div>
+          <div class="p-location">Community leader · synagogue warden</div>
+        </div>
+      </div>
+
+      <div class="connector-row"><div class="connector-v"></div></div>
+
+      <div class="gen-label">Generation 28 — Löw-Beer × Bernfeld · Topolčany</div>
+      <div class="generation">
+        <div class="person-card">
+          <div class="p-name">Gittel Löw-Beer</div>
+          <div class="p-dates">1836–1905 · Topolčany district</div>
+          <div class="p-location">Daughter of Nathan Nota Löw-Beer</div>
+        </div>
+        <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+        <div class="person-card">
+          <div class="p-name">Moshe (Mor) Bernfeld</div>
+          <div class="p-dates">Topolčany</div>
+          <div class="p-location">Bernfeld family · Topolčany</div>
+        </div>
+      </div>
+
+      <div class="connector-row"><div class="connector-v"></div></div>
+
+      <div class="gen-label">Generation 29 — Bernfeld · Topolčany</div>
+      <div class="generation">
+        <div class="person-card">
+          <div class="p-name">Max (Mordechai) Bernfeld</div>
+          <div class="p-dates">1884–1964 · Topolčany</div>
+          <div class="p-location">Son of Gittel & Moshe Bernfeld</div>
+        </div>
+        <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+        <div class="person-card">
+          <div class="p-name">Erna Ester Herzfeld</div>
+          <div class="p-dates">Brezova, Slovakia</div>
+          <div class="p-location">From nearby Brezova</div>
+        </div>
+      </div>
+
+      <div class="connector-row"><div class="connector-v"></div></div>
+
+      <div class="gen-label">Generation 30 — The Bridge · Teresa Bernfeld</div>
+      <div class="generation">
+        <div class="person-card focal">
+          <div class="p-name">Teresa (Tereza-Devora) Bernfeld</div>
+          <div class="p-name-heb">טרזה דבורה ברנפלד</div>
+          <div class="p-dates">b. December 12, 1909 · Topolčany</div>
+          <div class="p-location">Carries Löw-Beer → Kolin → Shapira → Rashi</div>
+        </div>
+        <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+        <div class="person-card">
+          <div class="p-name">Yakov Muller</div>
+          <div class="p-name-heb">יעקב מִילֶר</div>
+          <div class="p-dates">b. ~1900–1910 · Prešov</div>
+          <div class="p-location">Generation III · Paternal tree</div>
+        </div>
+      </div>
+
+      <div class="connector-row"><div class="connector-v"></div></div>
+
+      <div class="gen-label">Generation 31 — The Destination</div>
+      <div class="generation">
+        <div class="person-card focal">
+          <div class="p-name">Robert Moshe Aryeh Muller</div>
+          <div class="p-name-heb">משה אריה מִילֶר — רובי</div>
+          <div class="p-dates">b. 1931 · Prešov → Haifa</div>
+          <div class="p-location">Where both lines meet</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ── MATERNAL LINEAGE: RASHI → ROBERT ── -->
   <div class="lineage-section">
     <p class="lineage-section-title">Teresa's Maternal Line — Rashi to Robert · 31 Generations</p>
@@ -1836,6 +1986,11 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <div class="place-period">~1040 CE — Origin of Chain (oral tradition)</div>
       <p class="place-desc">Birthplace of Rashi (Rabbi Shlomo Yitzchaki, 1040–1105) — Generation 1 of the 31-generation chain that reaches Robert Moshe Aryeh Muller. From Troyes, through daughters and descendants across ten medieval generations in France and Italy, the lineage spread eastward toward the Rhineland and Poland. This link rests on genealogical research and oral tradition; the academic connection to the Shapira and Kolin families runs through the maternal line.</p>
       <div class="place-people"><span class="person-chip">Rashi (Gen 1)</span><span class="person-chip">Miriam bat Rashi (Gen 2)</span></div>
+      <div class="place-lineage">
+        <div class="place-lineage-title">Generations at this location</div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">1</span><span class="place-lineage-name">Rashi (Rabbi Shlomo Yitzchaki)</span><span class="place-lineage-dates">1040–1105</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">2</span><span class="place-lineage-name">Miriam bat Rashi</span><span class="place-lineage-dates">1066–1105</span></div>
+      </div>
     </div>
 
     <div class="place-card">
@@ -1844,6 +1999,11 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <div class="place-period">1585–1633 — Rabbinic Apex · First Verified Link</div>
       <p class="place-desc">Home of the Megale Amukot and capital of Polish Jewish learning. Rabbi Natan Neta Shapira (Generation 19, 1585–1633) served as Chief Rabbi here — the first fully documented link in the chain. His son Binyomin Natan (Gen 20) was born here before the lineage passed through Kolín, Bohemia, and onward to Boskovice. Through Teresa Bernfeld, this verified chain reaches Robert.</p>
       <div class="place-people"><span class="person-chip">Rabbi Natan Neta Shapira (Gen 19)</span><span class="person-chip">Binyomin Natan Shapira (Gen 20)</span></div>
+      <div class="place-lineage">
+        <div class="place-lineage-title">Generations at this location</div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">19</span><span class="place-lineage-name">Rabbi Natan Neta Shapira (Megale Amukot)</span><span class="place-lineage-dates">1585–1633</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">20</span><span class="place-lineage-name">Binyomin Natan Shapira</span><span class="place-lineage-dates">b. 1634</span></div>
+      </div>
     </div>
 
     <div class="place-card">
@@ -1856,6 +2016,12 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
         <span class="person-chip">Nathan Nora Ha-Levi Kolin (Gen 22)</span>
         <span class="person-chip">Rabbi Samuel Ha-Levi Kolin (Gen 23)</span>
       </div>
+      <div class="place-lineage">
+        <div class="place-lineage-title">Generations at this location</div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">21</span><span class="place-lineage-name">Kolin Ha-Levi (ancestor)</span><span class="place-lineage-dates">Kolín</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">22</span><span class="place-lineage-name">Nathan Nora Ha-Levi Kolin</span><span class="place-lineage-dates">Kolín</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">23</span><span class="place-lineage-name">Rabbi Samuel Ha-Levi Kolin</span><span class="place-lineage-dates">1724–1806</span></div>
+      </div>
     </div>
 
     <div class="place-card">
@@ -1864,6 +2030,11 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <div class="place-period">~1753–1870 — Löw-Beer Dynasty</div>
       <p class="place-desc">Rabbi Samuel Ha-Levi Kolin came from Kolín to lead the Boskovice yeshiva. His daughter Pavline Perl Kolin (Gen 24, b. ~1753) married Abraham Löw-Beer here — founding the Löw-Beer dynasty (Gen 25, 1789–1870). The hyphenated name "Löw-Beer" was adopted by their son Salomon, combining both family names. From Boskovice, the Löw-Beer line moved east to Topolčany in Slovakia.</p>
       <div class="place-people"><span class="person-chip">Pavline Perl Kolin (Gen 24)</span><span class="person-chip">Abraham Löw-Beer (Gen 25)</span><span class="person-chip">Salomon Löw-Beer</span></div>
+      <div class="place-lineage">
+        <div class="place-lineage-title">Generations at this location</div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">24</span><span class="place-lineage-name">Pavline Perl Kolin</span><span class="place-lineage-dates">b. ~1753</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">25</span><span class="place-lineage-name">Abraham Löw-Beer</span><span class="place-lineage-dates">1789–1870</span></div>
+      </div>
     </div>
 
     <div class="place-card">
@@ -1872,6 +2043,14 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <div class="place-period">~1820–1944 — Bernfeld &amp; Löw-Beer Hub · Five Generations</div>
       <p class="place-desc">Five consecutive generations of the lineage passed through Topolčany. Nathan Nota Löw-Beer (Gen 26, 1820–1888) brought the family east from Boskovice. His son Yosef Ya'akov (Gen 27, 1840–1905) and daughter Gittel (Gen 28, 1836–1905) continued the line. Gittel married Moshe Bernfeld; their son Max (Gen 29, 1884–1964) was Teresa's father. Teresa Bernfeld (Gen 30, 1909–1986) was born here — and when she married Yakov Muller in Prešov, the entire 30-generation chain entered the Muller family.</p>
       <div class="place-people"><span class="person-chip">Nathan Nota Löw-Beer (Gen 26)</span><span class="person-chip">Yosef Ya'akov Löw-Beer (Gen 27)</span><span class="person-chip">Gittel Löw-Beer (Gen 28)</span><span class="person-chip">Max Bernfeld (Gen 29)</span><span class="person-chip">Teresa Bernfeld (Gen 30)</span></div>
+      <div class="place-lineage">
+        <div class="place-lineage-title">Generations at this location</div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">26</span><span class="place-lineage-name">Nathan Nota Löw-Beer</span><span class="place-lineage-dates">1820–1888</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">27</span><span class="place-lineage-name">Yosef Ya'akov Löw-Beer</span><span class="place-lineage-dates">1840–1905</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">28</span><span class="place-lineage-name">Gittel Löw-Beer × Moshe Bernfeld</span><span class="place-lineage-dates">1836–1905</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">29</span><span class="place-lineage-name">Max (Mordechai) Bernfeld</span><span class="place-lineage-dates">1884–1964</span></div>
+        <div class="place-lineage-row"><span class="place-lineage-gen">30</span><span class="place-lineage-name">Teresa (Tereza-Devora) Bernfeld</span><span class="place-lineage-dates">1909–1986</span></div>
+      </div>
     </div>
 
     <div class="place-card">
@@ -2355,6 +2534,7 @@ var MAP_PLACES = [
     period:'~1040 CE \u00b7 Generation 1 of 31',
     people:['Rashi (Gen 1)','Miriam bat Rashi (Gen 2)'], namedFamilies:[],
     desc:'Home of Rashi (Rabbi Shlomo Yitzchaki, 1040\u20131105) \u2014 Generation 1 of the 31-generation chain that reaches Robert. From Troyes, through daughters and descendants over ten medieval generations, the rabbinic lineage spread eastward through France and Italy toward the Rhineland and Poland \u2014 eventually reaching the Shapira dynasty of Krak\u00f3w.',
+    gens:[{n:1,name:'Rashi (Rabbi Shlomo Yitzchaki)',dates:'1040\u20131105'},{n:2,name:'Miriam bat Rashi',dates:'1066\u20131105'}],
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
   { id:'krakow',
@@ -2363,6 +2543,7 @@ var MAP_PLACES = [
     period:'1585\u20131633 \u00b7 Generation 19 of 31',
     people:['Rabbi Natan Neta Shapira (Gen 19)','Binyomin Natan Shapira (Gen 20)'], namedFamilies:['Shapira'],
     desc:'Generation 19 \u2014 the first fully verified link in the chain. Rabbi Natan Neta Shapira (the Megale Amukot, 1585\u20131633) served as Chief Rabbi of Krak\u00f3w. His documented Rashi descent anchors the entire lineage. After Krak\u00f3w, the chain moves to the Bohemian town of Kol\u00edn, where the Kolin Ha-Levi family takes the story forward.',
+    gens:[{n:19,name:'Rabbi Natan Neta Shapira (Megale Amukot)',dates:'1585\u20131633'},{n:20,name:'Binyomin Natan Shapira',dates:'b. 1634'}],
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
   { id:'kolin',
@@ -2371,6 +2552,7 @@ var MAP_PLACES = [
     period:'~1634\u20131789 \u00b7 Generations 21\u201323',
     people:['Kolin Ha-Levi (Gen 21)','Nathan Nora Ha-Levi Kolin (Gen 22)','Rabbi Samuel Ha-Levi Kolin (Gen 23)'], namedFamilies:['Kolin'],
     desc:'The Bohemian town of Kol\u00edn gave its name to the Ha-Levi Kolin rabbinical family (Generations 21\u201323). Rabbi Samuel Ha-Levi Kolin (1724\u20131806) \u2014 author of the Machatzit HaShekel \u2014 later moved to Boskovice, Moravia, to lead its yeshiva for nearly 60 years. His daughter Pavline Perl Kolin (Gen 24) married Abraham L\u00f6w-Beer in Boskovice, carrying the chain onward.',
+    gens:[{n:21,name:'Kolin Ha-Levi (ancestor)',dates:'Kol\u00edn'},{n:22,name:'Nathan Nora Ha-Levi Kolin',dates:'Kol\u00edn'},{n:23,name:'Rabbi Samuel Ha-Levi Kolin',dates:'1724\u20131806'}],
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
   { id:'boskovice',
@@ -2379,6 +2561,7 @@ var MAP_PLACES = [
     period:'~1753\u20131870 \u00b7 Generations 24\u201325',
     people:['Pavline Perl Kolin (Gen 24)','Abraham L\u00f6w-Beer (Gen 25)','Salomon L\u00f6w-Beer'], namedFamilies:['Kolin','L\u00f6w-Beer'],
     desc:'Rabbi Samuel Ha-Levi Kolin came from Kol\u00edn to lead the Boskovice yeshiva. His daughter Pavline Perl Kolin (Gen 24, b. ~1753) married Abraham L\u00f6w-Beer here \u2014 founding the L\u00f6w-Beer dynasty (Gen 25, 1789\u20131870). The family name \u201cL\u00f6w-Beer\u201d was taken by their son Salomon, combining both family names. From Boskovice the L\u00f6w-Beer line moved east to Topo\u013c\u010dany in Slovakia.',
+    gens:[{n:24,name:'Pavline Perl Kolin',dates:'b. ~1753'},{n:25,name:'Abraham L\u00f6w-Beer',dates:'1789\u20131870'}],
     chapterId:'chapter-i', chapterLabel:'Chapter I \u2014 The Ancient Chain' },
 
   { id:'topolcany',
@@ -2387,6 +2570,7 @@ var MAP_PLACES = [
     period:'1820\u20131944 \u00b7 Generations 26\u201330',
     people:['Nathan Nota L\u00f6w-Beer (Gen 26)','Yosef Ya\u02bcakov L\u00f6w-Beer (Gen 27)','Gittel L\u00f6w-Beer (Gen 28)','Max Bernfeld (Gen 29)','Teresa Bernfeld (Gen 30)'], namedFamilies:['Bernfeld','L\u00f6w-Beer'],
     desc:'Five generations of the lineage passed through Topo\u013c\u010dany. Nathan Nota L\u00f6w-Beer (Gen 26, 1820\u20131888) brought the family east from Boskovice. His son Yosef Ya\u02bcakov (Gen 27, 1840\u20131905) and daughter Gittel (Gen 28, 1836\u20131905) continued the line. Gittel married Moshe Bernfeld; their son Max (Gen 29, 1884\u20131964) was Teresa\u2019s father. Teresa Bernfeld (Gen 30, 1909\u20131986) was born here and married Yakov Muller in Pre\u0161ov, bringing the full 30-generation chain into the Muller family.',
+    gens:[{n:26,name:'Nathan Nota L\u00f6w-Beer',dates:'1820\u20131888'},{n:27,name:'Yosef Ya\u02bcakov L\u00f6w-Beer',dates:'1840\u20131905'},{n:28,name:'Gittel L\u00f6w-Beer',dates:'1836\u20131905'},{n:29,name:'Max (Mordechai) Bernfeld',dates:'1884\u20131964'},{n:30,name:'Teresa (Tereza-Devora) Bernfeld',dates:'1909\u20131986'}],
     chapterId:null, chapterLabel:null },
 
   { id:'sanz',
@@ -2549,6 +2733,15 @@ function openMapDetail(place) {
     html += '<div class="map-detail-people">';
     place.people.forEach(function(p) {
       html += '<span class="person-chip">' + p + '</span>';
+    });
+    html += '</div>';
+  }
+
+  if (place.gens && place.gens.length) {
+    html += '<div class="map-gen-table">';
+    html += '<div class="map-gen-title">Generations at this location</div>';
+    place.gens.forEach(function(g) {
+      html += '<div class="map-gen-row"><span class="map-gen-num">' + g.n + '</span><span class="map-gen-name">' + g.name + '</span><span class="map-gen-dates">' + g.dates + '</span></div>';
     });
     html += '</div>';
   }
