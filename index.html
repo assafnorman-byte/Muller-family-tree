@@ -737,36 +737,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   font-style: italic; margin: .6rem 0;
 }
 
-/* ── PLACE-CARD LINEAGE TABLE ── */
-.place-lineage { margin-top: .9rem; border-top: 1px solid rgba(201,168,76,.12); padding-top: .7rem; }
-.place-lineage-title {
-  font-size: .58rem; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: .35rem;
-}
-.place-lineage-row {
-  display: flex; gap: .5rem; align-items: baseline;
-  font-size: .67rem; color: var(--sepia-mid);
-  padding: .15rem 0; border-bottom: 1px solid rgba(201,168,76,.05);
-}
-.place-lineage-gen { min-width: 1.6rem; color: rgba(201,168,76,.4); font-size: .57rem; flex-shrink: 0; }
-.place-lineage-name { flex: 1; color: var(--sepia-light); }
-.place-lineage-dates { font-size: .58rem; color: var(--sepia-dark); font-style: italic; white-space: nowrap; }
-
-/* ── MAP DETAIL GENERATIONS TABLE ── */
-.map-gen-table { margin-top: .9rem; border-top: 1px solid rgba(201,168,76,.15); padding-top: .6rem; }
-.map-gen-title {
-  font-size: .57rem; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: .3rem;
-}
-.map-gen-row {
-  display: flex; gap: .4rem; align-items: baseline;
-  font-size: .65rem; color: #c4a882; padding: .12rem 0;
-  border-bottom: 1px solid rgba(201,168,76,.07);
-}
-.map-gen-num { min-width: 1.6rem; color: rgba(201,168,76,.4); font-size: .57rem; flex-shrink: 0; }
-.map-gen-name { flex: 1; }
-.map-gen-dates { font-size: .57rem; color: #8b6f47; font-style: italic; white-space: nowrap; }
-
 </style>
 <script>/* Leaflet 1.9.4 — inlined */
 /* @preserve
@@ -1365,6 +1335,47 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
   }
   .map-detail-panel.open { transform: translateY(0); }
 }
+
+/* ── PLACE-CARD LINEAGE TABLE ── */
+.place-lineage { margin-top: 1.1rem; border-top: 2px solid rgba(201,168,76,.25); padding-top: .8rem; }
+.place-lineage-title {
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .5rem; font-weight: 600;
+}
+.place-lineage-row {
+  display: flex; gap: .6rem; align-items: baseline;
+  font-size: .78rem; color: var(--sepia-mid);
+  padding: .2rem 0; border-bottom: 1px solid rgba(201,168,76,.08);
+}
+.place-lineage-gen { min-width: 2rem; color: rgba(201,168,76,.55); font-size: .65rem; flex-shrink: 0; }
+.place-lineage-name { flex: 1; color: var(--sepia-light); }
+.place-lineage-dates { font-size: .65rem; color: var(--sepia-mid); font-style: italic; white-space: nowrap; }
+
+/* ── MAP DETAIL GENERATIONS TABLE ── */
+.map-gen-table { margin-top: .9rem; border-top: 1px solid rgba(201,168,76,.15); padding-top: .6rem; }
+.map-gen-title {
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .3rem; font-weight: 600;
+}
+.map-gen-row {
+  display: flex; gap: .4rem; align-items: baseline;
+  font-size: .72rem; color: #c4a882; padding: .12rem 0;
+  border-bottom: 1px solid rgba(201,168,76,.07);
+}
+.map-gen-num { min-width: 1.6rem; color: rgba(201,168,76,.55); font-size: .65rem; flex-shrink: 0; }
+.map-gen-name { flex: 1; }
+.map-gen-dates { font-size: .65rem; color: #8b6f47; font-style: italic; white-space: nowrap; }
+
+/* ── MAP PIN TOOLTIP ── */
+.map-pin-tooltip {
+  background: rgba(26,18,9,.92) !important;
+  border: 1px solid rgba(201,168,76,.35) !important;
+  border-radius: 2px !important;
+  padding: .35rem .6rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.5) !important;
+}
+.map-pin-tooltip::before { display: none !important; }
+.leaflet-tooltip-top.map-pin-tooltip::before { display: none !important; }
 </style>
 </head>
 <body>
@@ -2122,6 +2133,7 @@ input.memory-field:focus { border-color: rgba(201,168,76,.5); }
       <div class="legend-line"><span class="legend-swatch business"></span> Business network</div>
     </div>
   </div>
+  <p style="text-align:center;font-size:.65rem;color:rgba(201,168,76,.5);margin-top:.5rem;letter-spacing:.08em;">Hover pins to preview · click any pin to see the lineage generations at that location</p>
 </div><div id="view-surnames" class="view">
   <p class="section-title">The Family Names</p>
   <p class="section-sub">Each surname a world — a community, a history, a migration</p>
@@ -2705,7 +2717,16 @@ function initMap() {
     });
 
     var marker = L.marker([place.lat, place.lng], { icon: icon }).addTo(_map);
-    marker.on('click', function() { openMapDetail(place); });
+    (function(p, m) {
+      var tipHtml = '<div style="font-family:\'DM Sans\',sans-serif;font-size:.72rem;color:#c9a84c;">' + p.name + '</div>';
+      if (p.gens && p.gens.length) {
+        var g0 = p.gens[0].n;
+        var g1 = p.gens[p.gens.length - 1].n;
+        tipHtml += '<div style="font-size:.62rem;color:#c4a882;">Gen ' + g0 + (g1 !== g0 ? '\u2013' + g1 : '') + ' \u00b7 click for detail</div>';
+      }
+      m.bindTooltip(tipHtml, { className: 'map-pin-tooltip', direction: 'top', offset: [0, -10] });
+      m.on('click', function() { openMapDetail(p); });
+    }(place, marker));
   });
 }
 
