@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The House of Muller — A Thousand Years to Robert</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 4,14 10,14 5,22 11,22 6,30 26,30 21,22 27,22 22,14 28,14' fill='%23c9a84c'/%3E%3Crect x='14' y='28' width='4' height='4' fill='%23b87c5a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3C!-- trunk --%3E%3Crect x='15' y='24' width='2' height='7' fill='%23b87c5a'/%3E%3C!-- main vertical spine --%3E%3Crect x='15.5' y='4' width='1' height='21' fill='%23c9a84c'/%3E%3C!-- top branch left --%3E%3Cline x1='16' y1='7' x2='8' y2='13' stroke='%23c9a84c' stroke-width='1.2'/%3E%3C!-- top branch right --%3E%3Cline x1='16' y1='7' x2='24' y2='13' stroke='%23c9a84c' stroke-width='1.2'/%3E%3C!-- mid branch left --%3E%3Cline x1='16' y1='14' x2='10' y2='19' stroke='%23c9a84c' stroke-width='1.2'/%3E%3C!-- mid branch right --%3E%3Cline x1='16' y1='14' x2='22' y2='19' stroke='%23c9a84c' stroke-width='1.2'/%3E%3C!-- nodes --%3E%3Ccircle cx='16' cy='5' r='2.2' fill='%23e8d08a'/%3E%3Ccircle cx='8' cy='13' r='2' fill='%23c9a84c'/%3E%3Ccircle cx='24' cy='13' r='2' fill='%23c9a84c'/%3E%3Ccircle cx='10' cy='19' r='1.8' fill='%23c9a84c'/%3E%3Ccircle cx='22' cy='19' r='1.8' fill='%23c9a84c'/%3E%3Ccircle cx='16' cy='14' r='1.8' fill='%23c9a84c'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
@@ -705,11 +705,11 @@ body {
 font-family: ‘EB Garamond’, ‘Cormorant Garamond’, Georgia, serif;
 font-size: 18px;
 line-height: 1.65;
-color: var(–ink);
+color: var(-ink);
 background:
 radial-gradient(ellipse at top left, rgba(168, 121, 49, 0.08), transparent 60%),
 radial-gradient(ellipse at bottom right, rgba(138, 42, 42, 0.05), transparent 60%),
-linear-gradient(180deg, var(–parchment-1) 0%, var(–parchment-2) 100%);
+linear-gradient(180deg, var(-parchment-1) 0%, var(-parchment-2) 100%);
 min-height: 100vh;
 background-attachment: fixed;
 }
@@ -743,7 +743,7 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.75em;
 letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 12px;
 }
 header h1 {
@@ -751,22 +751,22 @@ font-family: ‘Cormorant Garamond’, serif;
 font-weight: 500;
 font-size: clamp(2rem, 5vw, 3.2rem);
 line-height: 1.1;
-color: var(–ink);
+color: var(-ink);
 margin-bottom: 8px;
 }
 header h1 em {
 font-style: italic;
-color: var(–gold-deep);
+color: var(-gold-deep);
 }
 header .subtitle {
 font-size: 1rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 font-style: italic;
 margin-top: 10px;
 }
 header .source-credit {
 font-size: 0.85rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 margin-top: 20px;
 padding-top: 16px;
 border-top: 1px dotted rgba(168, 121, 49, 0.25);
@@ -776,7 +776,7 @@ border-top: 1px dotted rgba(168, 121, 49, 0.25);
 nav {
 position: sticky;
 top: 0;
-background: linear-gradient(180deg, var(–parchment-1) 85%, rgba(245, 234, 211, 0));
+background: linear-gradient(180deg, var(-parchment-1) 85%, rgba(245, 234, 211, 0));
 padding: 14px 0 18px;
 z-index: 50;
 margin: 0 -24px;
@@ -798,7 +798,7 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.85rem;
 letter-spacing: 0.15em;
 text-transform: uppercase;
-color: var(–ink-muted);
+color: var(-ink-muted);
 padding: 10px 14px;
 cursor: pointer;
 border-radius: 6px 6px 0 0;
@@ -806,11 +806,11 @@ transition: all 0.25s ease;
 position: relative;
 }
 .tab-btn:hover {
-color: var(–gold-deep);
+color: var(-gold-deep);
 background: rgba(168, 121, 49, 0.08);
 }
 .tab-btn.active {
-color: var(–ink);
+color: var(-ink);
 background: rgba(168, 121, 49, 0.12);
 }
 .tab-btn.active::after {
@@ -820,7 +820,7 @@ bottom: -13px;
 left: 20%;
 right: 20%;
 height: 2px;
-background: var(–gold);
+background: var(-gold);
 }
 
 /* TAB PANELS */
@@ -835,13 +835,13 @@ h2 {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: clamp(1.8rem, 3vw, 2.4rem);
 font-weight: 500;
-color: var(–ink);
+color: var(-ink);
 margin-bottom: 8px;
 line-height: 1.2;
 }
 h2 .ornament {
 display: inline-block;
-color: var(–gold);
+color: var(-gold);
 margin: 0 12px;
 font-size: 0.7em;
 vertical-align: middle;
@@ -850,12 +850,12 @@ h3 {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 1.4rem;
 font-weight: 600;
-color: var(–ink);
+color: var(-ink);
 margin: 20px 0 10px;
 }
 .panel-intro {
 font-style: italic;
-color: var(–ink-muted);
+color: var(-ink-muted);
 margin-bottom: 32px;
 font-size: 1.05rem;
 max-width: 700px;
@@ -870,7 +870,7 @@ position: relative;
 .hero::before, .hero::after {
 content: “⁂”;
 display: block;
-color: var(–gold);
+color: var(-gold);
 font-size: 1.5rem;
 margin: 20px 0;
 }
@@ -881,12 +881,12 @@ margin-bottom: 8px;
 .hero-heb {
 font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 1.8rem;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 8px;
 }
 .hero .dates {
 font-style: italic;
-color: var(–ink-muted);
+color: var(-ink-muted);
 margin-bottom: 28px;
 letter-spacing: 0.05em;
 }
@@ -914,14 +914,14 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.72rem;
 letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(–ink-muted);
+color: var(-ink-muted);
 align-self: center;
 margin-right: 8px;
 }
 .chapter-pill {
-background: var(–parchment-1);
-border: 1px solid var(–gold-soft);
-color: var(–ink-soft);
+background: var(-parchment-1);
+border: 1px solid var(-gold-soft);
+color: var(-ink-soft);
 font-family: ‘EB Garamond’, serif;
 font-size: 0.9rem;
 padding: 6px 14px;
@@ -930,21 +930,21 @@ cursor: pointer;
 transition: all 0.2s;
 }
 .chapter-pill:hover {
-background: var(–gold-soft);
-color: var(–ink);
+background: var(-gold-soft);
+color: var(-ink);
 }
 .chapter {
 margin-bottom: 56px;
 padding: 28px 32px;
 background: rgba(255, 252, 242, 0.5);
-border-left: 3px solid var(–gold);
+border-left: 3px solid var(-gold);
 border-radius: 0 4px 4px 0;
 scroll-margin-top: 120px;
 }
 .chapter h3 {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 1.6rem;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 6px;
 }
 .chapter .era {
@@ -952,7 +952,7 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.75rem;
 letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(–ink-muted);
+color: var(-ink-muted);
 margin-bottom: 16px;
 }
 .chapter p { margin-bottom: 14px; }
@@ -961,7 +961,7 @@ margin-top: 20px;
 padding-top: 16px;
 border-top: 1px dotted rgba(168, 121, 49, 0.3);
 font-size: 0.85rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 font-style: italic;
 display: flex;
 justify-content: space-between;
@@ -982,23 +982,23 @@ background: linear-gradient(180deg, rgba(255, 252, 242, 0.9) 0%, rgba(245, 234, 
 border: 1px solid rgba(168, 121, 49, 0.25);
 border-radius: 4px;
 padding: 22px;
-box-shadow: 0 2px 8px var(–shadow);
+box-shadow: 0 2px 8px var(-shadow);
 transition: transform 0.2s, box-shadow 0.2s;
 }
 .card:hover {
 transform: translateY(-2px);
-box-shadow: 0 4px 14px var(–shadow);
+box-shadow: 0 4px 14px var(-shadow);
 }
 .card h4 {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 1.3rem;
 font-weight: 600;
-color: var(–ink);
+color: var(-ink);
 margin-bottom: 4px;
 }
 .card .meta {
 font-size: 0.8rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 font-style: italic;
 margin-bottom: 12px;
 }
@@ -1013,7 +1013,7 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.8rem;
 letter-spacing: 0.25em;
 text-transform: uppercase;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 16px;
 padding-bottom: 8px;
 border-bottom: 1px solid rgba(168, 121, 49, 0.2);
@@ -1021,7 +1021,7 @@ border-bottom: 1px solid rgba(168, 121, 49, 0.2);
 .person-card {
 background: rgba(255, 252, 242, 0.7);
 border: 1px solid rgba(168, 121, 49, 0.2);
-border-left: 3px solid var(–gold);
+border-left: 3px solid var(-gold);
 border-radius: 4px;
 padding: 16px 20px;
 cursor: pointer;
@@ -1030,24 +1030,24 @@ position: relative;
 }
 .person-card:hover {
 background: rgba(255, 252, 242, 1);
-border-left-color: var(–crimson);
+border-left-color: var(-crimson);
 transform: translateX(3px);
 }
 .person-card .name {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 1.2rem;
 font-weight: 600;
-color: var(–ink);
+color: var(-ink);
 }
 .person-card .heb {
 font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 1rem;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-right: 8px;
 }
 .person-card .life {
 font-size: 0.85rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 font-style: italic;
 margin-top: 2px;
 }
@@ -1060,7 +1060,7 @@ flex-wrap: wrap;
 }
 .couple-connector .person-card { flex: 1 1 280px; }
 .couple-connector .amp {
-color: var(–gold);
+color: var(-gold);
 font-size: 1.5rem;
 font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
@@ -1078,16 +1078,16 @@ border-radius: 2px;
 margin-left: 8px;
 vertical-align: middle;
 }
-.tier-verified { background: rgba(61, 90, 58, 0.12); color: var(–tier-verified); border: 1px solid rgba(61, 90, 58, 0.3); }
-.tier-single { background: rgba(168, 121, 49, 0.12); color: var(–tier-single); border: 1px solid rgba(168, 121, 49, 0.3); }
-.tier-oral { background: rgba(138, 42, 42, 0.1); color: var(–tier-oral); border: 1px solid rgba(138, 42, 42, 0.3); }
+.tier-verified { background: rgba(61, 90, 58, 0.12); color: var(-tier-verified); border: 1px solid rgba(61, 90, 58, 0.3); }
+.tier-single { background: rgba(168, 121, 49, 0.12); color: var(-tier-single); border: 1px solid rgba(168, 121, 49, 0.3); }
+.tier-oral { background: rgba(138, 42, 42, 0.1); color: var(-tier-oral); border: 1px solid rgba(138, 42, 42, 0.3); }
 
 /* MODAL */
 .modal-backdrop {
 display: none;
 position: fixed;
 inset: 0;
-background: rgba(44, 36, 26, 0.65);
+background: rgba(20, 15, 8, 0.88);
 backdrop-filter: blur(3px);
 z-index: 100;
 padding: 20px;
@@ -1095,14 +1095,14 @@ overflow-y: auto;
 }
 .modal-backdrop.open { display: flex; align-items: flex-start; justify-content: center; }
 .modal {
-background: var(–parchment-1);
-border: 1px solid var(–gold);
+background: var(-parchment-1);
+border: 1px solid var(-gold);
 border-radius: 4px;
 max-width: 720px;
 width: 100%;
 margin: 40px auto;
 padding: 36px 40px;
-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
 position: relative;
 }
 .modal .close {
@@ -1113,27 +1113,27 @@ background: transparent;
 border: none;
 font-size: 1.6rem;
 cursor: pointer;
-color: var(–ink-muted);
+color: var(-ink-muted);
 line-height: 1;
 padding: 6px 10px;
 }
-.modal .close:hover { color: var(–crimson); }
+.modal .close:hover { color: var(-crimson); }
 .modal h3 {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 1.8rem;
-color: var(–ink);
+color: var(-ink);
 margin-bottom: 4px;
 padding-right: 40px;
 }
 .modal .heb-name {
 font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 1.3rem;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 10px;
 }
 .modal .dates {
 font-style: italic;
-color: var(–ink-muted);
+color: var(-ink-muted);
 margin-bottom: 20px;
 padding-bottom: 12px;
 border-bottom: 1px solid rgba(168, 121, 49, 0.2);
@@ -1149,18 +1149,18 @@ border-radius: 4px;
 }
 .ancestor-intro .lead {
 font-size: 1.05rem;
-color: var(–ink-soft);
+color: var(-ink-soft);
 margin-bottom: 10px;
 }
 .ancestor-intro .note {
 font-size: 0.85rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 font-style: italic;
 }
 
 .spotlight {
 background: linear-gradient(180deg, rgba(255, 252, 242, 0.92) 0%, rgba(245, 234, 211, 0.85) 100%);
-border: 1px solid var(–gold-soft);
+border: 1px solid var(-gold-soft);
 border-radius: 6px;
 padding: 0;
 margin-bottom: 48px;
@@ -1179,7 +1179,7 @@ content: “⁂”;
 position: absolute;
 top: 14px;
 right: 22px;
-color: var(–gold);
+color: var(-gold);
 font-size: 1.4rem;
 opacity: 0.6;
 }
@@ -1188,27 +1188,27 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.72rem;
 letter-spacing: 0.28em;
 text-transform: uppercase;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 8px;
 }
 .spotlight-name {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: clamp(1.6rem, 3.4vw, 2.1rem);
 font-weight: 600;
-color: var(–ink);
+color: var(-ink);
 line-height: 1.15;
 margin-bottom: 6px;
 }
 .spotlight-name-heb {
 font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 1.3rem;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 8px;
 direction: rtl;
 }
 .spotlight-subtitle {
 font-style: italic;
-color: var(–ink-soft);
+color: var(-ink-soft);
 font-size: 1rem;
 }
 .spotlight-body {
@@ -1223,7 +1223,7 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.72rem;
 letter-spacing: 0.24em;
 text-transform: uppercase;
-color: var(–gold-deep);
+color: var(-gold-deep);
 margin-bottom: 8px;
 padding-bottom: 4px;
 border-bottom: 1px dotted rgba(168, 121, 49, 0.3);
@@ -1231,7 +1231,7 @@ border-bottom: 1px dotted rgba(168, 121, 49, 0.3);
 .spotlight-block p {
 font-size: 1rem;
 line-height: 1.7;
-color: var(–ink);
+color: var(-ink);
 margin-bottom: 10px;
 }
 .spotlight-block p:last-child { margin-bottom: 0; }
@@ -1251,7 +1251,7 @@ font-size: 0.98rem;
 padding: 5px 0;
 padding-left: 22px;
 position: relative;
-color: var(–ink-soft);
+color: var(-ink-soft);
 border-bottom: 1px dotted rgba(168, 121, 49, 0.15);
 }
 .ladder li:last-child { border-bottom: none; }
@@ -1260,41 +1260,41 @@ content: “↓”;
 position: absolute;
 left: 6px;
 top: 5px;
-color: var(–gold);
+color: var(-gold);
 font-size: 0.85rem;
 }
-.ladder li:first-child::before { content: “✦”; color: var(–gold-deep); }
-.ladder li:last-child::before { content: “●”; color: var(–crimson); }
+.ladder li:first-child::before { content: “✦”; color: var(-gold-deep); }
+.ladder li:last-child::before { content: “●”; color: var(-crimson); }
 .ladder li.terminal {
 font-weight: 600;
-color: var(–ink);
+color: var(-ink);
 }
 .ladder li .gen {
 font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.7rem;
 letter-spacing: 0.15em;
-color: var(–ink-muted);
+color: var(-ink-muted);
 text-transform: uppercase;
 margin-right: 8px;
 }
 
 .sources-list {
 font-size: 0.88rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 padding-left: 18px;
 }
 .sources-list li { margin-bottom: 4px; }
 
 .caveat {
 background: rgba(138, 42, 42, 0.05);
-border-left: 3px solid var(–tier-oral);
+border-left: 3px solid var(-tier-oral);
 padding: 10px 14px;
 margin-top: 10px;
 font-size: 0.88rem;
-color: var(–ink-soft);
+color: var(-ink-soft);
 border-radius: 0 3px 3px 0;
 }
-.caveat strong { color: var(–tier-oral); }
+.caveat strong { color: var(-tier-oral); }
 
 /* PLACE cards featured-ancestor teaser */
 .featured-ancestor-link {
@@ -1302,29 +1302,29 @@ display: block;
 margin-top: 12px;
 padding: 10px 14px;
 background: rgba(168, 121, 49, 0.08);
-border: 1px dashed var(–gold-soft);
+border: 1px dashed var(-gold-soft);
 border-radius: 3px;
 font-size: 0.85rem;
-color: var(–gold-deep);
+color: var(-gold-deep);
 text-decoration: none;
 font-style: italic;
 transition: all 0.2s;
 }
 .featured-ancestor-link:hover {
 background: rgba(168, 121, 49, 0.15);
-color: var(–ink);
+color: var(-ink);
 }
 .featured-ancestor-link::before {
 content: “✦ “;
-color: var(–gold);
+color: var(-gold);
 font-style: normal;
 }
 
 /* CONTRIBUTE */
 .contribute-btn {
 background: transparent;
-border: 1px solid var(–gold);
-color: var(–gold-deep);
+border: 1px solid var(-gold);
+color: var(-gold-deep);
 font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.78rem;
 letter-spacing: 0.18em;
@@ -1335,8 +1335,8 @@ cursor: pointer;
 transition: all 0.2s;
 }
 .contribute-btn:hover {
-background: var(–gold);
-color: var(–parchment-1);
+background: var(-gold);
+color: var(-parchment-1);
 }
 .contrib-form label {
 display: block;
@@ -1344,7 +1344,7 @@ font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.75rem;
 letter-spacing: 0.15em;
 text-transform: uppercase;
-color: var(–ink-muted);
+color: var(-ink-muted);
 margin: 14px 0 6px;
 }
 .contrib-form input, .contrib-form textarea {
@@ -1355,17 +1355,17 @@ padding: 10px 12px;
 background: rgba(255, 252, 242, 0.7);
 border: 1px solid rgba(168, 121, 49, 0.3);
 border-radius: 3px;
-color: var(–ink);
+color: var(-ink);
 }
 .contrib-form textarea { min-height: 140px; resize: vertical; }
 .contrib-form input:focus, .contrib-form textarea:focus {
 outline: none;
-border-color: var(–gold);
+border-color: var(-gold);
 background: rgba(255, 252, 242, 1);
 }
 .contrib-submit {
-background: var(–gold);
-color: var(–parchment-1);
+background: var(-gold);
+color: var(-parchment-1);
 border: none;
 font-family: ‘Frank Ruhl Libre’, serif;
 font-size: 0.85rem;
@@ -1377,7 +1377,7 @@ cursor: pointer;
 margin-top: 20px;
 transition: background 0.2s;
 }
-.contrib-submit:hover { background: var(–gold-deep); }
+.contrib-submit:hover { background: var(-gold-deep); }
 .contrib-status { margin-top: 14px; font-size: 0.9rem; font-style: italic; }
 
 /* MAP TAB */
@@ -1385,7 +1385,7 @@ transition: background 0.2s;
 border: 1px solid rgba(168, 121, 49, 0.3);
 border-radius: 4px;
 overflow: hidden;
-box-shadow: 0 4px 16px var(–shadow);
+box-shadow: 0 4px 16px var(-shadow);
 margin-bottom: 28px;
 }
 #family-map {
@@ -1400,7 +1400,7 @@ padding: 14px 18px;
 background: rgba(255, 252, 242, 0.7);
 border-top: 1px solid rgba(168, 121, 49, 0.2);
 font-size: 0.85rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 }
 .map-legend-item {
 display: flex;
@@ -1414,44 +1414,44 @@ border-radius: 50%;
 flex-shrink: 0;
 }
 .leaflet-popup-content-wrapper {
-background: var(–parchment-1) !important;
-border: 1px solid var(–gold-soft) !important;
+background: var(-parchment-1) !important;
+border: 1px solid var(-gold-soft) !important;
 border-radius: 4px !important;
-box-shadow: 0 4px 14px var(–shadow) !important;
+box-shadow: 0 4px 14px var(-shadow) !important;
 font-family: ‘EB Garamond’, Georgia, serif !important;
-color: var(–ink) !important;
+color: var(-ink) !important;
 }
-.leaflet-popup-tip { background: var(–parchment-1) !important; }
+.leaflet-popup-tip { background: var(-parchment-1) !important; }
 .map-popup-name {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 1.1rem;
 font-weight: 600;
-color: var(–ink);
+color: var(-ink);
 margin-bottom: 3px;
 }
 .map-popup-era {
 font-size: 0.78rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 font-style: italic;
 margin-bottom: 6px;
 }
 .map-popup-body {
 font-size: 0.9rem;
 line-height: 1.55;
-color: var(–ink-soft);
+color: var(-ink-soft);
 }
 .map-popup-link {
 display: inline-block;
 margin-top: 8px;
 font-size: 0.8rem;
-color: var(–gold-deep);
+color: var(-gold-deep);
 text-decoration: none;
 cursor: pointer;
 font-style: italic;
 }
 .map-note {
 font-size: 0.85rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 font-style: italic;
 margin-top: 8px;
 }
@@ -1463,10 +1463,10 @@ text-align: center;
 border-top: 1px solid rgba(168, 121, 49, 0.2);
 margin-top: 40px;
 font-size: 0.85rem;
-color: var(–ink-muted);
+color: var(-ink-muted);
 }
 footer .ornament {
-color: var(–gold);
+color: var(-gold);
 font-size: 1.2rem;
 margin-bottom: 12px;
 }
@@ -1639,7 +1639,117 @@ body { font-size: 17px; }
 
   <section class="panel" id="panel-tree">
     <h2>Family Tree <span class="ornament">⁂</span></h2>
-    <p class="panel-intro">Generations from Rabbi Samuel Kolin of Boskovice down to Robert. Tap any name for detail.</p>
+    <p class="panel-intro">Two lines converge in Robert — the paternal Muller line from Galicia, and the maternal Bernfeld–Löw-Beer chain from Boskovice. Tap any card for detail.</p>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--gold-deep);margin:1.5rem 0 .5rem;letter-spacing:.04em;">The Muller Paternal Line</h3>
+  <p style="font-size:.8rem;color:var(--ink-muted);margin-bottom:1rem;">Nowy Sącz → Prešov · Four documented generations</p>
+
+<div class="tree-container">
+
+    <div class="gen-label">Generation I — The Patriarch</div>
+    <div class="generation">
+      <div class="person-card" onclick="openPerson('ahron')">
+        <div class="p-name">Ahron Muller</div>
+        <div class="p-name-heb">אהרון מִילֶר</div>
+        <div class="p-dates">b. ~1852 · Teacher</div>
+        <div class="p-location">Hildesheimer Seminary, Berlin</div>
+      </div>
+      <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+      <div class="person-card" onclick="openPerson('pesel')">
+        <div class="p-name">Pesel Lieberman</div>
+        <div class="p-name-heb">פֶּסֶל ליברמן</div>
+        <div class="p-dates">b. ~1855 est.</div>
+      </div>
+    </div>
+
+    <div class="connector-row"><div class="connector-v"></div></div>
+
+    <div class="gen-label">Generation II — Shimon &amp; Sara</div>
+    <div class="generation">
+      <div class="person-card deceased" onclick="openPerson('shimon')">
+        <div class="p-name">Shimon Muller</div>
+        <div class="p-name-heb">שמעון מִילֶר</div>
+        <div class="p-dates">b. ~1874–1889, Nowy Sącz</div>
+        <div class="p-location">d. 1944, Auschwitz</div>
+      </div>
+      <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+      <div class="person-card deceased" onclick="openPerson('sara')">
+        <div class="p-name">Sara Rosman</div>
+        <div class="p-name-heb">שרה רוסמן</div>
+        <div class="p-dates">b. ~1875 est.</div>
+        <div class="p-location">Daughter of Moshe Aryeh Rosman</div>
+      </div>
+    </div>
+
+    <div style="margin:.4rem 0;text-align:center;font-size:.68rem;color:var(--sepia-dark);font-style:italic;">
+      Sara = daughter of Shimon's uncle Moshe Aryeh Rosman · cousin marriage confirmed by Prešov cemetery records
+    </div>
+
+    <div class="siblings-section">
+      <div class="siblings-label">Shimon &amp; Sara's Six Children</div>
+      <div class="siblings-row">
+        <div class="sibling-chip" onclick="openPerson('ilona')">
+          Ilona — Denise's Oma
+          <small>אילונה · author of Oma's Story</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('rosie')">
+          Rosie (Raizel)
+          <small>רייזל</small>
+        </div>
+        <div class="sibling-chip focal-sibling" onclick="openPerson('yakov')">
+          Yakov ★
+          <small>יעקב — father of Robert</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('margit')">
+          Margit (Malca)
+          <small>מרגית — נפטרה</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('pirike')">
+          Pirike (Perel)
+          <small>פרל</small>
+        </div>
+        <div class="sibling-chip" onclick="openPerson('josi')">
+          Josi
+          <small>יוסי</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector-row" style="margin-top:1rem;"><div class="connector-v"></div></div>
+
+    <div class="gen-label">Generation III — Yakov's Branch</div>
+    <div class="generation">
+      <div class="person-card" onclick="openPerson('yakov')">
+        <div class="p-name">Yakov Muller</div>
+        <div class="p-name-heb">יעקב מִילֶר</div>
+        <div class="p-dates">b. ~1900–1910, Prešov</div>
+        <div class="p-location">Frankfurt Yeshiva</div>
+      </div>
+      <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
+      <div class="person-card" onclick="openPerson('teresa')">
+        <div class="p-name">Teresa (Tereza-Devora) Bernfeld</div>
+        <div class="p-name-heb">טרזה ברנפלד</div>
+        <div class="p-dates">b. December 12, 1909</div>
+        <div class="p-location">Carries Löw-Beer → Kolin → Shapira lineage</div>
+      </div>
+    </div>
+
+    <div class="connector-row"><div class="connector-v"></div></div>
+
+    <div class="gen-label">Generation IV — The Destination</div>
+    <div class="generation">
+      <div class="person-card focal" onclick="openPerson('robert')">
+        <div class="p-name">Robert Moshe Aryeh Muller</div>
+        <div class="p-name-heb">משה אריה מִילֶר — רובי</div>
+        <div class="p-dates">b. 1931 · Prešov</div>
+        <div class="p-location">Firstborn · End of the thousand-year chain</div>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--gold-deep);margin:2.5rem 0 .5rem;letter-spacing:.04em;">The Maternal Line — Löw-Beer · Bernfeld</h3>
+  <p style="font-size:.8rem;color:var(--ink-muted);margin-bottom:1rem;">Boskovice → Topolčany → Prešov · Verified from Gen 17</p>
 
 <div class="generation">
   <div class="generation-label">Generation 17 · Boskovice, 18th C.</div>
@@ -2675,6 +2785,71 @@ body { font-size: 17px; }
     if (e.target.id === 'modal-backdrop') closeModal();
   });
 
+  // === Muller paternal tree — openPerson() ===
+  var mullerPersonData = {
+    'ahron': {
+      name: 'Ahron Muller', heb: 'אהרון מִילֶר', dates: 'b. ~1852',
+      body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1852</span></div><div class="meta-item"><span class="meta-label">Occupation</span><span class="meta-value">Teacher</span></div><div class="meta-item"><span class="meta-label">Education</span><span class="meta-value">Hildesheimer Seminary, Berlin</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Pesel Lieberman</span></div></div><p>Trained at Hildesheimer\'s Berlin Seminary — placing him at the intellectual center of Modern Orthodoxy. His son Shimon inherited his seriousness of purpose. Birthplace unknown, research open.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick)</p>'
+    },
+    'pesel': {
+      name: 'Pesel Lieberman', heb: 'פֶּסֶל ליברמן', dates: '',
+      body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Ahron Muller</span></div><div class="meta-item"><span class="meta-label">Son</span><span class="meta-value">Shimon Muller</span></div></div><p>Mother of Shimon. Her parents and family origins are an open research question. The name Lieberman appears in Prešov cemetery records (Josef Lieberman, buried November 1916) — possibly a relative.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick)</p>'
+    },
+    'shimon': {
+      name: 'Shimon Muller', heb: 'שמעון מִילֶר', dates: 'b. ~1874–1889, Nowy Sącz · d. 1944, Auschwitz',
+      body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1874–1889, Nowy Sącz</span></div><div class="meta-item"><span class="meta-label">Died</span><span class="meta-value">1944, Auschwitz</span></div><div class="meta-item"><span class="meta-label">First Wife</span><span class="meta-value">Sara Rosman</span></div><div class="meta-item"><span class="meta-label">Second Wife</span><span class="meta-value">Malvinka Fonfedder</span></div><div class="meta-item"><span class="meta-label">Children</span><span class="meta-value">Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div><div class="meta-item"><span class="meta-label">Business</span><span class="meta-value">Schwartz &amp; Glassner liqueur</span></div></div><p>See The Story tab for his full documented life — from Nowy Sącz to Prešov, the liqueur factory, WWI, his children, and his murder in Auschwitz 1944.</p>'
+    },
+    'sara': {
+      name: 'Sara Rosman', heb: 'שרה רוסמן', dates: 'd. before 1939',
+      body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Moshe Aryeh Rosman</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Shimon Muller (her cousin)</span></div><div class="meta-item"><span class="meta-label">Children</span><span class="meta-value">6: Ilona, Rosie, Yakov, Margit, Pirike, Josi</span></div></div><p>Sara broke a prior betrothal to marry Shimon, causing family upheaval. Confirmed by Prešov Orthodox Cemetery: "Sure bas Mose Arie HaLevi Zena Simon." She died from an infected cut before the war; Shimon later married her cousin Malvinka Fonfedder.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasick) + Prešov cemetery records (JewishGen)</p>'
+    },
+    'ilona': {
+      name: "Ilona Muller — Denise's Oma", heb: 'אילונה מִילֶר — סבתא של דניז', dates: 'Survived the Shoah',
+      body: '<p>Eldest daughter of Shimon and Sara. Author of "Oma\'s Story" — preserved and written by her granddaughter <strong>Denise Karasick</strong>. The primary source for this entire archive. At age 14, during WWI, she ran the liqueur factory alone while Shimon supervised logging in the requisitioned forest. She survived the Holocaust.</p><p><strong>Source:</strong> Oma\'s Story — Denise Karasick</p>'
+    },
+    'rosie': {
+      name: 'Rosie (Raizel) Muller', heb: 'רייזל מִילֶר', dates: '',
+      body: '<p>Second child of Shimon and Sara. During the war, Shimon first sought refuge with Rosie in Munkacs — but he spoke no local language and was too visibly foreign. He was then smuggled to Miskolc. Further details to be documented.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick)</p>'
+    },
+    'yakov': {
+      name: 'Yakov Muller', heb: 'יעקב מִילֶר', dates: 'b. ~1900–1910, Prešov',
+      body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">~1900–1910, Prešov</span></div><div class="meta-item"><span class="meta-label">Yeshiva</span><span class="meta-value">Frankfurt (Shimon advocated 10 days)</span></div><div class="meta-item"><span class="meta-label">Wife</span><span class="meta-value">Teresa (Tereza-Devora) Bernfeld</span></div></div><p>Son of Shimon and Sara. Shimon traveled to Frankfurt and spent ten days persuading a Yeshiva to accept him. Yakov married Teresa Bernfeld, bringing the Löw-Beer / Bernfeld lineage into the Muller family. Their firstborn Robert arrived in 1931.</p><p><strong>Source:</strong> Oma\'s Story (Denise Karasick) · Teresa marriage: single source (MyHeritage)</p>'
+    },
+    'margit': {
+      name: 'Margit (Malca) Muller', heb: 'מרגית — מלכה מִילֶר', dates: 'd. ~1923',
+      body: '<p>Daughter of Shimon and Sara. Died from internal injuries after jumping from the wrong train. In her memory, Shimon commissioned a Sefer Torah and donated it to the Prešov shul. The Prešov cemetery records a "Panna Malke bas Simon" (buried September 1923) — possibly Margit herself.</p><p><strong>Sources:</strong> Oma\'s Story (Denise Karasick) + Prešov cemetery records (JewishGen)</p>'
+    },
+    'pirike': {
+      name: 'Pirike (Perel) Muller', heb: 'פרל מִילֶר', dates: '',
+      body: '<p>Daughter of Shimon and Sara. Further details to be documented. If you have memories or information about Pirike, please contribute to the archive.</p>'
+    },
+    'josi': {
+      name: 'Josi Muller', heb: 'יוסי מִילֶר', dates: '',
+      body: '<p>Son of Shimon and Sara. Further details to be researched. If you have memories or information about Josi, please contribute to the archive.</p>'
+    },
+    'teresa': {
+      name: 'Teresa (Tereza-Devora) Bernfeld', heb: 'טרזה ברנפלד', dates: 'Born December 12, 1909',
+      body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">December 12, 1909</span></div><div class="meta-item"><span class="meta-label">Family</span><span class="meta-value">Bernfeld of Topolčany</span></div><div class="meta-item"><span class="meta-label">Husband</span><span class="meta-value">Yakov Muller</span></div><div class="meta-item"><span class="meta-label">Son</span><span class="meta-value">Robert (b. 1931)</span></div></div><p>Robert\'s mother. The Bernfeld family carries the documented Löw-Beer → Rabbi Kolin → Shapira → Megale Amukot lineage. Her parents were Max (Mordechai) Bernfeld (1884–1964) and Erna Ester Herzfeld. The specific marriage to Yakov Muller is confirmed by single source (MyHeritage) — Slovak archives could close this gap.</p><p><strong>Sources:</strong> Geni, Ancestry · Marriage to Yakov: MyHeritage only</p>'
+    },
+    'robert': {
+      name: 'Robert Moshe Aryeh Muller — Robi', heb: 'משה אריה מִילֶר — רובי', dates: 'Born 1931, Prešov · Died 2022, Haifa',
+      body: '<div class="modal-meta"><div class="meta-item"><span class="meta-label">Born</span><span class="meta-value">1931, Prešov</span></div><div class="meta-item"><span class="meta-label">Father</span><span class="meta-value">Yakov Muller</span></div><div class="meta-item"><span class="meta-label">Mother</span><span class="meta-value">Teresa Bernfeld</span></div><div class="meta-item"><span class="meta-label">Grandfather</span><span class="meta-value">Shimon Muller</span></div></div><p>The destination of this archive — the point where a thousand years of migration, scholarship, grief, and survival converge. His Hebrew name Moshe Aryeh echoes Moshe Aryeh Rosman — the man who invited Shimon to Prešov, closing the circle across generations.</p>'
+    }
+  };
+
+  function openPerson(key) {
+    var d = mullerPersonData[key];
+    if (!d) return;
+    document.getElementById('modal-content').innerHTML =
+      '<h3>' + d.name + '</h3>' +
+      (d.heb ? '<div class="heb-name">' + d.heb + '</div>' : '') +
+      (d.dates ? '<div class="dates">' + d.dates + '</div>' : '') +
+      d.body +
+      '<div style="margin-top:24px;padding-top:16px;border-top:1px dotted rgba(168,121,49,0.3);"><button class="contribute-btn" onclick="closeModal();openContribForm(\'' + d.name.replace(/'/g, "\\'") + '\')">Contribute about this person</button></div>';
+    document.getElementById('modal-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
   // === Contribution form ===
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbziCCnrjTg8-h8DzZyHR0AFJn5qqzLKxPEJ1RwNPyj7XfsgHDVBq-mf7ajlwht9e3jFrg/exec';
 
@@ -2793,6 +2968,82 @@ body { font-size: 17px; }
 .lineage-note { font-size: .62rem; color: var(--sepia-dark); font-style: italic; margin: .3rem 0 .5rem; line-height: 1.6; }
 .tag-oral { font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; background: rgba(138,110,71,.15); border: 1px solid rgba(138,110,71,.3); border-radius: 1px; padding: .12rem .45rem; color: #8b6f47; }
 .tag-verified { font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; background: rgba(59,105,59,.12); border: 1px solid rgba(59,105,59,.3); border-radius: 1px; padding: .12rem .45rem; color: #4a7c4a; }
+
+/* ── MULLER FAMILY TREE (PATERNAL LINE) ── */
+.tree-container { overflow-x: auto; padding-bottom: 1rem; }
+.gen-label {
+  font-size: .62rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--sepia-dark); text-align: center; margin: 1.8rem 0 .6rem;
+}
+.generation {
+  display: flex; gap: .8rem; justify-content: center;
+  flex-wrap: wrap; align-items: flex-start;
+}
+.person-card {
+  background: linear-gradient(160deg, rgba(242,232,213,.1), rgba(242,232,213,.05));
+  border: 1px solid rgba(201,168,76,.2); border-radius: 2px;
+  padding: .9rem 1rem; min-width: 150px; max-width: 200px;
+  text-align: center; cursor: pointer; transition: all .25s;
+}
+.person-card:hover { border-color: rgba(201,168,76,.5); transform: translateY(-2px); }
+.person-card.focal {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, rgba(201,168,76,.18), rgba(201,168,76,.08));
+  box-shadow: 0 0 24px rgba(201,168,76,.2);
+}
+.person-card.focal .p-name { color: var(--gold-light); font-size: 1.05rem; }
+.person-card.deceased { border-color: rgba(139,44,44,.3); }
+.person-card.deceased .p-name { color: #d4b8b8; }
+.p-name {
+  font-family: 'Cormorant Garamond', serif; font-size: .9rem;
+  color: var(--parchment); line-height: 1.3; font-weight: 400;
+}
+.p-name-heb {
+  font-family: 'Frank Ruhl Libre', serif; font-size: .75rem;
+  color: var(--sepia-mid); direction: rtl; margin-top: .2rem;
+}
+.p-dates { font-size: .65rem; color: var(--sepia-dark); margin-top: .3rem; font-style: italic; }
+.p-location { font-size: .65rem; color: var(--sepia-mid); margin-top: .2rem; }
+.connector-row { display: flex; justify-content: center; height: 1.8rem; align-items: center; }
+.connector-v {
+  width: 1px; height: 1.8rem;
+  background: linear-gradient(to bottom, rgba(201,168,76,.4), rgba(201,168,76,.15));
+  margin: 0 auto;
+}
+
+/* FIX #2: couple-connector was pushing down due to padding-top:1.8rem misaligning */
+.couple-connector {
+  display: flex; align-items: center; gap: .4rem;
+  padding: 0 .5rem; align-self: center;
+}
+.marriage-ring { font-size: .8rem; color: var(--gold); opacity: .8; }
+
+.siblings-section {
+  margin-top: 1.5rem; padding: 1.4rem;
+  background: rgba(242,232,213,.04); border: 1px solid rgba(201,168,76,.12); border-radius: 2px;
+}
+.siblings-label {
+  font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--sepia-dark); margin-bottom: .8rem;
+}
+.siblings-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.sibling-chip {
+  padding: .4rem .9rem; border: 1px solid rgba(201,168,76,.18);
+  background: rgba(242,232,213,.05); border-radius: 2px;
+  font-size: .78rem; color: var(--sepia-light); cursor: pointer; transition: all .2s;
+}
+.sibling-chip:hover { border-color: rgba(201,168,76,.4); color: var(--parchment); }
+.sibling-chip.focal-sibling { border-color: rgba(201,168,76,.4); color: var(--gold-light); }
+/* FIX #3: sibling chip small direction:rtl was misaligning chip layout */
+.sibling-chip small { display: block; font-size: .62rem; color: var(--sepia-dark); margin-top: .1rem; }
+
+.connector-row { display: flex; justify-content: center; height: 1.8rem; align-items: center; }
+.connector-v {
+  width: 1px; height: 1.8rem;
+  background: linear-gradient(to bottom, rgba(201,168,76,.4), rgba(201,168,76,.15));
+  margin: 0 auto;
+}
+
 </style>
 <script>/* Leaflet 1.9.4 — inlined */
 /* @preserve
