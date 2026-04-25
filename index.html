@@ -1480,6 +1480,153 @@ body { font-size: 17px; }
 .spotlight-body { padding: 20px 20px 22px; }
 .tab-btn { padding: 8px 10px; font-size: 0.78rem; }
 }
+
+/* ── Chapter preview grid ── */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: .7rem;
+  margin-bottom: 2.5rem;
+}
+.chapter-grid-card {
+  background: rgba(255,252,242,0.6);
+  border: 1px solid rgba(168,121,49,0.2);
+  border-radius: 3px;
+  padding: 1rem 1.1rem .9rem;
+  cursor: pointer;
+  transition: background .2s, transform .15s, border-color .2s;
+  text-align: left;
+}
+.chapter-grid-card:hover {
+  background: rgba(255,252,242,0.95);
+  transform: translateY(-2px);
+  border-color: rgba(168,121,49,0.5);
+}
+.chapter-grid-card .cgc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 700;
+  color: rgba(168,121,49,0.22);
+  line-height: 1; margin-bottom: .3rem;
+}
+.chapter-grid-card .cgc-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  color: var(--gold-deep); margin-bottom: .15rem;
+}
+.chapter-grid-card .cgc-era {
+  font-size: .63rem; color: var(--ink-muted);
+  letter-spacing: .05em; margin-bottom: .5rem;
+  text-transform: uppercase;
+}
+.chapter-grid-card .cgc-hook {
+  font-size: .73rem; color: var(--ink-soft);
+  font-style: italic; line-height: 1.45;
+}
+.chapter-grid-card.cgc-shimon {
+  border-left: 3px solid var(--crimson);
+}
+.chapter-grid-card.cgc-shimon .cgc-city { color: var(--crimson); }
+.chapter-grid-card.cgc-shimon .cgc-num { color: rgba(138,42,42,0.2); }
+
+/* ── Pull quote callouts ── */
+.pull-quote {
+  margin: 1.6rem 0;
+  padding: 1.1rem 1.4rem 1.1rem 1.6rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(168,121,49,0.06);
+  border-radius: 0 3px 3px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  quotes: none;
+  position: relative;
+}
+.pull-quote::before {
+  content: '\201C';
+  font-size: 3rem;
+  color: rgba(168,121,49,0.25);
+  line-height: 0;
+  vertical-align: -0.5em;
+  margin-right: .15rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: normal;
+}
+.pull-quote.pq-grief {
+  border-left-color: var(--crimson);
+  background: rgba(138,42,42,0.05);
+}
+.pull-quote.pq-grief::before { color: rgba(138,42,42,0.2); }
+
+/* ── Portrait silhouettes ── */
+.portrait-frame {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: rgba(168,121,49,0.08);
+  border: 1px solid rgba(168,121,49,0.22);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: .55rem;
+  flex-shrink: 0;
+}
+.portrait-svg {
+  width: 30px; height: 30px;
+  color: rgba(122,85,32,0.5);
+}
+.person-card.deceased .portrait-svg { color: rgba(100,80,60,0.28); }
+.person-card.focal .portrait-frame {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.4);
+}
+.person-card.focal .portrait-svg { color: rgba(201,168,76,0.6); }
+
+/* ── Ancestor stats strip ── */
+.stats-strip {
+  display: flex; justify-content: center; gap: 2.5rem;
+  padding: 1.5rem 0 1rem; flex-wrap: wrap;
+  border-bottom: 1px solid rgba(168,121,49,0.15);
+  margin-bottom: 1.2rem;
+}
+.stat { text-align: center; }
+.stat-n {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700; color: var(--gold);
+  line-height: 1;
+}
+.stat-l {
+  display: block;
+  font-size: .62rem; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-top: .25rem;
+}
+
+/* ── Spotlight navigation grid ── */
+.spotlight-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: .55rem; margin: 1.4rem 0 2.5rem;
+}
+.spotlight-nav-card {
+  padding: .75rem 1rem;
+  background: rgba(255,252,242,0.5);
+  border: 1px solid rgba(168,121,49,0.18);
+  border-radius: 3px; cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.spotlight-nav-card:hover {
+  background: rgba(255,252,242,0.9);
+  transform: translateY(-2px);
+  border-color: rgba(168,121,49,0.45);
+}
+.snc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .9rem; font-weight: 600;
+  color: var(--gold-deep); margin-bottom: .2rem;
+  line-height: 1.3;
+}
+.snc-gen { font-size: .6rem; color: var(--ink-muted); margin-bottom: .3rem; letter-spacing: .03em; }
 </style>
 
 </head>
@@ -1528,15 +1675,49 @@ body { font-size: 17px; }
     <h2>The Story <span class="ornament">⁂</span></h2>
     <p class="panel-intro">A linear narrative, chapter by chapter — from Rashi's Troyes to Robert's Prešov.</p>
 
-<div class="chapter-pills">
-  <span class="pill-label">Jump to</span>
-  <button class="chapter-pill" data-chapter="ch1">1. Troyes, 1040</button>
-  <button class="chapter-pill" data-chapter="ch2">2. The Rabbinic Chain</button>
-  <button class="chapter-pill" data-chapter="ch3">3. Boskovice</button>
-  <button class="chapter-pill" data-chapter="ch4">4. Into Slovakia</button>
-  <button class="chapter-pill" data-chapter="ch5">5. Topolčany</button>
-  <button class="chapter-pill" data-chapter="ch6">6. Prešov & Robert</button>
-  <button class="chapter-pill" data-chapter="ch-shimon">Shimon's Story</button>
+<div class="chapter-grid">
+  <div class="chapter-grid-card chapter-pill" data-chapter="ch1">
+    <div class="cgc-num">1</div>
+    <div class="cgc-city">Troyes, 1040</div>
+    <div class="cgc-era">Northern France · 11th century</div>
+    <div class="cgc-hook">"The commentator whose glosses are printed in every edition to this day."</div>
+  </div>
+  <div class="chapter-grid-card chapter-pill" data-chapter="ch2">
+    <div class="cgc-num">2</div>
+    <div class="cgc-city">The Rabbinic Chain</div>
+    <div class="cgc-era">11th–18th century</div>
+    <div class="cgc-hook">"A naming tradition passed down as family memory, intact but unproven."</div>
+  </div>
+  <div class="chapter-grid-card chapter-pill" data-chapter="ch3">
+    <div class="cgc-num">3</div>
+    <div class="cgc-city">Boskovice</div>
+    <div class="cgc-era">Moravia · 1720–1832</div>
+    <div class="cgc-hook">"A surname built from two names — a man and his wife, joined by imperial decree."</div>
+  </div>
+  <div class="chapter-grid-card chapter-pill" data-chapter="ch4">
+    <div class="cgc-num">4</div>
+    <div class="cgc-city">Into Slovakia</div>
+    <div class="cgc-era">Upper Hungary · 1800s</div>
+    <div class="cgc-hook">"The generation that crossed from Moravia and never looked back."</div>
+  </div>
+  <div class="chapter-grid-card chapter-pill" data-chapter="ch5">
+    <div class="cgc-num">5</div>
+    <div class="cgc-city">Topolčany</div>
+    <div class="cgc-era">Slovakia · 1820–1909</div>
+    <div class="cgc-hook">"Pillars of a community. A Beth Medrash built at the market square."</div>
+  </div>
+  <div class="chapter-grid-card chapter-pill" data-chapter="ch6">
+    <div class="cgc-num">6</div>
+    <div class="cgc-city">Prešov &amp; Robert</div>
+    <div class="cgc-era">Slovakia · 1874–1931</div>
+    <div class="cgc-hook">"The point where a thousand years of migration converge in one name."</div>
+  </div>
+  <div class="chapter-grid-card chapter-pill cgc-shimon" data-chapter="ch-shimon">
+    <div class="cgc-num">⁂</div>
+    <div class="cgc-city">Shimon's Story</div>
+    <div class="cgc-era">Nowy Sącz → Auschwitz · 1874–1944</div>
+    <div class="cgc-hook">"He placed his hands on her head. He gave her his blessing. That was the last time."</div>
+  </div>
 </div>
 
 <div class="chapter" id="ch1">
@@ -1599,6 +1780,7 @@ body { font-size: 17px; }
   <div class="era">Eastern Slovakia · 20th Century</div>
   <p>On the Muller side, the Prešov Orthodox Cemetery records confirm the chain with rare precision: Moshe Aryeh Rozman, his daughter Sara, her marriage to Shimon Simon Muller. Their son Yaakov Dov Muller — named, by Ashkenazi custom, after Sara's grandfather — is the bridge.</p>
   <p>Yaakov Dov marries Tereza-Devora Bernfeld of Topolčany. Their son is Robert (Robi) Muller, born in Prešov in 1931. His Hebrew name Moshe Arie echoes Moshe Aryeh Rozman — the great-uncle who first brought the Mullers to Prešov, whose daughter Sara became Shimon's wife. The name closes a circle. Most of the extended family is murdered in the Shoah; Erna Herzfeld Bernfeld survives and dies in Haifa in 1966. Robert lives. The story, for now, pauses here.</p>
+  <blockquote class="pull-quote">His Hebrew name echoes the man who first brought the Mullers to Prešov — the name closes a circle across a thousand years.</blockquote>
   <div class="chapter-footer">
     <span>Source: Prešov Orthodox Cemetery records (Futtersack/Landau); <em>Oma's Story</em> by Denise Karasik</span>
     <span class="tier tier-single">Single-Source (Gen 3)</span>
@@ -1620,12 +1802,14 @@ body { font-size: 17px; }
 
   <h3 style="font-size:1.1rem; margin-top:20px; color:var(--gold-deep);">IV. Margit's Death — A Torah Scroll for the Shul</h3>
   <p>Tragedy came through his daughter Margit (Malca), who died from internal injuries after jumping from the wrong train. Shimon commissioned a Sefer Torah to be written and donated it to the Prešov shul in her memory — a man expressing grief the only way that seemed adequate: by giving something eternal to the community she had been part of.</p>
+  <blockquote class="pull-quote">A man expressing grief the only way that seemed adequate: by giving something eternal to the community she had been part of.</blockquote>
 
   <h3 style="font-size:1.1rem; margin-top:20px; color:var(--gold-deep);">V. Father, Grandfather, Second Marriage</h3>
   <p>When his son Yakov was to attend yeshiva in Frankfurt, the institution was hesitant — reluctant to take a boy from a strict local yeshiva in Prešov. Shimon traveled to Frankfurt personally and advocated for ten days until they relented. After Sara's death from an infected cut, Shimon remarried Malvinka Fonfedder — Sara's cousin, who had grown up attending the same school as Sara. As a grandfather, he loved taking the grandchildren on Sunday excursions outside the city by truck or horse and wagon. Robert was born in 1931 while Shimon was very much the living center of the family.</p>
 
   <h3 style="font-size:1.1rem; margin-top:20px; color:var(--crimson);">VI. Budapest, 1944 — The Last Blessing</h3>
   <p>As German occupation advanced through Hungary in 1944, the family's options collapsed. Shimon first stayed with his daughter Rosi in Munkacs — but he spoke no local language and was too visibly a foreigner. He was smuggled to Miskolc to live with Ilona. The family made a plan to flee to Budapest with forged Aryan papers. At Budapest station, Shimon was identified as Jewish, arrested, and taken to prison. His granddaughter Gretl — herself captured and held in the same prison — spotted him across the yard during a registration lineup. She ran to him. He placed his hands on her head. He gave her his blessing. A guard chased her away. That was the last time anyone in the family saw Shimon Muller. He was deported to Auschwitz and murdered there.</p>
+  <blockquote class="pull-quote pq-grief">He placed his hands on her head. He gave her his blessing. A guard chased her away. That was the last time anyone in the family saw Shimon Muller.</blockquote>
 
   <div class="chapter-footer">
     <span>Primary source: <em>Oma's Story</em> by Denise Karasik (Ilona Muller's account) · Yad Vashem records · Hungarian Jewish deportation records, 1944</span>
@@ -1649,6 +1833,7 @@ body { font-size: 17px; }
     <div class="gen-label">Generation I — The Patriarch</div>
     <div class="generation">
       <div class="person-card" onclick="openPerson('ahron')">
+        <div class="portrait-frame"><svg class="portrait-svg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="15" r="10" fill="currentColor"/><path d="M4 47 Q4 31 22 31 Q40 31 40 47" fill="currentColor"/></svg></div>
         <div class="p-name">Ahron Muller</div>
         <div class="p-name-heb">אהרון מִילֶר</div>
         <div class="p-dates">b. ~1852 · Teacher</div>
@@ -1656,6 +1841,7 @@ body { font-size: 17px; }
       </div>
       <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
       <div class="person-card" onclick="openPerson('pesel')">
+        <div class="portrait-frame"><svg class="portrait-svg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="14" r="9.5" fill="currentColor"/><path d="M6 47 Q8 29 22 29 Q36 29 38 47" fill="currentColor"/></svg></div>
         <div class="p-name">Pesel Lieberman</div>
         <div class="p-name-heb">פֶּסֶל ליברמן</div>
         <div class="p-dates">b. ~1855 est.</div>
@@ -1667,6 +1853,7 @@ body { font-size: 17px; }
     <div class="gen-label">Generation II — Shimon &amp; Sara</div>
     <div class="generation">
       <div class="person-card deceased" onclick="openPerson('shimon')">
+        <div class="portrait-frame"><svg class="portrait-svg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="15" r="10" fill="currentColor"/><path d="M4 47 Q4 31 22 31 Q40 31 40 47" fill="currentColor"/></svg></div>
         <div class="p-name">Shimon Muller</div>
         <div class="p-name-heb">שמעון מִילֶר</div>
         <div class="p-dates">b. ~1874–1889, Nowy Sącz</div>
@@ -1674,6 +1861,7 @@ body { font-size: 17px; }
       </div>
       <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
       <div class="person-card deceased" onclick="openPerson('sara')">
+        <div class="portrait-frame"><svg class="portrait-svg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="14" r="9.5" fill="currentColor"/><path d="M6 47 Q8 29 22 29 Q36 29 38 47" fill="currentColor"/></svg></div>
         <div class="p-name">Sara Rosman</div>
         <div class="p-name-heb">שרה רוסמן</div>
         <div class="p-dates">b. ~1875 est.</div>
@@ -1720,6 +1908,7 @@ body { font-size: 17px; }
     <div class="gen-label">Generation III — Yakov's Branch</div>
     <div class="generation">
       <div class="person-card" onclick="openPerson('yakov')">
+        <div class="portrait-frame"><svg class="portrait-svg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="15" r="10" fill="currentColor"/><path d="M4 47 Q4 31 22 31 Q40 31 40 47" fill="currentColor"/></svg></div>
         <div class="p-name">Yakov Muller</div>
         <div class="p-name-heb">יעקב מִילֶר</div>
         <div class="p-dates">b. ~1900–1910, Prešov</div>
@@ -1727,6 +1916,7 @@ body { font-size: 17px; }
       </div>
       <div class="couple-connector"><span class="marriage-ring">⊗</span></div>
       <div class="person-card" onclick="openPerson('teresa')">
+        <div class="portrait-frame"><svg class="portrait-svg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="14" r="9.5" fill="currentColor"/><path d="M6 47 Q8 29 22 29 Q36 29 38 47" fill="currentColor"/></svg></div>
         <div class="p-name">Teresa (Tereza-Devora) Bernfeld</div>
         <div class="p-name-heb">טרזה ברנפלד</div>
         <div class="p-dates">b. December 12, 1909</div>
@@ -1739,6 +1929,7 @@ body { font-size: 17px; }
     <div class="gen-label">Generation IV — The Destination</div>
     <div class="generation">
       <div class="person-card focal" onclick="openPerson('robert')">
+        <div class="portrait-frame"><svg class="portrait-svg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="15" r="10" fill="currentColor"/><path d="M4 47 Q4 31 22 31 Q40 31 40 47" fill="currentColor"/></svg></div>
         <div class="p-name">Robert Moshe Aryeh Muller</div>
         <div class="p-name-heb">משה אריה מִילֶר — רובי</div>
         <div class="p-dates">b. 1931 · Prešov</div>
@@ -2119,9 +2310,50 @@ body { font-size: 17px; }
     <h2>Ancestors <span class="ornament">⁂</span></h2>
     <p class="panel-intro">Spotlight profiles of ancestors whose lives are documented richly enough to reconstruct in detail. Each profile is tight — six blocks, ~300 words — with sources and caveats on record.</p>
 
-<div class="ancestor-intro">
-  <p class="lead">These are not biographies. They are small windows — enough to stand next to a name and feel the weather of a life.</p>
-  <p class="note">Seven spotlights now live. Where documentation is thin, we say so.</p>
+<div class="stats-strip">
+  <div class="stat"><span class="stat-n">31</span><span class="stat-l">generations</span></div>
+  <div class="stat"><span class="stat-n">982</span><span class="stat-l">years</span></div>
+  <div class="stat"><span class="stat-n">5</span><span class="stat-l">countries</span></div>
+  <div class="stat"><span class="stat-n">1</span><span class="stat-l">family</span></div>
+</div>
+<p class="lead" style="text-align:center;font-size:.9rem;color:var(--ink-muted);margin-bottom:1rem;">These are not biographies. They are small windows — enough to stand next to a name and feel the weather of a life.</p>
+
+<div class="spotlight-nav">
+  <div class="spotlight-nav-card" onclick="document.getElementById('spot-samuel-kolin').scrollIntoView({behavior:'smooth'})">
+    <div class="snc-name">Rabbi Samuel Ha-Levi Kolin</div>
+    <div class="snc-gen">Gen 17 · Boskovice, Moravia</div>
+    <span class="tier tier-verified">Verified</span>
+  </div>
+  <div class="spotlight-nav-card" onclick="document.getElementById('spot-nathan-nota').scrollIntoView({behavior:'smooth'})">
+    <div class="snc-name">Nathan Nota Löw-Beer</div>
+    <div class="snc-gen">Gen 21 · Topolčany, Slovakia</div>
+    <span class="tier tier-verified">Verified</span>
+  </div>
+  <div class="spotlight-nav-card" onclick="document.getElementById('spot-moshe-bernfeld').scrollIntoView({behavior:'smooth'})">
+    <div class="snc-name">Max (Mordechai) Bernfeld</div>
+    <div class="snc-gen">Gen 23 · Topolčany, Slovakia</div>
+    <span class="tier tier-verified">Verified</span>
+  </div>
+  <div class="spotlight-nav-card" onclick="document.getElementById('spot-erna-herzfeld').scrollIntoView({behavior:'smooth'})">
+    <div class="snc-name">Erna Ester Herzfeld</div>
+    <div class="snc-gen">Gen 23 · Brezova → Haifa</div>
+    <span class="tier tier-verified">Verified</span>
+  </div>
+  <div class="spotlight-nav-card" onclick="document.getElementById('spot-moshe-rozman').scrollIntoView({behavior:'smooth'})">
+    <div class="snc-name">Moshe Aryeh Rozman</div>
+    <div class="snc-gen">Paternal line · Prešov</div>
+    <span class="tier tier-verified">Verified</span>
+  </div>
+  <div class="spotlight-nav-card" onclick="document.getElementById('spot-shapiro').scrollIntoView({behavior:'smooth'})">
+    <div class="snc-name">Rabbi Nathan Nata Shapira</div>
+    <div class="snc-gen">Gen 14 · Kraków</div>
+    <span class="tier tier-oral">Oral Tradition</span>
+  </div>
+  <div class="spotlight-nav-card" onclick="document.getElementById('spot-grete-tugendhat').scrollIntoView({behavior:'smooth'})">
+    <div class="snc-name">Grete Löw-Beer Tugendhat</div>
+    <div class="snc-gen">Löw-Beer branch · Brno</div>
+    <span class="tier tier-verified">Verified</span>
+  </div>
 </div>
 
 <!-- SPOTLIGHT 1: SAMUEL KOLIN -->
